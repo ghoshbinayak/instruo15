@@ -1,0 +1,35 @@
+{% extends "main/auth.html" %}
+
+{% load staticfiles %}
+
+{% block title %}
+	Robodarshan: Sign Up.
+{% endblock %}
+
+{% block form-directions %}
+	Create a new Password.
+{% endblock %}
+
+{% block form-target %}{% url "accounts:reset" %}{% endblock %}
+{% block form-submit-label %}Reset{% endblock %}
+
+{% block form-hidden-fields%}
+	{% if uid%}
+		<input type="hidden" name="uid" value="{{uid}}" />
+	{% endif %}
+
+	{% if uid%}
+		<input type="hidden" name="password_reset_key" value="{{password_reset_key}}" />
+	{% endif %}
+{% endblock%}
+
+{% block body %}
+	{{block.super}}
+	{% if success %}
+	<a href="{% url 'accounts:login' %}" title="Login">
+		<div class="form-submit-wrapper">
+		<span style="">Log in</span>
+		</div>
+	</a>
+	{% endif %}
+{% endblock %}

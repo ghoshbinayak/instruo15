@@ -1,0 +1,15 @@
+{% extends "main/auth.html" %}
+
+{% load staticfiles %}
+
+{% if next%}
+	{% block form-hidden-fields%}
+	<input type="hidden" name="next" value="{{next}}" />
+	{% endblock %}
+{% endif %}
+
+{% block form-extra-links %}
+	<a href="{% url 'accounts:register' %}"> Sign Up.</a><br/>
+	<a href="{% url 'accounts:forgot' %}"> Forgot password?</a>
+{% endblock%}
+

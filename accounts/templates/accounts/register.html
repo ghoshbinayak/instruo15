@@ -1,0 +1,22 @@
+{% extends "main/auth.html" %}
+
+{% load staticfiles %}
+
+{% block title %}
+	Robodarshan: Sign Up.
+{% endblock %}
+
+{% block form-directions %}
+			Join the makers.
+{% endblock %}
+
+{% block form-target %}{% url "accounts:register" %}{% endblock %}
+
+{% block form-extra-links %}
+	<br/>
+    or<br/>
+    <a href="{% url 'accounts:login' %}">Log in</a>
+
+{% endblock%}
+
+{% block form-submit-label %}Sign Up{% endblock %}

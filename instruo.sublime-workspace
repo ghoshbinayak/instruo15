@@ -1,0 +1,860 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"list",
+				"list-style"
+			],
+			[
+				"packa",
+				"package	class"
+			],
+			[
+				"pack",
+				"package	class"
+			],
+			[
+				"cle",
+				"cleaned_data"
+			],
+			[
+				"context",
+				"context_processors"
+			],
+			[
+				"ma",
+				"max_digits"
+			],
+			[
+				"in",
+				"index"
+			],
+			[
+				"tra",
+				"trainAdmin	class"
+			],
+			[
+				"t_",
+				"t_type"
+			],
+			[
+				"fie",
+				"fieldsets"
+			],
+			[
+				"max",
+				"max_length"
+			],
+			[
+				"c",
+				"CharField"
+			],
+			[
+				"djan",
+				"django_forms	import"
+			],
+			[
+				"cl",
+				"cleaned_data"
+			],
+			[
+				"pass",
+				"password"
+			],
+			[
+				"hash",
+				"hashlib	module"
+			],
+			[
+				"f",
+				"ForeignKey"
+			],
+			[
+				"M",
+				"Model"
+			],
+			[
+				"ta",
+				"transport"
+			],
+			[
+				"eent",
+				"event_list	class"
+			],
+			[
+				"even",
+				"event_id	statement"
+			],
+			[
+				"fram",
+				"frame1"
+			],
+			[
+				"fra",
+				"frame1"
+			],
+			[
+				"win",
+				"winName"
+			],
+			[
+				"Vi",
+				"VideoCapture"
+			],
+			[
+				"ar",
+				"argc"
+			],
+			[
+				"po",
+				"power"
+			],
+			[
+				"op",
+				"op	opacity"
+			],
+			[
+				"ba",
+				"background-position"
+			],
+			[
+				"lo",
+				"location	statement"
+			],
+			[
+				"loca",
+				"location"
+			],
+			[
+				"vo",
+				"volunteer2	statement"
+			],
+			[
+				"co",
+				"coordinator1	statement"
+			],
+			[
+				"se",
+				"second_coordinator"
+			],
+			[
+				"requ",
+				"requested_event	statement"
+			],
+			[
+				"new",
+				"new_event	statement"
+			],
+			[
+				"new_",
+				"new_uuid	statement"
+			],
+			[
+				"pri",
+				"primary_key"
+			],
+			[
+				"event_",
+				"event_list	class"
+			],
+			[
+				"event",
+				"event_id"
+			],
+			[
+				"eve",
+				"event_id	statement"
+			],
+			[
+				"Fo",
+				"ForeignKey"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/C++/C++.sublime-build",
+	"command_palette":
+	{
+		"height": 381.0,
+		"selected_items":
+		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"sss",
+				"Set Syntax: SQL"
+			],
+			[
+				"ssht",
+				"Set Syntax: HTML"
+			],
+			[
+				"ssp",
+				"Set Syntax: Python"
+			],
+			[
+				"",
+				"Anaconda: Autoformat PEP8 Errors"
+			],
+			[
+				"clfor",
+				"Clang Format: Format Selection"
+			],
+			[
+				"ssc++",
+				"Set Syntax: C++"
+			],
+			[
+				"linter",
+				"SublimeLinter: Choose Lint Mode"
+			],
+			[
+				"lin",
+				"SublimeLinter: Enable Linting"
+			],
+			[
+				"preflii",
+				"Preferences: SublimeLinter Settings – User"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"preflin",
+				"Preferences: SublimeLinter Settings – User"
+			],
+			[
+				"from",
+				"Clang Format: Format Selection"
+			],
+			[
+				"clf",
+				"Clang Format: Format Selection"
+			],
+			[
+				"lint",
+				"SublimeLinter: Next Error"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"subli",
+				"SublimeLinter: Toggle Linter"
+			],
+			[
+				"for",
+				"Clang Format: Format Selection"
+			],
+			[
+				"ssc",
+				"Set Syntax: C"
+			],
+			[
+				"ss",
+				"Set Syntax: C"
+			],
+			[
+				"cla",
+				"Clang Format: Format Selection"
+			],
+			[
+				"claf",
+				"Clang Format: Format Selection"
+			],
+			[
+				"clan",
+				"Clang Format: Format Selection"
+			],
+			[
+				"rei",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"bash",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"dot",
+				"Set Syntax: Graphviz (DOT)"
+			],
+			[
+				"make",
+				"Set Syntax: Makefile"
+			],
+			[
+				"cl",
+				"Clang Format: Format Selection"
+			],
+			[
+				"gs",
+				"Git: Status"
+			],
+			[
+				"gits",
+				"Git: Status"
+			],
+			[
+				"sspy",
+				"Set Syntax: Python"
+			],
+			[
+				"c++",
+				"Set Syntax: C++"
+			],
+			[
+				"em",
+				"Set Syntax: Emmet"
+			],
+			[
+				"htm",
+				"Set Syntax: HTML"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"js",
+				"Set Syntax: JSON"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 236.0,
+		"history":
+		[
+			"import urllib2",
+			"urllib.open(\"http://www.google.com\")",
+			"urllib2.open(\"http://www.google.com\")",
+			"import urllib",
+			"import urllib2",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/binayak/Projects/django/instruo"
+	],
+	"file_history":
+	[
+		"/home/binayak/.tor/torrc",
+		"/home/binayak/Downloads/koush.c",
+		"/home/binayak/Projects/django/robodarshan/.gitignore",
+		"/home/binayak/Projects/django/robodarshan/app.py",
+		"/home/binayak/Projects/django/robodarshan/requirements.txt",
+		"/home/binayak/Projects/django/robodarshan/database.txt",
+		"/home/binayak/Projects/django/robodarshan/setup.py",
+		"/home/binayak/Projects/django/robodarshan/blog/static/blog/tinymce/plugins/embed_youtube/youtube.html",
+		"/home/binayak/Projects/django/jhinuk/setup.py",
+		"/home/binayak/Projects/django/robodarshan/node_modules/grunt/node_modules/js-yaml/node_modules/argparse/lib/argument_parser.js",
+		"/home/binayak/Projects/django/robodarshan/main/admin.py",
+		"/home/binayak/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/binayak/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/binayak/Projects/django/robodarshan/static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/source_editor.htm",
+		"/home/binayak/Projects/django/robodarshan/robodarshan/settings.py",
+		"/home/binayak/Projects/django/robodarshan/static/grappelli/tinymce/examples/simple.html",
+		"/usr/share/arduino/hardware/arduino/cores/arduino/wiring.c",
+		"/home/binayak/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/binayak/.config/sublime-text-3/Packages/User/Package Control.sublime-settings",
+		"/home/binayak/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/usr/share/arduino/hardware/arduino/programmers.txt",
+		"/home/binayak/Downloads/arduino-1.5.8/hardware/arduino/avr/boards.txt",
+		"/usr/share/arduino/hardware/arduino/boards.txt",
+		"/usr/share/arduino/hardware/arduino/variants/Mega16/pins_arduino.h",
+		"/tmp/build4395063157594647651.tmp/Blink.cpp2.hex",
+		"/tmp/build4395063157594647651.tmp/Blink.cpp.hex",
+		"/home/binayak/Downloads/pins_arduino.h",
+		"/home/binayak/Downloads/arduino-extra-cores-master/boards.txt",
+		"/home/binayak/Downloads/mighty-1284p-master/boards.txt",
+		"/home/binayak/Desktop/tiny/avr/Prospective Boards.txt",
+		"/usr/share/arduino/libraries/LiquidCrystal/LiquidCrystal.cpp",
+		"/usr/share/arduino/libraries/LiquidCrystal/LiquidCrystal.h",
+		"/usr/share/arduino/hardware/arduino/cores/arduino/HardwareSerial.cpp",
+		"/home/binayak/.cache/.fr-cAOdpC/ArduinoISP/ArduinoISP.pde",
+		"/home/binayak/.cache/.fr-iFuv9C/vusbtiny/main.c",
+		"/home/binayak/.cache/.fr-0uFEbQ/tiny/avr/Prospective Boards.txt",
+		"/home/binayak/.cache/.fr-GBzgXS/Prospective Boards.txt",
+		"/home/binayak/.cache/.fr-npNsA5/tiny/avr/platform.txt",
+		"/usr/share/arduino/hardware/arduino/cores/arduino/Print.h",
+		"/usr/share/arduino/hardware/arduino/firmwares/arduino-usbdfu/readme.txt",
+		"/home/binayak/.cache/.fr-YxrzJ6/Morse/examples/SOS/SOS.pde",
+		"/home/binayak/.cache/.fr-lQgppO/Morse/keywords.txt",
+		"/home/binayak/.cache/.fr-Uuo5Ml/Morse/Morse.h",
+		"/home/binayak/.cache/.fr-y9uZEd/Morse/Morse.cpp",
+		"/home/binayak/Downloads/Pan's.Labyrinth[2006]DvDrip[Eng.Sub]-aXXo.srt",
+		"/home/binayak/Projects/django/travel/main/templates/main/index.html",
+		"/home/binayak/Projects/django/travel/main/templates/main/login.html",
+		"/home/binayak/Projects/django/travel/main/templates/main/base.html",
+		"/home/binayak/Projects/django/travel/main/templates/main/base_bare.html",
+		"/home/binayak/Projects/django/travel/main/templates/main/register.html",
+		"/home/binayak/Projects/django/travel/main/views.py",
+		"/home/binayak/Projects/django/travel/query.sql",
+		"/home/binayak/Projects/django/travel/main/models.py",
+		"/home/binayak/Projects/django/travel/main/templates/main/booking.html",
+		"/home/binayak/Projects/django/travel/query2.sql",
+		"/home/binayak/Projects/django/travel/main/static/main/css/main.css",
+		"/home/binayak/Projects/django/travel/main/forms.py",
+		"/home/binayak/Projects/django/travel/manage.py",
+		"/home/binayak/Projects/django/robodarshan/main/templates/main/index.html",
+		"/home/binayak/Projects/django/robodarshan/main/templates/main/auth.html",
+		"/home/binayak/Projects/django/travel/main/urls.py",
+		"/home/binayak/Projects/django/travel/travel/settings.py",
+		"/home/binayak/Projects/django/robodarshan/events/forms.py",
+		"/home/binayak/Projects/django/robodarshan/events/models.py",
+		"/home/binayak/Projects/django/travel/travel/urls.py",
+		"/home/binayak/.fonts/GearedSlab.ttf",
+		"/home/binayak/Downloads/Untitled Document",
+		"/home/binayak/Projects/django/travel/main/admin.py",
+		"/home/binayak/Projects/django/travel/main/tests.py",
+		"/home/binayak/Projects/django/travel/test.c",
+		"/home/binayak/Projects/django/robodarshan/events/views.py",
+		"/home/binayak/Projects/django/robodarshan/events/templates/events/index.html",
+		"/home/binayak/Projects/django/robodarshan/events/static/events/editor.js",
+		"/home/binayak/Projects/django/robodarshan/node_modules/grunt/node_modules/eventemitter2/lib/eventemitter2.js",
+		"/home/binayak/Projects/django/robodarshan/static/grappelli/tinymce/jscripts/tiny_mce/plugins/template/blank.htm",
+		"/home/binayak/Projects/django/robodarshan/main/templates/main/base.html",
+		"/home/binayak/.cache/.fr-ben4KA/README",
+		"/home/binayak/Desktop/productkeys.txt",
+		"/home/binayak/.cache/.fr-3Cqn5R/ArduinoADK-beta-001/Processing/README.txt",
+		"/home/binayak/Downloads/binayak/template/intchk.cpp",
+		"/home/binayak/Downloads/binayak/template/largest_no2.cpp",
+		"/home/binayak/Downloads/binayak/template/largest2",
+		"/home/binayak/Downloads/binayak/template/sort.cpp",
+		"/home/binayak/Downloads/binayak/template/stack.cpp",
+		"/home/binayak/Downloads/binayak/template/largest_no.cpp",
+		"/home/binayak/Downloads/binayak/Object pointer/cls_ptr.cpp",
+		"/home/binayak/Downloads/binayak/Object pointer/base_cls_ptr.cpp",
+		"/home/binayak/Downloads/binayak/Object pointer/thisptr.cpp",
+		"/home/binayak/Downloads/binayak/operator_overloading/typecast.cpp",
+		"/home/binayak/Downloads/binayak/operator_overloading/class_type_conversion.cpp",
+		"/home/binayak/Downloads/binayak/operator_overloading/prefix_postfix.cpp",
+		"/home/binayak/Downloads/binayak/operator_overloading/string.cpp",
+		"/home/binayak/Downloads/binayak/operator_overloading/distance.cpp",
+		"/home/binayak/Downloads/binayak/multiple_inheritance/friend_diamond2.cpp",
+		"/home/binayak/Downloads/binayak/multiple_inheritance/hirarchy.cpp",
+		"/home/binayak/Downloads/binayak/multiple_inheritance/derive_friend.cpp",
+		"/home/binayak/Downloads/binayak/multiple_inheritance/multi_constructor.cpp",
+		"/home/binayak/Downloads/binayak/multiple_inheritance/mult_inheritance.cpp",
+		"/home/binayak/Downloads/binayak/multiple_inheritance/friend_diamond.cpp",
+		"/home/binayak/Downloads/binayak/inheritance/method_override.cpp",
+		"/home/binayak/Downloads/binayak/inheritance/friend_base_class.cpp",
+		"/home/binayak/Downloads/binayak/inheritance/base_class_constructor.cpp",
+		"/home/binayak/Downloads/binayak/inheritance/base_class_const2.cpp",
+		"/home/binayak/Downloads/binayak/inheritance/multilevel.cpp",
+		"/home/binayak/Downloads/binayak/inheritance/private_inheritance.cpp",
+		"/home/binayak/Downloads/binayak/inheritance/public_inheritance.cpp",
+		"/home/binayak/Downloads/binayak/complex.cpp",
+		"/home/binayak/Downloads/binayak/complex2.cpp",
+		"/home/binayak/Downloads/binayak/inheritance/friend_class.cpp",
+		"/home/binayak/Downloads/binayak/template/pow.cpp",
+		"/home/binayak/Downloads/binayak/time.cpp",
+		"/home/binayak/Downloads/binayak/inline.cpp",
+		"/home/binayak/Downloads/binayak/student.cpp",
+		"/home/binayak/Downloads/binayak/matrix.cpp",
+		"/home/binayak/Downloads/binayak/bank.cpp",
+		"/home/binayak/Downloads/binayak/time2.cpp",
+		"/tmp/bankacnt.cpp",
+		"/home/binayak/Downloads/binayak/add.cpp",
+		"/home/binayak/Downloads/coreutils-5.0/src/cp.c",
+		"/home/binayak/Downloads/coreutils-5.0/src/rm.c",
+		"/home/binayak/Downloads/coreutils-5.0/src/ls",
+		"/home/binayak/.config/sublime-text-3/Packages/User/SublimeLinter.sublime-settings",
+		"/home/binayak/Projects/opencv/video.cpp",
+		"/home/binayak/Downloads/coreutils-5.0/src/wc.c",
+		"/home/binayak/Downloads/coreutils-5.0/src/shred.c",
+		"/home/binayak/.config/sublime-text-3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/home/binayak/Downloads/coreutils-5.0/src/ls.c",
+		"/home/binayak/Projects/opencv/opencv-2.4.10/3rdparty/openexr/IlmImf/ImfMultiView.cpp"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"em>",
+			"em",
+			"templa",
+			"str",
+			"user",
+			"sessions",
+			"verify",
+			"accounts",
+			"user",
+			"max",
+			"maxd",
+			"None",
+			"max_digits=None",
+			"decimal",
+			"__init__",
+			"#include <iostream>\nusing namespace std;\n\nclass timeutil {\n	int hr, min, sec;\n	void input(int hrs, int mins, int secs) {\n		hr = hrs;\n		min = mins;\n		sec = secs;\n	}\n	public:\n	int gettime() {\n		int hrs, mins, secs;\n		cout << \"Enter hrs \" << endl;\n		cin >> hrs;\n		if (hrs < 0) {\n			cout << \"bad time value\" << endl;\n			return 0;\n		}\n		cout << \"Enter mins \" << endl;\n		cin >> mins;\n		if (mins < 0 || mins > 60) {\n			cout << \"bad time value\" << endl;\n			return 0;\n		}\n		cout << \"Enter secs \" << endl;\n		cin >> secs;\n		if (secs < 0 || secs > 60) {\n			cout << \"bad time value\" << endl;\n			return 0;\n		}\n		input(hrs, mins, secs);\n		return 1;\n\n	}\n	\n\n	void display() {\n		cout << hr << \":\" << min << \":\" << sec <<endl;\n	}\n	\n	static timeutil sum(timeutil t1, timeutil t2) {\n		timeutil sum;\n		int hrs, mins, secs;\n		secs = (t1.sec + t2.sec)%60;\n		mins = ((t1.sec + t2.sec)/60 + t1.min + t2.min)%60;\n		hrs = ((t1.sec + t2.sec)/60 + t1.min + t2.min)/60 + t1.hr + t2.hr;\n		sum.input(hrs, mins, secs);\n		return sum;\n	}\n\n};\n\nint main(void) {\n	timeutil t1, t2;\n	if (t1.gettime() && t2.gettime()) {\n		t1.display();\n		t2.display();\n		timeutil::sum(t1, t2).display();\n	}\n	return 0;\n}\n\n\n",
+			"frame1",
+			"DisplayImage",
+			"Tallahassee",
+			"n1",
+			"isPrime",
+			"n1",
+			"current_time",
+			"a1",
+			"visualchars",
+			"name:",
+			"textList",
+			"c_uuid",
+			"event_list",
+			"some thing went wrong",
+			"location",
+			"keyup",
+			"change",
+			"keyup",
+			"location",
+			"scale",
+			"wrapper",
+			"container",
+			"event",
+			"event_list",
+			"event",
+			"blog",
+			"story_id",
+			"django_forms",
+			"forms",
+			"entry",
+			"if",
+			"urllib2",
+			"8080",
+			"doctyp",
+			"proxy"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 357.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "instruo.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				".git",
+				".gitignore"
+			],
+			[
+				"app",
+				"app.py"
+			],
+			[
+				"sett",
+				"robodarshan/settings.py"
+			],
+			[
+				"se",
+				"static/grappelli/tinymce/jscripts/tiny_mce/themes/advanced/source_editor.htm"
+			],
+			[
+				"qu",
+				"query.sql"
+			],
+			[
+				"fo",
+				"main/forms.py"
+			],
+			[
+				"bare",
+				"main/templates/main/base_bare.html"
+			],
+			[
+				"main",
+				"main/static/main/css/main.css"
+			],
+			[
+				"base",
+				"main/templates/main/base.html"
+			],
+			[
+				"bara",
+				"main/templates/main/base_bare.html"
+			],
+			[
+				"url",
+				"main/urls.py"
+			],
+			[
+				"traul",
+				"travel/urls.py"
+			],
+			[
+				"ad",
+				"main/admin.py"
+			],
+			[
+				"even",
+				"events/views.py"
+			],
+			[
+				"evenmod",
+				"events/models.py"
+			],
+			[
+				"evead",
+				"events/admin.py"
+			],
+			[
+				"blad",
+				"blog/admin.py"
+			],
+			[
+				"pri",
+				"inheritance/private_inheritance.cpp"
+			],
+			[
+				"time",
+				"time.cpp"
+			],
+			[
+				"stu",
+				"student.cpp"
+			],
+			[
+				"com",
+				"complex.cpp"
+			],
+			[
+				"vi",
+				"video.cpp"
+			],
+			[
+				"vid",
+				"video.cpp"
+			],
+			[
+				"vide",
+				"video.cpp"
+			],
+			[
+				"bledjs",
+				"blog/static/blog/editor.js"
+			],
+			[
+				"bledijs",
+				"static/blog/editor.js"
+			],
+			[
+				"eveedi",
+				"events/static/events/editor.js"
+			],
+			[
+				"evefo",
+				"events/forms.py"
+			],
+			[
+				"blfo",
+				"blog/forms.py"
+			],
+			[
+				"evediht",
+				"events/templates/events/editor.html"
+			],
+			[
+				"evevi",
+				"events/views.py"
+			],
+			[
+				"evin",
+				"events/templates/events/index.html"
+			],
+			[
+				"evfo",
+				"events/forms.py"
+			],
+			[
+				"edicss",
+				"events/static/events/editor.css"
+			],
+			[
+				"edi",
+				"events/templates/events/editor.html"
+			],
+			[
+				"eveedij",
+				"events/static/events/editor.js"
+			],
+			[
+				"ed",
+				"events/static/events/editor.js"
+			],
+			[
+				"blin",
+				"blog/templates/blog/index.html"
+			],
+			[
+				"blurl",
+				"blog/urls.py"
+			],
+			[
+				"evein",
+				"events/templates/events/index.html"
+			],
+			[
+				"editor",
+				"events/templates/events/editor.html"
+			],
+			[
+				"profi",
+				"accounts/templates/accounts/profile.html"
+			],
+			[
+				"eveform",
+				"events/forms.py"
+			],
+			[
+				"eveediht",
+				"events/templates/events/editor.html"
+			],
+			[
+				"blmo",
+				"blog/models.py"
+			],
+			[
+				"evenvi",
+				"events/views.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"~/Projects/django/jhinuk/jhinuk.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 221.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

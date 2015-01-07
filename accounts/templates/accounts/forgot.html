@@ -1,0 +1,21 @@
+{% extends "main/auth.html" %}
+
+{% load staticfiles %}
+
+
+{% block title %}
+	Robodarshan: Forgot Password.
+{% endblock %}
+
+{% block form-directions %}
+			Forgot Your Password?
+{% endblock %}
+
+{% block form-target %}{% url 'accounts:forgot' %}{% endblock %}
+
+{% block form-submit-label %}Send{% endblock %}
+
+{% block extra-instructions%}
+	We will send you an email with instructions.
+{% endblock%}
+
