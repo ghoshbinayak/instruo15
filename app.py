@@ -48,5 +48,6 @@ if __name__ == '__main__':
     options = {
         'bind': '%s:%s' % (ip, port),
         'workers': number_of_workers(),
+        'log-file': os.environ['OPENSHIFT_DATA_DIR'] + 'log.txt'
     }
     StandaloneApplication(wsgi.application, options).run()
