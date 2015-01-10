@@ -15,3 +15,8 @@ def delete_email_task(uuid):
     except Profile.DoesNotExist:
         return False
     user.delete()
+
+
+@shared_task
+def echo_task(msg):
+    print msg
