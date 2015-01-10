@@ -8,26 +8,20 @@ from django.utils import timezone
 from django.utils.http import urlquote
 from django.utils.translation import ugettext_lazy as _
 from django.dispatch import Signal, receiver
+from django.db.models.signals import post_save
 
-
-from accounts.tasks import send_mail_task
+from accounts.tasks import send_mail_task, echo_task
 
 # signal sent when user is created
 user_created = Signal(providing_args=["email"])
 
-# Custom User Manager for robodarshan website
 
+class instruoUserManager(BaseUserManager):
 
-class robodarshanMemberManager(BaseUserManager):
+    """user manager for instruoUser"""
 
-    """user manager for robodarshanMember"""
-
-    def _create_user(self,
-                     email,
-                     password,
-                     is_staff,
-                     is_superuser,
-                     **extra_fields):
+    def _create_user(self, email, password, is_staff,
+                     is_superuser, **extra_fields):
         """
         Creates and saves a User with the given email and password.
         """
@@ -58,11 +52,11 @@ class robodarshanMemberManager(BaseUserManager):
                                  **extra_fields)
 
 
-# Custom User Model for robodarshan website
+class instruoUser(AbstractBaseUser, PermissionsMixin):
 
-class robodarshanMember(AbstractBaseUser, PermissionsMixin):
-
-    """custor user model for Robodarshan website"""
+    """
+    Custor user model for Robodarshan website
+    """
     email = models.EmailField(max_length=254, unique=True)
     fullname = models.CharField(max_length=200)
     is_staff = models.BooleanField(_('staff status'),
@@ -73,12 +67,8 @@ class robodarshanMember(AbstractBaseUser, PermissionsMixin):
                                     default=False,
                                     help_text=_('Designates whether this user should be treated as '
                                                 'active. Unselect this instead of deleting accounts.'))
-    # NOTE: date_joined is the day the user account is created, not the date
-    # of joining the institute.
     date_joined = models.DateTimeField(_('date joined'), default=timezone.now)
-
-    objects = robodarshanMemberManager()
-
+    objects = instruoUserManager()
     USERNAME_FIELD = 'email'
     REQUIRED_FIELD = ['fullname']
 
@@ -109,30 +99,59 @@ class robodarshanMember(AbstractBaseUser, PermissionsMixin):
         """
         send_mail_task.delay(subject, message, from_email, [self.email])
 
-# User profile
-
 
 class Profile(models.Model):
-    batch_of = models.CharField(max_length=4, blank=True)
+
+    """
+    Generic user profile, common for both contestants and coordinators
+    """
     department = models.CharField(max_length=100, blank=True)
     email_verify_key = models.CharField(max_length=100, blank=True)
     password_reset_key = models.CharField(max_length=100, blank=True)
     password_reset_key_timestamp = models.DateTimeField(blank=True, null=True)
     uuid = models.CharField(max_length=100, blank=True)
-    facebook_link = models.CharField(max_length=254, blank=True)
     phone = models.CharField(max_length=20)
-    is_private = models.BooleanField(default=False)
-    user = models.OneToOneField(robodarshanMember)
+    user = models.OneToOneField(instruoUser)
 
     def __unicode__(self):
         return self.user.email
 
-# create profile when new user is created
+
+class OrganiserProfile(models.Model):
+
+    """
+    Profile of Team Instruo
+    """
+    designation = models.CharField(max_length=100, blank=True)
+    facebook_url = models.CharField(max_length=256, blank=True)
+    user = models.OneToOneField(instruoUser)
+
+
+class SocialProfile(models.Model):
+
+    """
+    Google+ sign in info
+    """
+    user = models.OneToOneField(instruoUser)
+    uid = models.CharField(max_length=256)
+    name = models.CharField(max_length=256)
+    access_token = models.CharField(max_length=256)
+    refresh_token = models.CharField(max_length=256)
+    expires_at = models.IntegerField()
 
 
 @receiver(user_created)
 def create_profile(sender, **kwargs):
-    user = robodarshanMember.objects.get(email=kwargs.get('email'))
+    """
+    Create a profile when new user is created.
+    """
+    user = instruoUser.objects.get(email=kwargs.get('email'))
     profile = Profile(user=user)
     profile.uuid = str(uuid.uuid1())
     profile.save()
+
+
+@receiver(post_save, sender=instruoUser)
+def create_orginiser_profile(sender, **kwargs):
+    if(kwargs.get('update_fields', None)):
+        echo_task.delay("fields updated.")
