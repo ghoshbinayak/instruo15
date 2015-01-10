@@ -1,12 +1,12 @@
 # appname/forms.py
 
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from accounts.models import robodarshanMember
+from accounts.models import instruoUser
 from django import forms as django_forms
 from django.forms.widgets import Select
 
 
-class robodarshanMemberCreationForm(UserCreationForm):
+class instruoUserCreationForm(UserCreationForm):
 
     """
     A form that creates a user, with no privileges, from the given email and
@@ -14,15 +14,15 @@ class robodarshanMemberCreationForm(UserCreationForm):
     """
 
     def __init__(self, *args, **kargs):
-        super(robodarshanMemberCreationForm, self).__init__(*args, **kargs)
+        super(instruoUserCreationForm, self).__init__(*args, **kargs)
         del self.fields['username']
 
     class Meta:
-        model = robodarshanMember
+        model = instruoUser
         fields = ("email", "fullname", "is_staff", "is_active")
 
 
-class robodarshanMemberChangeForm(UserChangeForm):
+class instruoUserChangeForm(UserChangeForm):
 
     """A form for updating users. Includes all the fields on
     the user, but replaces the password field with admin's
@@ -30,11 +30,11 @@ class robodarshanMemberChangeForm(UserChangeForm):
     """
 
     def __init__(self, *args, **kargs):
-        super(robodarshanMemberChangeForm, self).__init__(*args, **kargs)
+        super(instruoUserChangeForm, self).__init__(*args, **kargs)
         del self.fields['username']
 
     class Meta:
-        model = robodarshanMember
+        model = instruoUser
         fields = '__all__'
 
 

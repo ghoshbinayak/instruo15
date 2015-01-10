@@ -137,7 +137,7 @@ class SocialProfile(models.Model):
     name = models.CharField(max_length=256)
     access_token = models.CharField(max_length=256)
     refresh_token = models.CharField(max_length=256)
-    expires_at = models.IntegerField()
+    expires_at = models.IntegerField(blank=True)
 
 
 @receiver(user_created)
@@ -153,5 +153,19 @@ def create_profile(sender, **kwargs):
 
 @receiver(post_save, sender=instruoUser)
 def create_orginiser_profile(sender, **kwargs):
-    if(kwargs.get('update_fields', None)):
-        echo_task.delay("fields updated.")
+    user = kwargs.get('instance')
+    if user.is_staff:
+        try:
+            # check if organiserprofile exists
+            op = user.organiserprofile
+        except OrganiserProfile.DoesNotExist:
+            # create organiserprofile
+            op = OrganiserProfile(user=user)
+            op.save()
+    else:
+        try:
+            # check if organiserprofile exists
+            op = user.organiserprofile
+            op.delete()
+        except OrganiserProfile.DoesNotExist:
+            pass

@@ -2,12 +2,12 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import ugettext_lazy as _
 
-from accounts.models import robodarshanMember
-from accounts.forms import robodarshanMemberChangeForm
-from accounts.forms import robodarshanMemberCreationForm
+from accounts.models import instruoUser
+from accounts.forms import instruoUserChangeForm
+from accounts.forms import instruoUserCreationForm
 
 
-class robodarshanMemberAdmin(UserAdmin):
+class instruoUserAdmin(UserAdmin):
     # The forms to add and change user instances
 
     # The fields to be used in displaying the User model.
@@ -26,10 +26,10 @@ class robodarshanMemberAdmin(UserAdmin):
             'fields': ('email', 'password1', 'password2')}
          ),
     )
-    form = robodarshanMemberChangeForm
-    add_form = robodarshanMemberCreationForm
+    form = instruoUserChangeForm
+    add_form = instruoUserCreationForm
     list_display = ('email', 'fullname', 'is_staff')
     search_fields = ('email', 'fullname')
     ordering = ('email',)
 
-admin.site.register(robodarshanMember, robodarshanMemberAdmin)
+admin.site.register(instruoUser, instruoUserAdmin)

@@ -4,7 +4,7 @@ import re
 import uuid
 from datetime import timedelta
 from django.shortcuts import render
-from accounts.models import robodarshanMember, Profile
+from accounts.models import instruoUser, Profile
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as django_login
 from django.contrib.auth import logout as django_logout
@@ -29,18 +29,18 @@ def register(request):
             password = form.cleaned_data.get('password')
             retype_password = form.cleaned_data.get("retype_password")
             try:
-                robodarshanMember.objects.get(email=email)
+                instruoUser.objects.get(email=email)
                 return render(request,
                               'accounts/register.html',
                               {'error': 'Email already exists.', 'form': form})
-            except robodarshanMember.DoesNotExist:
+            except instruoUser.DoesNotExist:
                 pass
             if password and retype_password and (password != retype_password):
                 return render(request,
                               'accounts/register.html',
                               {'error': 'Passwords didn\'t match.',
                                'form': form})
-            user = robodarshanMember.objects.create_user(email, password)
+            user = instruoUser.objects.create_user(email, password)
             user.fullname = form.cleaned_data['fullname']
             # Creat the verification key
             email_verification_key = hashlib.sha1(
@@ -167,7 +167,7 @@ def forgot(request):
         if form.is_valid():
             email = form.cleaned_data.get('email')
             try:
-                user = robodarshanMember.objects.get(email=email)
+                user = instruoUser.objects.get(email=email)
                 if user.is_active:
                     mail_subject = 'Password reset'
                     salt = hashlib.sha1(str(random.random())).hexdigest()
@@ -194,7 +194,7 @@ def forgot(request):
                     return render(request,
                                   'accounts/forgot.html',
                                   {'error': 'Your account is not active.'})
-            except robodarshanMember.DoesNotExist:
+            except instruoUser.DoesNotExist:
                 return render(request,
                               'accounts/forgot.html',
                               {'error': 'The email id is not registered.'})
