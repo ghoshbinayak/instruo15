@@ -100,6 +100,36 @@ class instruoUser(AbstractBaseUser, PermissionsMixin):
         send_mail_task.delay(subject, message, from_email, [self.email])
 
 
+class Participant(instruoUser):
+
+    ''' Proxy model for Participants'''
+    class Meta:
+        proxy = True
+        app_label = 'accounts'
+        verbose_name = 'Participant account'
+        verbose_name_plural = 'Participant accounts'
+
+
+class SiteAdmin(instruoUser):
+
+    ''' Proxy model for Site Admin'''
+    class Meta:
+        proxy = True
+        app_label = 'accounts'
+        verbose_name = 'Site Admin account'
+        verbose_name_plural = 'Site Admin accounts'
+
+
+class Organiser(instruoUser):
+
+    ''' Proxy model for Organiser'''
+    class Meta:
+        proxy = True
+        app_label = 'accounts'
+        verbose_name = 'Organiser account'
+        verbose_name_plural = 'Organiser accounts'
+
+
 class Profile(models.Model):
 
     """
@@ -125,6 +155,9 @@ class OrganiserProfile(models.Model):
     designation = models.CharField(max_length=100, blank=True)
     facebook_url = models.CharField(max_length=256, blank=True)
     user = models.OneToOneField(instruoUser)
+
+    def __unicode__(self):
+        return self.user.email
 
 
 class SocialProfile(models.Model):
