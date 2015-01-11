@@ -10,7 +10,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.dispatch import Signal, receiver
 from django.db.models.signals import post_save
 
-from accounts.tasks import send_mail_task, echo_task
+from accounts.tasks import send_mail_task
 
 # signal sent when user is created
 user_created = Signal(providing_args=["email"])
@@ -184,7 +184,7 @@ def create_profile(sender, **kwargs):
     profile.save()
 
 
-@receiver(post_save, sender=instruoUser)
+@receiver(post_save, sender=Participant)
 def create_orginiser_profile(sender, **kwargs):
     user = kwargs.get('instance')
     if user.is_staff:
@@ -195,7 +195,12 @@ def create_orginiser_profile(sender, **kwargs):
             # create organiserprofile
             op = OrganiserProfile(user=user)
             op.save()
-    else:
+
+
+@receiver(post_save, sender=Organiser)
+def delete_orginiser_profile(sender, **kwargs):
+    user = kwargs.get('instance')
+    if not user.is_staff:
         try:
             # check if organiserprofile exists
             op = user.organiserprofile
