@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'accounts',
     'main',
     'debug_toolbar',
+    'events',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -106,6 +107,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 STATIC_URL = '/static/'
+STATIC_ROOT = 'static/'
 
 # Media files (User Uploaded Content)
 MEDIA_ROOT = 'media/'

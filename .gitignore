@@ -1,1 +1,6 @@
 *.pyc
+static/
+migrations/
+media/
+*.sublime-package
+*.sublime-workspace
