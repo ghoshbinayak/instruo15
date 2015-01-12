@@ -32,7 +32,8 @@ class SiteAdminAdmin(UserAdmin):
         (None, {'fields': ('email', 'password')}),
         (_('Personal info'), {'fields': ('fullname',)}),
         (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser',
-                                       'groups', 'user_permissions')}),
+                                       'is_organiser', 'groups',
+                                       'user_permissions')}),
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
     )
     add_fieldsets = (
@@ -50,7 +51,7 @@ class SiteAdminAdmin(UserAdmin):
 
     def get_queryset(self, request):
         qs = super(UserAdmin, self).get_queryset(request)
-        qs = qs.filter(Q(is_superuser=True))
+        qs = qs.filter(Q(is_superuser=True) | Q(is_staff=True))
         return qs
 
     def get_formsets_with_inlines(self, request, obj=None):
@@ -63,7 +64,7 @@ class OrganiserAdmin(SiteAdminAdmin):
 
     def get_queryset(self, request):
         qs = super(UserAdmin, self).get_queryset(request)
-        qs = qs.filter(Q(is_staff=True) | Q(is_superuser=True))
+        qs = qs.filter(Q(is_organiser=True))
         return qs
 
 
@@ -71,7 +72,8 @@ class ParticipantAdmin(SiteAdminAdmin):
 
     def get_queryset(self, request):
         qs = super(UserAdmin, self).get_queryset(request)
-        qs = qs.exclude(Q(is_staff=True) | Q(is_superuser=True))
+        qs = qs.exclude(
+            Q(is_staff=True) | Q(is_superuser=True) | Q(is_organiser=True))
         return qs
 
 

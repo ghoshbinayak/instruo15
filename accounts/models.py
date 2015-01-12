@@ -1,5 +1,4 @@
 import uuid
-
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
@@ -18,13 +17,11 @@ user_created = Signal(providing_args=["email"])
 
 class instruoUserManager(BaseUserManager):
 
-    """user manager for instruoUser"""
+    ''' user manager for instruoUser '''
 
     def _create_user(self, email, password, is_staff,
                      is_superuser, **extra_fields):
-        """
-        Creates and saves a User with the given email and password.
-        """
+        ''' Creates and saves a User with the given email and password. '''
         now = timezone.now()
         if not email:
             raise ValueError('The given email must be set')
@@ -54,9 +51,7 @@ class instruoUserManager(BaseUserManager):
 
 class instruoUser(AbstractBaseUser, PermissionsMixin):
 
-    """
-    Custor user model for Robodarshan website
-    """
+    ''' Custor user model for Robodarshan website '''
     email = models.EmailField(max_length=254, unique=True)
     fullname = models.CharField(max_length=200)
     is_staff = models.BooleanField(_('staff status'),
@@ -67,6 +62,9 @@ class instruoUser(AbstractBaseUser, PermissionsMixin):
                                     default=False,
                                     help_text=_('Designates whether this user should be treated as '
                                                 'active. Unselect this instead of deleting accounts.'))
+    is_organiser = models.BooleanField(_('instruo organiser'),
+                                       default=False,
+                                       help_text=_('Designates whether the user can creat events'))
     date_joined = models.DateTimeField(_('date joined'), default=timezone.now)
     objects = instruoUserManager()
     USERNAME_FIELD = 'email'
@@ -87,22 +85,20 @@ class instruoUser(AbstractBaseUser, PermissionsMixin):
             return "mask man"
 
     def get_short_name(self):
-        "Returns the nickname for the user."
+        ''' Returns the nickname for the user. '''
         if self.fullname:
             return str(self.fullname).split()[0]
         else:
             return "maskman"
 
     def email_user(self, subject, message, from_email=None):
-        """
-        Sends an email to this User.
-        """
+        ''' Sends an email to this User. '''
         send_mail_task.delay(subject, message, from_email, [self.email])
 
 
 class Participant(instruoUser):
 
-    ''' Proxy model for Participants'''
+    ''' Proxy model for Participants '''
     class Meta:
         proxy = True
         app_label = 'accounts'
@@ -112,7 +108,7 @@ class Participant(instruoUser):
 
 class SiteAdmin(instruoUser):
 
-    ''' Proxy model for Site Admin'''
+    ''' Proxy model for Site Admin '''
     class Meta:
         proxy = True
         app_label = 'accounts'
@@ -122,7 +118,7 @@ class SiteAdmin(instruoUser):
 
 class Organiser(instruoUser):
 
-    ''' Proxy model for Organiser'''
+    ''' Proxy model for Organiser '''
     class Meta:
         proxy = True
         app_label = 'accounts'
@@ -132,9 +128,7 @@ class Organiser(instruoUser):
 
 class Profile(models.Model):
 
-    """
-    Generic user profile, common for both contestants and coordinators
-    """
+    ''' Generic user profile, common for both contestants and coordinators '''
     department = models.CharField(max_length=100, blank=True)
     email_verify_key = models.CharField(max_length=100, blank=True)
     password_reset_key = models.CharField(max_length=100, blank=True)
@@ -149,9 +143,7 @@ class Profile(models.Model):
 
 class OrganiserProfile(models.Model):
 
-    """
-    Profile of Team Instruo
-    """
+    ''' Profile of Team Instruo '''
     designation = models.CharField(max_length=100, blank=True)
     facebook_url = models.CharField(max_length=256, blank=True)
     user = models.OneToOneField(instruoUser)
@@ -162,9 +154,7 @@ class OrganiserProfile(models.Model):
 
 class SocialProfile(models.Model):
 
-    """
-    Google+ sign in info
-    """
+    ''' Google+ sign in info '''
     user = models.OneToOneField(instruoUser)
     uid = models.CharField(max_length=256)
     name = models.CharField(max_length=256)
@@ -175,35 +165,37 @@ class SocialProfile(models.Model):
 
 @receiver(user_created)
 def create_profile(sender, **kwargs):
-    """
-    Create a profile when new user is created.
-    """
+    ''' Create a profile when new user is created. '''
     user = instruoUser.objects.get(email=kwargs.get('email'))
     profile = Profile(user=user)
     profile.uuid = str(uuid.uuid1())
     profile.save()
-
-
-@receiver(post_save, sender=Participant)
-def create_orginiser_profile(sender, **kwargs):
-    user = kwargs.get('instance')
-    if user.is_staff:
-        try:
-            # check if organiserprofile exists
-            op = user.organiserprofile
-        except OrganiserProfile.DoesNotExist:
-            # create organiserprofile
-            op = OrganiserProfile(user=user)
-            op.save()
+    if user.is_organiser:
+        op = OrganiserProfile(user=user)
+        op.save()
 
 
 @receiver(post_save, sender=Organiser)
-def delete_orginiser_profile(sender, **kwargs):
+def delete_organiser_profile(sender, **kwargs):
+    print sender
+    print "Deleting organiser profile"
     user = kwargs.get('instance')
-    if not user.is_staff:
-        try:
-            # check if organiserprofile exists
-            op = user.organiserprofile
-            op.delete()
-        except OrganiserProfile.DoesNotExist:
-            pass
+    try:
+        # check if organiserprofile exists
+        op = user.organiserprofile
+        op.delete()
+    except OrganiserProfile.DoesNotExist:
+        pass
+
+
+@receiver(post_save, sender=Participant)
+def create_organiser_profile(sender, **kwargs):
+    print sender
+    print "Creating organiser profile"
+    user = kwargs.get('instance')
+    try:
+        # check if organiserprofile exists
+        op = user.organiserprofile
+    except OrganiserProfile.DoesNotExist:
+        op = OrganiserProfile(user=user)
+        op.save()
