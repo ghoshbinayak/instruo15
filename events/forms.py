@@ -53,7 +53,11 @@ class EventPostForm(django_forms.Form):
         co2 = cleaned_data.get("second_coordinator")
         if co2:
             try:
-                Organiser.objects.get(email=co2)
+                co2 = Organiser.objects.get(email=co2)
+                if not co2.is_organiser:
+                    self.add_error('second_coordinator',
+                                   django_forms.ValidationError(
+                                       "Not a instruo event organiser."))
             except Organiser.DoesNotExist:
                 self.add_error('second_coordinator',
                                django_forms.ValidationError(
