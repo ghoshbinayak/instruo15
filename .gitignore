@@ -1,6 +1,8 @@
 *.pyc
 static/
+!events/static/
+!main/static/
 migrations/
 media/
-*.sublime-package
+*.sublime-project
 *.sublime-workspace

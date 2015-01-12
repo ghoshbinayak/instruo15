@@ -186,7 +186,6 @@ def delete(request):
     pass
 
 
-@login_required
 def show(request):
     events = event_list.objects.all()
     return render(request, 'events/index.html', {'events': events})
