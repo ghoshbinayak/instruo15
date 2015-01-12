@@ -7,3 +7,4 @@ TODO
 + separate volunteer permission
 + youtube plugin for tinymce
 + api for ajax/android
++ google+ sign in
