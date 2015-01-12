@@ -2,10 +2,9 @@ from django.shortcuts import render
 from events.forms import EventPostForm
 import uuid
 import os
-import logging
 from django.utils import timezone
 from django.http import HttpResponse
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.conf import settings
 from accounts.models import Organiser
 from events.models import event
@@ -13,6 +12,7 @@ from events.models import event_list
 
 
 @login_required
+@user_passes_test(lambda u: u.is_organiser)
 def new(request):
     # Handle image uploads for the post.
     if request.is_ajax():
@@ -21,8 +21,10 @@ def new(request):
             # create folder with story id
             if not os.path.exists(settings.MEDIA_ROOT + request.POST.get('event_id')):
                 os.makedirs(settings.MEDIA_ROOT + request.POST['event_id'])
+
             if os.path.exists(settings.MEDIA_ROOT + request.POST['event_id'] + '/' + uploaded_file.name):
                 e.name = '1' + uploaded_file.name
+
             with open(settings.MEDIA_ROOT + request.POST['event_id'] + '/' + uploaded_file.name, 'w') as destination:
                 for chunk in uploaded_file.chunks():
                     destination.write(chunk)
@@ -42,7 +44,7 @@ def new(request):
             title = form.cleaned_data['title']
             description = form.cleaned_data['description']
             time = form.cleaned_data['time']
-            coordinator1 = request.user
+            coordinator1 = Organiser.objects.get(email=request.user.email)
             coordinator2 = Organiser.objects.get(
                 email=form.cleaned_data['second_coordinator'])
             new_event = event(
@@ -91,6 +93,7 @@ def new(request):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_organiser)
 def edit(request):
     # Handle changes
     if request.method == 'POST':
@@ -182,6 +185,7 @@ def edit(request):
 
 
 @login_required
+@user_passes_test(lambda u: u.is_organiser)
 def delete(request):
     pass
 

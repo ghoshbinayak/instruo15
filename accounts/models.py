@@ -188,6 +188,7 @@ def delete_organiser_profile(sender, **kwargs):
         pass
 
 
+@receiver(post_save, sender=SiteAdmin)
 @receiver(post_save, sender=Participant)
 def create_organiser_profile(sender, **kwargs):
     print sender
