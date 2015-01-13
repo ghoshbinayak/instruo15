@@ -1,0 +1,198 @@
+body
+{
+	margin: 0;
+	padding: 0;
+	/*overflow: hidden;*/
+}
+
+.main-page
+{
+	background: url("snes.jpg") no-repeat center center fixed;
+	background-size: cover;
+	z-index: -1;
+	width: 100vw;
+	height: 100vh;
+}
+
+.lock-page
+{
+	/*display: none;*/
+	z-index: 5;
+	background: #000 no-repeat center center fixed;
+	-webkit-background-size: cover;
+	     -o-background-size: cover;
+	        background-size: cover;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	-webkit-transition: 0.5s all  ease-out;
+	   -moz-transition: 0.5s all  ease-out;
+	    -ms-transition: 0.5s all  ease-out;
+	     -o-transition: 0.5s all  ease-out;
+	        transition: 0.5s all  ease-out;
+}
+
+.fast-transition
+{
+	-webkit-transition: 0.2s all  linear;
+	   -moz-transition: 0.2s all  linear;
+	    -ms-transition: 0.2s all  linear;
+	     -o-transition: 0.2s all  linear;
+	        transition: 0.2s all  linear;
+}
+
+.lock-change-up
+{
+	-webkit-transform: translateY(-10%);
+	   -moz-transform: translateY(-10%);
+	    -ms-transform: translateY(-10%);
+	     -o-transform: translateY(-10%);
+	        transform: translateY(-10%);
+}
+
+/*.lock-change-down
+{
+	-webkit-transform: translateY(0%);
+	   -moz-transform: translateY(0%);
+	    -ms-transform: translateY(0%);
+	     -o-transform: translateY(0%);
+	        transform: translateY(0%);
+}*/
+
+.lock-page-up
+{
+	-webkit-transform: translateY(-100%);
+	   -moz-transform: translateY(-100%);
+	    -ms-transform: translateY(-100%);
+	     -o-transform: translateY(-100%);
+	        transform: translateY(-100%);
+}
+
+.lock-page-container
+{
+	width: 100vw;
+	height: 100vh;
+	/*background: rgba(0,0,0,0.4) no-repeat;*/
+}
+
+#title_text
+{
+	color: #A2F4FB;
+	/*font-size: 1.2em;*/
+	width: 30vw;
+	/*color: #fff;*/
+	text-shadow: 0px 0px 20px rgba(255,255,255,0.3);
+	position: absolute;
+	top: 40vh;
+	left: 35vw;
+	font-family: "Segoe UI", "Calibri", "Helvetica", Arial, Sans-serif;
+}
+
+.sidebar-container
+{
+	position: fixed;
+	width: 13vw;
+	min-width: 150px;
+	/*max-width: 300px;*/
+	height: 100vh;
+}
+
+.sidebar
+{
+	position: absolute;
+	z-index: 2;
+	float: left;
+	width: 40%;
+	height: 100%;
+	background: #fff;
+	box-shadow: 15px 0px 15px rgba(0,0,0,0.2);
+}
+
+.sidebar-menu
+{
+	/*visibility: hidden;*/
+	z-index: 0;
+	position: absolute;
+	left: -60%;
+	float: left;
+	width: 60%;
+	height: 100%;
+	background: #fff;
+	box-shadow: 15px 0px 15px rgba(0,0,0,0.2);
+	-webkit-transition: all 0.5s ease;
+	   -moz-transition: all 0.5s ease;
+	    -ms-transition: all 0.5s ease;
+	     -o-transition: all 0.5s ease;
+	        transition: all 0.5s ease;
+}
+
+.sidebar-menu-right
+{
+	-webkit-transform: translateX(166%);
+	-ms-transform: translateX(166%);
+	-o-transform: translateX(166%);
+	transform: translateX(166%);
+}
+
+img.menu_img
+{
+	width: 80%;
+	max-width: 64px;
+}
+
+#home
+{
+	margin-top: 75px;
+}
+
+#events
+{
+	margin: 75px auto 0 auto;
+}
+
+.text-center
+{
+	cursor: pointer;
+	text-align: center;
+	text-align: -webkit-center;
+	text-align: -ms-center;
+	text-align: -o-center;
+	text-align: -moz-center;
+}
+
+
+.all-event
+{
+	margin-top: 15vh;
+}
+
+.sidebar-menu ul
+{
+	padding: 0;
+}
+
+.sidebar-menu li
+{
+	text-align: center;
+	text-align: -webkit-center;
+	text-align: -ms-center;
+	text-align: -o-center;
+	text-align: -moz-center;
+	width: 90%;
+	display: block;
+	padding: 10px 0px;
+	margin-left: 5%;
+	margin-bottom: 20px;
+	font-family: "Segoe UI"; 
+	/*font-size: 1.1pc;*/
+	/*margin-left: -60%;*/
+	cursor: pointer;
+	border: 1px solid #000;
+}
+
+.home-page-container
+{
+	width: 60vw;
+	height: 200vh;
+}
+
