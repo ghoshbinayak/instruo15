@@ -2,19 +2,33 @@ import hashlib
 import random
 import re
 import uuid
+import json
+import httplib2
+import os
+
 from datetime import timedelta
+from pprint import pprint
+from apiclient.discovery import build
+
+from oauth2client.client import AccessTokenRefreshError
+from oauth2client.client import flow_from_clientsecrets
+from oauth2client.client import FlowExchangeError
+
 from django.shortcuts import render
-from accounts.models import instruoUser, Profile
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as django_login
 from django.contrib.auth import logout as django_logout
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, Http404
 from django.conf import settings
 from django.utils import timezone
+
+from accounts.models import instruoUser, Profile
 from accounts import forms
 from accounts.tasks import send_mail_task, delete_email_task
+
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
 def register(request):
@@ -157,6 +171,24 @@ def login(request):
 def logout(request):
     django_logout(request)
     return HttpResponseRedirect(reverse('accounts:profile'))
+
+
+def googlesignin(request):
+    if request.is_ajax():
+        code = request.POST.get('code')
+        pprint(code)
+        try:
+            # Upgrade the authorization code into a credentials object
+            oauth_flow = flow_from_clientsecrets(
+                BASE_DIR + '/accounts/client_secrets.json', scope='')
+            oauth_flow.redirect_uri = 'postmessage'
+            credentials = oauth_flow.step2_exchange(code)
+            pprint(credentials)
+        except FlowExchangeError:
+            print "error:"
+        return render(request, 'main/index.html')
+    else:
+        raise Http404
 
 
 def forgot(request):

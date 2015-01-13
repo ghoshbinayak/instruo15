@@ -18,6 +18,21 @@
 			Let the hacking begin.
 			{% endblock %}
 		</div>
+		
+		<!-- Google+ Signup Buttor -->
+		<div id="signinButton">
+		  <span class="g-signin"
+		    data-scope="https://www.googleapis.com/auth/plus.login"
+		    data-clientid="984555597268-c9m5dnojk3on8alpkds2d6hvvmbvp8em.apps.googleusercontent.com"
+		    data-redirecturi="postmessage"
+		    data-accesstype="offline"
+		    data-cookiepolicy="single_host_origin"
+		    data-callback="signInCallback">
+		  </span>
+		</div>
+		<div id="result"></div>
+
+
 		<div class="form-wrapper">
 			<form class="Form" action="{% block form-target %}{% url "accounts:login" %}{% endblock %}" method="post">
 				{% csrf_token %}
@@ -66,4 +81,42 @@
 		</div>
 		{% endif %}
 	</div>
+{% endblock %}
+
+{% block scripts %}
+{{ block.super }}
+<script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
+<script type="text/javascript">
+$.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+		xhr.setRequestHeader("X-CSRFToken", '{{csrf_token}}');
+    }
+});
+
+function signInCallback(authResult) {
+	console.log(authResult);
+  if (authResult['code']) {
+
+    // Hide the sign-in button now that the user is authorized, for example:
+    $('#signinButton').attr('style', 'display: none');
+
+    // Send the code to the server
+    $.ajax({
+      type: 'POST',
+      url: '/accounts/googlesignin/',
+      success: function(result) {
+        console.log(result);
+      },
+      data: {code: authResult['code']},
+    });
+  } else if (authResult['error']) {
+    // There was an error.
+    // Possible error codes:
+    //   "access_denied" - User denied access to your app
+    //   "immediate_failed" - Could not automatially log in the user
+    // console.log('There was an error: ' + authResult['error']);
+  }
+}
+
+</script>
 {% endblock %}

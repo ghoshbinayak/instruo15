@@ -7,6 +7,8 @@ from accounts import views
 urlpatterns = patterns('',
                        url(r'^login/$', views.login, name='login'),
                        url(r'^logout/$', views.logout, name='logout'),
+                       url(r'^googlesignin/$', views.googlesignin,
+                           name='googlesignin'),
                        url(r'^register/$', views.register, name='register'),
                        url(r'^verify/', views.verify, name='verify'),
                        url(r'^forgot/', views.forgot, name='forgot'),

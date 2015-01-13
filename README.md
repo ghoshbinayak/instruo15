@@ -8,3 +8,4 @@ TODO
 + youtube plugin for tinymce
 + api for ajax/android
 + google+ sign in
++ remove livereload script
