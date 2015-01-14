@@ -137,7 +137,7 @@ body
 
 img.menu_img
 {
-	width: 80%;
+	width: 50%;
 	max-width: 64px;
 }
 
@@ -212,7 +212,7 @@ img.menu_img
 	height: 200vh;
 }
 
-#arbit
+#logo-info-container
 {
 	z-index: 0;
 }
@@ -309,6 +309,27 @@ img.menu_img
  	   -moz-animation: iiest_a .35s linear 0.7s forwards, iiest_b .4s ease-out 1.05s forwards, iiest_c .4s ease-in 1.45s forwards;
  	     -o-animation: iiest_a .35s linear 0.7s forwards, iiest_b .4s ease-out 1.05s forwards, iiest_c .4s ease-in 1.45s forwards;
  	        animation: iiest_a .35s linear 0.7s forwards, iiest_b .4s ease-out 1.05s forwards, iiest_c .4s ease-in 1.45s forwards;
+}
+
+#tagline
+{
+	position: absolute;
+	/*width: 70vw;*/
+	font-size: 4vh;
+	font-family: sans-serif;
+	top: 70vh;
+	left: 50vw;
+	text-align: center;
+	text-align: -webkit-center;
+	text-align: -ms-center;
+	text-align: -o-center;
+	text-align: -moz-center;
+	height: auto;
+	-webkit-transform: translateX(-50%);
+	   -moz-transform: translateX(-50%);
+	    -ms-transform: translateX(-50%);
+	     -o-transform: translateX(-50%);
+	        transform: translateX(-50%);
 }
 
  @-webkit-keyframes besu_a 
