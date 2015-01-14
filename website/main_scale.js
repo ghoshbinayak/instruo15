@@ -39,6 +39,11 @@ function $(param)
 	return document.querySelector(param);
 }
 
+function $all(param)
+{
+	return document.querySelectorAll(param);
+}
+
 var unlockBtn = dd.getElementById("unlock");
 var aura_small = dd.getElementById("aura_small");
 var	aura_big = dd.getElementById("aura_big");
@@ -91,12 +96,21 @@ function removeAmimation()
 	over2.classList.remove("anim_rot");
 }
 
+function lockPageNone()
+{
+	setTimeout(function()
+		{
+			lockPage.style.display = "none";
+		}, 1500);	
+}
+
 setTimeout(function(){ startAnim(); }, 700);
 
 unlockBtn.onclick=function()
 {
 	removeAmimation();
 	lockPage.classList.add("lock-page-up");
+	lockPageNone();
 	doneSliding = true;
 	besu_iiest();
 }
