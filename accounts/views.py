@@ -173,22 +173,23 @@ def logout(request):
     return HttpResponseRedirect(reverse('accounts:profile'))
 
 
-def googlesignin(request):
-    if request.is_ajax():
-        code = request.POST.get('code')
-        pprint(code)
-        try:
-            # Upgrade the authorization code into a credentials object
-            oauth_flow = flow_from_clientsecrets(
-                BASE_DIR + '/accounts/client_secrets.json', scope='')
-            oauth_flow.redirect_uri = 'postmessage'
-            credentials = oauth_flow.step2_exchange(code)
-            pprint(credentials)
-        except FlowExchangeError:
-            print "error:"
-        return render(request, 'main/index.html')
-    else:
-        raise Http404
+# def googlesignin(request):
+#     if request.method == 'GET':
+#         code = request.GET['code']
+#         pprint(code)
+#         try:
+#             # Upgrade the authorization code into a credentials object
+#             oauth_flow = flow_from_clientsecrets(
+#                 BASE_DIR + '/accounts/client_secrets.json', scope='')
+#             oauth_flow.redirect_uri = 'http://localhost:8000/accounts/googlesignin'
+#             credentials = oauth_flow.step2_exchange(code)
+#             print "success"
+#         except FlowExchangeError:
+#             print "error!"
+
+#         return render(request, 'main/index.html')
+#     else:
+#         raise Http404
 
 
 def forgot(request):

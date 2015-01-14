@@ -20,18 +20,9 @@
 		</div>
 		
 		<!-- Google+ Signup Buttor -->
-		<div id="signinButton">
-		  <span class="g-signin"
-		    data-scope="https://www.googleapis.com/auth/plus.login"
-		    data-clientid="984555597268-c9m5dnojk3on8alpkds2d6hvvmbvp8em.apps.googleusercontent.com"
-		    data-redirecturi="postmessage"
-		    data-accesstype="offline"
-		    data-cookiepolicy="single_host_origin"
-		    data-callback="signInCallback">
-		  </span>
-		</div>
-		<div id="result"></div>
-
+<!-- 		<a href="https://accounts.google.com/o/oauth2/auth?scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fplus.login&state={{ csrf_token }}&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fgooglesignin&response_type=code&client_id=984555597268-c7ocbmqiodkq1fkfhbpj0reuis2btkd0.apps.googleusercontent.com&access_type=offline">
+		Google Signin</a>
+ -->
 
 		<div class="form-wrapper">
 			<form class="Form" action="{% block form-target %}{% url "accounts:login" %}{% endblock %}" method="post">
