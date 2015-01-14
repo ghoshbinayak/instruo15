@@ -199,7 +199,7 @@ img.menu_img
 	margin-left: 5%;
 	/*margin-bottom: 20px;*/
 	margin-top: 8vh;
-	font-family: "Segoe UI"; 
+	font-family: "Segoe UI", sans-serif; 
 	/*font-size: 1.1pc;*/
 	/*margin-left: -60%;*/
 	cursor: pointer;
@@ -230,7 +230,7 @@ img.menu_img
 	     -o-transform: translateX(-40%);
 	        transform: translateX(-40%);
 	font-size: 20vh;
-	font-family: "Segoe UI";
+	font-family: "Segoe UI", sans-serif;
 	color: #FFF;
 	font-weight: 200;
 }
@@ -424,8 +424,9 @@ img.menu_img
 
 @keyframes iiest_a 
 {
-	 	0%   
+	0%   
  	{
+ 		opacity: 0;
  		bottom: 70vh;
  	}
  	/*35%   
@@ -448,6 +449,7 @@ img.menu_img
 	}*/
 	100% 
 	{
+		opacity: 1;
 		bottom: 52vh
 	}
 }
@@ -456,6 +458,7 @@ img.menu_img
  {
  	0%   
  	{
+ 		opacity: 1;
  		bottom: 52vh;
  	}
  	/*35%   
@@ -478,6 +481,7 @@ img.menu_img
 	}*/
 	100% 
 	{
+		opacity: 1;
 		bottom: 60vh;
 	}
 }
@@ -486,6 +490,7 @@ img.menu_img
 {
 0%   
  	{
+ 		opacity: 1;
  		bottom: 52vh;
  	}
  	/*35%   
@@ -508,6 +513,7 @@ img.menu_img
 	}*/
 	100% 
 	{
+		opacity: 1;
 		bottom: 60vh;
 	}
 }
@@ -516,6 +522,7 @@ img.menu_img
  {
  	0%   
  	{
+ 		opacity: 1;
  		bottom: 60vh;
  	}
  	/*35%   
@@ -538,14 +545,16 @@ img.menu_img
 	}*/
 	100% 
 	{
+		opacity: 1;
 		bottom: 51.2vh;
 	}
 }
 
 @keyframes iiest_c 
 {
-	 	0%   
+	0%   
  	{
+ 		opacity: 1;
  		bottom: 60vh;
  	}
  	/*35%   
@@ -568,6 +577,7 @@ img.menu_img
 	}*/
 	100% 
 	{
+		opacity: 1;
 		bottom: 51.2vh;
 	}
 }
