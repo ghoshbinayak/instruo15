@@ -34,11 +34,18 @@ function lockPageAutoSlide()
 // 	lockPageAutoSlide();
 // },6000)
 
+function $(param)
+{
+	return document.querySelector(param);
+}
+
 var unlockBtn = dd.getElementById("unlock");
 var aura_small = dd.getElementById("aura_small");
 var	aura_big = dd.getElementById("aura_big");
 var	aura_big2 = dd.getElementById("aura_big2");
 var	over2 = dd.getElementById("over2");
+var besu = $("#besu");
+var iiest = $("#iiest");
 
 function startAnim()
 {
@@ -48,9 +55,32 @@ function startAnim()
 	over2.classList.add("anim_rot");
 }
 
-setTimeout(function(){ startAnim(); }, 700);
+function iiestOverBesu()
+{
+	besu.classList.add("besu-anim");
+	iiest.classList.add("iiest-anim");
+}
 
-unlockBtn.onclick=function()
+function fixIiest()
+{
+	iiest.style.bottom = "51.2vh";
+	iiest.style.opacity = "1";
+	iiest.classList.remove("iiest-anim");
+}
+
+function besu_iiest()
+{
+	setTimeout(function()
+		{
+			iiestOverBesu();
+		}, 500);
+	setTimeout(function()
+		{
+			fixIiest();
+		}, 2400);
+}
+
+function removeAmimation()
 {
 	aura_small.classList.remove("small");
 	aura_big.classList.remove("move");
@@ -59,8 +89,16 @@ unlockBtn.onclick=function()
 	aura_big.classList.remove("anim_big_a");
 	aura_big2.classList.remove("anim_big_b");
 	over2.classList.remove("anim_rot");
+}
+
+setTimeout(function(){ startAnim(); }, 700);
+
+unlockBtn.onclick=function()
+{
+	removeAmimation();
 	lockPage.classList.add("lock-page-up");
 	doneSliding = true;
+	besu_iiest();
 }
 
 var eventList = false;

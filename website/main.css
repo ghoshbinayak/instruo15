@@ -5,7 +5,7 @@ body
 	/*overflow: hidden;*/
 }
 
-.main-page
+.landing-page
 {
 	background: url("snes.jpg") no-repeat center center fixed;
 	background-size: cover;
@@ -16,7 +16,7 @@ body
 
 .lock-page
 {
-	/*display: none;*/
+	/*display: none;           comment*/
 	z-index: 5;
 	background: #000 no-repeat center center fixed;
 	-webkit-background-size: cover;
@@ -90,6 +90,7 @@ body
 
 .sidebar-container
 {
+	z-index: 1;
 	position: fixed;
 	width: 13vw;
 	min-width: 150px;
@@ -111,7 +112,7 @@ body
 .sidebar-menu
 {
 	/*visibility: hidden;*/
-	z-index: 0;
+	z-index: 1;
 	position: absolute;
 	left: -60%;
 	float: left;
@@ -142,12 +143,17 @@ img.menu_img
 
 #home
 {
-	margin-top: 75px;
+	/*margin-top: 75px;*/
+}
+
+.sidebar-list
+{
+	margin: 7vh auto 0 auto;
 }
 
 #events
 {
-	margin: 75px auto 0 auto;
+	/*margin: 75px auto 0 auto;*/
 }
 
 .text-center
@@ -163,7 +169,15 @@ img.menu_img
 
 .all-event
 {
-	margin-top: 15vh;
+	/*margin-top: 15vh;*/
+}
+
+.unselectable
+{
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  	user-select: none;
 }
 
 .sidebar-menu ul
@@ -179,10 +193,12 @@ img.menu_img
 	text-align: -o-center;
 	text-align: -moz-center;
 	width: 90%;
+	height: 3vh;
 	display: block;
 	padding: 10px 0px;
 	margin-left: 5%;
-	margin-bottom: 20px;
+	/*margin-bottom: 20px;*/
+	margin-top: 5.71vh;
 	font-family: "Segoe UI"; 
 	/*font-size: 1.1pc;*/
 	/*margin-left: -60%;*/
@@ -196,3 +212,341 @@ img.menu_img
 	height: 200vh;
 }
 
+#arbit
+{
+	z-index: 0;
+}
+
+#logo
+{
+	z-index: 0;
+	width: 90vh;
+	position: absolute;
+	top: 12vh;
+	left: 50vw;
+	-webkit-transform: translateX(-40%);
+	   -moz-transform: translateX(-40%);
+	    -ms-transform: translateX(-40%);
+	     -o-transform: translateX(-40%);
+	        transform: translateX(-40%);
+	font-size: 20vh;
+	font-family: "Segoe UI";
+	color: #FFF;
+	font-weight: 200;
+}
+
+#logo-info
+{
+	position: absolute;
+	top: 35vh;
+	right: 15vw;	
+	-webkit-transform: translateX(-50%);
+	   -moz-transform: translateX(-50%);
+	    -ms-transform: translateX(-50%);
+	     -o-transform: translateX(-50%);
+	        transform: translateX(-50%);
+	font-size: 5vh;
+	font-family: sans-serif;
+}
+
+
+#besu
+{
+	position: absolute;
+	bottom: 59vh;
+	left: 87vw;
+	-webkit-transform: translate(-50%, -0%);
+	-moz-transform: translate(-50%, -0%);
+	-ms-transform: translate(-50%, -0%);
+	-o-transform: translate(-50%, -0%);
+	transform: translate(-50%, -0%);
+	font-size: 6.4vh;
+	font-family: sans-serif;
+}
+
+.besu-anim
+{
+	-webkit-animation: besu_a 2s linear 0s forwards;
+	   -moz-animation: besu_a 2s linear 0s forwards;
+	     -o-animation: besu_a 2s linear 0s forwards;
+	     animation: besu_a 2s linear 0s forwards; 
+}
+
+ #over-anim
+ {
+ 	position: absolute;
+ 	top: 40vh;
+ 	left: 79.5vw;
+ 	width: 16vw;
+ 	border-top: 1px solid #000;
+ 	height: 20vh;
+ 	background: url("snes.jpg") no-repeat center center fixed;
+	background-size: cover;
+ }
+
+ #iiest
+ {
+ 	opacity: 0;
+ 	position: absolute;
+ 	bottom: 70vh;
+ 	left: 87vw;
+ 	-webkit-transform: translate(-50%, -100%);
+ 	-moz-transform: translate(-50%, -100%);
+ 	-ms-transform: translate(-50%, -100%);
+ 	-o-transform: translate(-50%, -100%);
+ 	transform: translate(-50%, -100%);
+ 	font-size: 6.4vh;
+ 	font-family: sans-serif;
+ 	/*-webkit-animation: iiest_b 1.05s ease-in 1.05s forwards;
+ 	   -moz-animation: iiest_b 1.05s ease-in 1.05s forwards;
+ 	     -o-animation: iiest_b 1.05s ease-in 1.05s forwards;
+ 	        animation: iiest_b 1.05s ease-in 1.05s forwards;*/
+ }
+
+.iiest-anim
+{
+	-webkit-animation: iiest_a .35s linear 0.7s forwards, iiest_b .4s ease-out 1.05s forwards, iiest_c .4s ease-in 1.45s forwards;
+ 	   -moz-animation: iiest_a .35s linear 0.7s forwards, iiest_b .4s ease-out 1.05s forwards, iiest_c .4s ease-in 1.45s forwards;
+ 	     -o-animation: iiest_a .35s linear 0.7s forwards, iiest_b .4s ease-out 1.05s forwards, iiest_c .4s ease-in 1.45s forwards;
+ 	        animation: iiest_a .35s linear 0.7s forwards, iiest_b .4s ease-out 1.05s forwards, iiest_c .4s ease-in 1.45s forwards;
+}
+
+ @-webkit-keyframes besu_a 
+ {
+ 	0%   
+ 	{
+ 		bottom: 59vh;
+ 		opacity: 1;
+ 	}
+ 	49%   
+ 	{
+ 		bottom: 59vh;
+ 	}
+
+ 	52%   
+ 	{
+ 		bottom: 54.9vh;
+ 	}
+
+ 	90% 
+ 	{
+ 		bottom: 54.9vh;
+ 		opacity: 1;
+ 	}
+ 	100% 
+ 	{
+ 		bottom: 50vh;
+ 		opacity: 0;
+ 	}
+ }
+
+ @keyframes besu_a 
+ {
+ 	0%   
+ 	{
+ 		bottom: 59vh;
+ 		opacity: 1;
+ 	}
+ 	49%   
+ 	{
+ 		bottom: 59vh;
+ 	}
+
+ 	52%   
+ 	{
+ 		bottom: 54.9vh;
+ 	}
+
+ 	90% 
+ 	{
+ 		bottom: 54.9vh;
+ 		opacity: 1;
+ 	}
+ 	100% 
+ 	{
+ 		bottom: 50vh;
+ 		opacity: 0;
+ 	}
+ }
+
+ @-webkit-keyframes iiest_a
+ {
+ 	0%   
+ 	{
+ 		opacity: 0;
+ 		bottom: 70vh;
+ 	}
+ 	/*35%   
+ 	{
+ 		top: 49%;
+ 	}
+
+ 	65%   
+ 	{
+ 		top: 40%;
+ 	}
+
+90% 
+{
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	}*/
+	100% 
+	{
+		opacity: 1;
+		bottom: 52vh
+	}
+}
+
+@keyframes iiest_a 
+{
+	 	0%   
+ 	{
+ 		bottom: 70vh;
+ 	}
+ 	/*35%   
+ 	{
+ 		top: 49%;
+ 	}
+
+ 	65%   
+ 	{
+ 		top: 40%;
+ 	}
+
+90% 
+{
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	}*/
+	100% 
+	{
+		bottom: 52vh
+	}
+}
+
+@-webkit-keyframes iiest_b
+ {
+ 	0%   
+ 	{
+ 		bottom: 52vh;
+ 	}
+ 	/*35%   
+ 	{
+ 		top: 49%;
+ 	}
+
+ 	65%   
+ 	{
+ 		top: 40%;
+ 	}
+
+90% 
+{
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	}*/
+	100% 
+	{
+		bottom: 60vh;
+	}
+}
+
+@keyframes iiest_b 
+{
+0%   
+ 	{
+ 		bottom: 52vh;
+ 	}
+ 	/*35%   
+ 	{
+ 		top: 49%;
+ 	}
+
+ 	65%   
+ 	{
+ 		top: 40%;
+ 	}
+
+90% 
+{
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	}*/
+	100% 
+	{
+		bottom: 60vh;
+	}
+}
+
+@-webkit-keyframes iiest_c
+ {
+ 	0%   
+ 	{
+ 		bottom: 60vh;
+ 	}
+ 	/*35%   
+ 	{
+ 		top: 49%;
+ 	}
+
+ 	65%   
+ 	{
+ 		top: 40%;
+ 	}
+
+90% 
+{
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	}*/
+	100% 
+	{
+		bottom: 51.2vh;
+	}
+}
+
+@keyframes iiest_c 
+{
+	 	0%   
+ 	{
+ 		bottom: 60vh;
+ 	}
+ 	/*35%   
+ 	{
+ 		top: 49%;
+ 	}
+
+ 	65%   
+ 	{
+ 		top: 40%;
+ 	}
+
+90% 
+{
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	}*/
+	100% 
+	{
+		bottom: 51.2vh;
+	}
+}
