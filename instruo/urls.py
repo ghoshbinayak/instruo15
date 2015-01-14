@@ -12,6 +12,8 @@ urlpatterns = patterns('',
                            include('accounts.urls', namespace='accounts')),
                        url(r'^events/',
                            include('events.urls', namespace='events')),
+                       url(r'^home/',
+                           include('main.urls', namespace='main')),
                        )
 
 if settings.DEBUG:
