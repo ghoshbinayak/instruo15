@@ -93,7 +93,7 @@ body
 	z-index: 1;
 	position: fixed;
 	width: 13vw;
-	min-width: 150px;
+	min-width: 170px;
 	/*max-width: 300px;*/
 	height: 100vh;
 }
@@ -103,7 +103,7 @@ body
 	position: absolute;
 	z-index: 2;
 	float: left;
-	width: 40%;
+	width: 35%;
 	height: 100%;
 	background: #fff;
 	box-shadow: 15px 0px 15px rgba(0,0,0,0.2);
@@ -116,7 +116,7 @@ body
 	position: absolute;
 	left: -60%;
 	float: left;
-	width: 60%;
+	width: 65%;
 	height: 100%;
 	background: #fff;
 	box-shadow: 15px 0px 15px rgba(0,0,0,0.2);
@@ -129,10 +129,10 @@ body
 
 .sidebar-menu-right
 {
-	-webkit-transform: translateX(166%);
-	-ms-transform: translateX(166%);
-	-o-transform: translateX(166%);
-	transform: translateX(166%);
+	-webkit-transform: translateX(145%);
+	-ms-transform: translateX(145%);
+	-o-transform: translateX(145%);
+	transform: translateX(145%);
 }
 
 img.menu_img
@@ -193,12 +193,12 @@ img.menu_img
 	text-align: -o-center;
 	text-align: -moz-center;
 	width: 90%;
-	height: 3vh;
+	height: 22px;
 	display: block;
-	padding: 10px 0px;
+	padding: 5px 0px;
 	margin-left: 5%;
 	/*margin-bottom: 20px;*/
-	margin-top: 5.71vh;
+	margin-top: 8vh;
 	font-family: "Segoe UI"; 
 	/*font-size: 1.1pc;*/
 	/*margin-left: -60%;*/
