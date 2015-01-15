@@ -76,7 +76,7 @@ body
 	width: 35%;
 	height: 100%;
 	background: #fff;
-	box-shadow: 15px 0px 15px rgba(0,0,0,0.2);
+	box-shadow: 3px 0px 5px rgba(0,0,0,0.2);
 }
 
 .sidebar-menu
@@ -104,10 +104,9 @@ body
 	transform: translateX(145%);
 }
 
-img.menu_img
-{
-	width: 50%;
-	max-width: 64px;
+.sidebar-list > svg {
+	fill: rgb(119, 119, 119);
+	width: 38%;
 }
 
 #home
