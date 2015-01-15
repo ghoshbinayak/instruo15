@@ -2,53 +2,51 @@
 
 {% load staticfiles %}
 
-{% block body %}
-	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-		<div class="container">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand logo" href="/home">robodarshan</a>
-			</div>
+{% block css%}
+	{{ block.super }}
+	<link rel="stylesheet" href="{% static 'main/css/lock_page_scale_width_mod.css' %}">    <!-- uncomment for scale -->
+	<link rel="stylesheet" href="{% static 'main/css/hint.css' %}">
+{% endblock %}
 
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#">ABOUT</a></li>
-					<li><a href="#">BLOG</a></li>
-					<li><a href="#">PROJECTS</a></li>
-					<li><a href="#">TUTORIALS</a></li>
-						{% if user.is_authenticated %}							
-						<li><a href="{% url 'accounts:profile' %}">
-							PROFILE
-						</a></li>	
-						{% else %}
-						<li><a href="{% url 'accounts:login' %}">
-							LOGIN
-						</a></li>	
-						{% endif %}
-					</a></li>					
-				</ul>
-			</div><!-- /.navbar-collapse -->
-		</div><!-- /.container -->
-	</nav>
-	<div class="content-wrapper">
-		{% block content %}{% endblock%}
-	</div>
-	<section class="footer">
-		<div class="container">
-			<ul>
-				<li><a href="#">Facebook</a></li>
-				<li><a href="#">Flickr</a></li>
-				<li><a href="#">FAQ</a></li>
-				<li><a href="#">Useful Links</a></li>
-			</ul>
-			<p style="font-size: 11px">© People of Earth.</p>
+{% block body %}
+<div class="lock-page">
+	<div  class="aura move" id="aura_big"></div>
+	<div class="aura move2" id="aura_big2"></div>	  <!-- uncomment for scale mode -->
+	<div class="aura small c" id="aura_small"></div>
+	<div class="bg" id="over"></div>
+	<div class="bg2" id="over2"></div>
+	<div id="big-i">Instruo</div>
+	<div id="unlock">Let's Explore</div>
+</div>
+<div class="landing-page">
+	<div class="sidebar-container">
+		<div class="sidebar">
+			<div id="home" class="text-center sidebar-list hint--right hint--success unselectable" data-hint="Return Home"><img class="menu_img" src="{% static 'main/img/home.png' %}" alt="home_pic"></div>
+			<div id="events" class="text-center sidebar-list hint--bottom hint--success unselectable" data-hint="Show Events List"><img class="menu_img" src="{% static 'main/img/event.png' %}" alt="menu_png"></div>
+			<div id="about" class="text-center sidebar-list hint--right hint--success unselectable" data-hint="About Instruo"><img class="menu_img" src="{% static 'main/img/about.png' %}" alt=""></div>
 		</div>
-	</section>
+		<div class="sidebar-menu">
+			<ul>
+				<li class="all-event">All events</li>
+				<li>Robotics</li>
+				<li>Coding</li>
+				<li>Photography</li>
+				<li>Gaming</li>
+				<li>Exhibition</li>
+			</ul>
+		</div>
+	</div>
+	<div id="logo-info-container">
+		<div id="logo">Instruo 15</div>
+		<div id="logo-info">presented by</div>
+		<div id="besu">BESU</div>
+		<div id="over-anim"></div>
+		<div id="iiest">IIEST</div>
+		<div id="tagline">Instruo, Kolkata's largest tchno management fest starts on 3rd April. Explore what we have to offer, come and enjoy.</div>
+	</div>
+</div>
+{% block script %}
+	{{ block.super }}
+	<!-- <script src="{% static 'main/js/main_scale.js' %}"></script>     <!-- uncomment for scale --> -->
+{% endblock %}
 {% endblock %}

@@ -24,7 +24,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*', ]
 
 
 # Application definition
@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     'djcelery',
     'accounts',
     'main',
-    'debug_toolbar',
+    # 'debug_toolbar',
     'events',
 )
 
