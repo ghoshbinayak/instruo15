@@ -7,8 +7,8 @@ body
 
 .landing-page
 {
-	background: url("snes.jpg") no-repeat center center fixed;
-	background-size: cover;
+	/*background: url("snes.jpg") no-repeat center center fixed;*/
+	/*background-size: cover;*/
 	z-index: -1;
 	width: 100vw;
 	height: 100vh;
@@ -61,11 +61,12 @@ body
 
 .lock-page-up
 {
-	-webkit-transform: translateY(-100%);
-	   -moz-transform: translateY(-100%);
-	    -ms-transform: translateY(-100%);
-	     -o-transform: translateY(-100%);
-	        transform: translateY(-100%);
+	-webkit-transform: scale(2);
+	   -moz-transform: scale(2);
+	    -ms-transform: scale(2);
+	     -o-transform: scale(2);
+	        transform: scale(2);
+	    opacity: 0;
 }
 
 .lock-page-container
@@ -229,7 +230,7 @@ img.menu_img
 	    -ms-transform: translateX(-40%);
 	     -o-transform: translateX(-40%);
 	        transform: translateX(-40%);
-	font-size: 20vh;
+	font-size: 17vh;
 	font-family: "Segoe UI", sans-serif;
 	color: #FFF;
 	font-weight: 200;
@@ -252,7 +253,7 @@ img.menu_img
 
 #besu
 {
-	position: absolute;
+	/*position: absolute;
 	bottom: 59vh;
 	left: 87vw;
 	-webkit-transform: translate(-50%, -0%);
@@ -261,7 +262,19 @@ img.menu_img
 	-o-transform: translate(-50%, -0%);
 	transform: translate(-50%, -0%);
 	font-size: 6.4vh;
-	font-family: sans-serif;
+	font-family: sans-serif;*/
+	/*margin-bottom: 10vh;*/
+ 	/*margin-top: 13.6vh;*/
+ 	position: absolute;
+ 	margin-left: 50%;
+ 	bottom: 0;
+ 	-webkit-transform: translate(-50%, -0%);
+ 	-moz-transform: translate(-50%, -0%);
+ 	-ms-transform: translate(-50%, -0%);
+ 	-o-transform: translate(-50%, -0%);
+ 	transform: translate(-50%, -0%);
+ 	font-size: 6.4vh;
+ 	font-family: sans-serif;
 }
 
 .besu-anim
@@ -274,27 +287,33 @@ img.menu_img
 
  #over-anim
  {
+ 	overflow: hidden;
  	position: absolute;
- 	top: 40vh;
+ 	top: 0;
  	left: 79.5vw;
- 	width: 16vw;
- 	border-top: 1px solid #000;
- 	height: 20vh;
- 	background: url("snes.jpg") no-repeat center center fixed;
-	background-size: cover;
+ 	width: 18vh;
+ 	border-bottom: 1px solid #000;
+ 	height: 40vh;
+ 	/*background: url("snes.jpg") no-repeat center center fixed;*/
+	/*background-size: cover;*/
  }
 
  #iiest
  {
+ 	/*opacity: 0;
+ 	position: absolute;
+ 	bottom: 70vh;*/
  	opacity: 0;
  	position: absolute;
- 	bottom: 70vh;
- 	left: 87vw;
- 	-webkit-transform: translate(-50%, -100%);
- 	-moz-transform: translate(-50%, -100%);
- 	-ms-transform: translate(-50%, -100%);
- 	-o-transform: translate(-50%, -100%);
- 	transform: translate(-50%, -100%);
+ 	/*margin-bottom: 10vh;*/
+ 	/*margin-top: 13.6vh;*/
+ 	margin-left: 50%;
+ 	bottom: 20vh;
+ 	-webkit-transform: translate(-50%, -0%);
+ 	-moz-transform: translate(-50%, -0%);
+ 	-ms-transform: translate(-50%, -0%);
+ 	-o-transform: translate(-50%, -0%);
+ 	transform: translate(-50%, -0%);
  	font-size: 6.4vh;
  	font-family: sans-serif;
  	/*-webkit-animation: iiest_b 1.05s ease-in 1.05s forwards;
@@ -332,31 +351,38 @@ img.menu_img
 	        transform: translateX(-50%);
 }
 
+.container-canvas
+{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
  @-webkit-keyframes besu_a 
  {
  	0%   
  	{
- 		bottom: 59vh;
+ 		bottom: 0vh;
  		opacity: 1;
  	}
  	49%   
  	{
- 		bottom: 59vh;
+ 		bottom: 0vh;
  	}
 
  	52%   
  	{
- 		bottom: 54.9vh;
+ 		bottom: -5vh;
  	}
 
  	90% 
  	{
- 		bottom: 54.9vh;
+ 		bottom: -5vh;
  		opacity: 1;
  	}
  	100% 
  	{
- 		bottom: 50vh;
+ 		bottom: -15vh;
  		opacity: 0;
  	}
  }
@@ -365,27 +391,27 @@ img.menu_img
  {
  	0%   
  	{
- 		bottom: 59vh;
+ 		bottom: 0vh;
  		opacity: 1;
  	}
  	49%   
  	{
- 		bottom: 59vh;
+ 		bottom: 0vh;
  	}
 
  	52%   
  	{
- 		bottom: 54.9vh;
+ 		bottom: -5vh;
  	}
 
  	90% 
  	{
- 		bottom: 54.9vh;
+ 		bottom: -5vh;
  		opacity: 1;
  	}
  	100% 
  	{
- 		bottom: 50vh;
+ 		bottom: -15vh;
  		opacity: 0;
  	}
  }
@@ -395,7 +421,7 @@ img.menu_img
  	0%   
  	{
  		opacity: 0;
- 		bottom: 70vh;
+ 		bottom: 20vh;
  	}
  	/*35%   
  	{
@@ -418,7 +444,7 @@ img.menu_img
 	100% 
 	{
 		opacity: 1;
-		bottom: 52vh
+		bottom: 1.5vh
 	}
 }
 
@@ -427,7 +453,7 @@ img.menu_img
 	0%   
  	{
  		opacity: 0;
- 		bottom: 70vh;
+ 		bottom: 20vh;
  	}
  	/*35%   
  	{
@@ -450,7 +476,7 @@ img.menu_img
 	100% 
 	{
 		opacity: 1;
-		bottom: 52vh
+		bottom: 1.5vh
 	}
 }
 
@@ -459,7 +485,7 @@ img.menu_img
  	0%   
  	{
  		opacity: 1;
- 		bottom: 52vh;
+ 		bottom: 1.5vh;
  	}
  	/*35%   
  	{
@@ -482,7 +508,7 @@ img.menu_img
 	100% 
 	{
 		opacity: 1;
-		bottom: 60vh;
+		bottom: 6vh;
 	}
 }
 
@@ -491,7 +517,7 @@ img.menu_img
 0%   
  	{
  		opacity: 1;
- 		bottom: 52vh;
+ 		bottom: 1.5vh;
  	}
  	/*35%   
  	{
@@ -514,7 +540,7 @@ img.menu_img
 	100% 
 	{
 		opacity: 1;
-		bottom: 60vh;
+		bottom: 6vh;
 	}
 }
 
@@ -523,7 +549,7 @@ img.menu_img
  	0%   
  	{
  		opacity: 1;
- 		bottom: 60vh;
+ 		bottom: 6vh;
  	}
  	/*35%   
  	{
@@ -546,7 +572,7 @@ img.menu_img
 	100% 
 	{
 		opacity: 1;
-		bottom: 51.2vh;
+		bottom: -1vh;
 	}
 }
 
@@ -555,7 +581,7 @@ img.menu_img
 	0%   
  	{
  		opacity: 1;
- 		bottom: 60vh;
+ 		bottom: 6vh;
  	}
  	/*35%   
  	{
@@ -578,6 +604,6 @@ img.menu_img
 	100% 
 	{
 		opacity: 1;
-		bottom: 51.2vh;
+		bottom: -1vh;
 	}
 }
