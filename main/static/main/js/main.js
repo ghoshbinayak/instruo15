@@ -1,7 +1,7 @@
 var dd = document;
 var lockPage = dd.getElementsByClassName("lock-page")[0];
 var doneSliding = false;
-// $=dd.querySelectorAll;
+
 function changeLockUp()
 {
 	lockPage.classList.add("lock-change-up");
@@ -28,11 +28,6 @@ function lockPageAutoSlide()
 		},600)
 	}
 }
-
-// setInterval(function()
-// {
-// 	lockPageAutoSlide();
-// },6000)
 
 function $(param)
 {
@@ -76,13 +71,13 @@ function fixIiest()
 function besu_iiest()
 {
 	setTimeout(function()
-		{
-			iiestOverBesu();
-		}, 500);
+	{
+		iiestOverBesu();
+	}, 500);
 	setTimeout(function()
-		{
-			fixIiest();
-		}, 2400);
+	{
+		fixIiest();
+	}, 2400);
 }
 
 function removeAmimation()
@@ -99,14 +94,14 @@ function removeAmimation()
 function lockPageNone()
 {
 	setTimeout(function()
-		{
-			lockPage.style.display = "none";
-		}, 1500);	
+	{
+		lockPage.style.display = "none";
+	}, 1500);	
 }
 
 setTimeout(function(){ startAnim(); }, 700);
 
-unlockBtn.onclick=function()
+var unlock = function()
 {
 	removeAmimation();
 	lockPage.classList.add("lock-page-up");
@@ -114,6 +109,8 @@ unlockBtn.onclick=function()
 	doneSliding = true;
 	besu_iiest();
 }
+
+unlockBtn.onclick=unlock;
 
 var eventList = false;
 var events = dd.getElementById("events");
