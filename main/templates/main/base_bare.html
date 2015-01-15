@@ -24,8 +24,9 @@
 
 <body>
 	{% block body %}{% endblock %}
-	{% block scripts %}
-	<script src="{% static "main/js/main.js" %}"></script>
+	{% block script %}
+	<script src="{% static 'main/js/loading.js' %}"></script>
+	<script src="{% static 'main/js/main.js' %}"></script>
 	{% endblock %}
 </body>
 </html>

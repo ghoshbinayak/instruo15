@@ -4,7 +4,7 @@
 
 {% block css%}
 {{ block.super }}
-<link rel="stylesheet" href="{% static 'main/css/lock_page_scale_width_mod.css' %}">    <!-- uncomment for scale -->
+<link rel="stylesheet" href="{% static 'main/css/lock_page_scale_width_mod.css' %}">    
 <link rel="stylesheet" href="{% static 'main/css/hint.css' %}">
 {% endblock %}
 
@@ -17,8 +17,11 @@
 	<div class="bg2" id="over2"></div>
 	<div id="big-i">Instruo</div>
 	<div id="unlock">Let's Explore</div>
+	<div id="loading-pre" class="unselectable">Loading</div>
+	<div id="loading-pre-cont" class="unselectable"><div id="loading-post" class="unselectable">Loading</div></div>
 </div>
 <div class="landing-page">
+	{% block content %}{% endblock %}
 	<div class="sidebar-container">
 		<div class="sidebar">
 			<div id="home" class="text-center sidebar-list hint--right hint--success unselectable" data-hint="Return Home">
@@ -56,14 +59,15 @@
 	<div id="logo-info-container">
 		<div id="logo">Instruo 15</div>
 		<div id="logo-info">presented by</div>
-		<div id="besu">BESU</div>
-		<div id="over-anim"></div>
-		<div id="iiest">IIEST</div>
+		<div id="over-anim">
+			<div id="besu">BESU</div>
+			<div id="iiest">IIEST</div>
+		</div>
 		<div id="tagline">Instruo, Kolkata's largest tchno management fest starts on 3rd April. Explore what we have to offer, come and enjoy.</div>
 	</div>
 </div>
-{% block script %}
-{{ block.super }}
-<!-- <script src="{% static 'main/js/main_scale.js' %}"></script>     <!-- uncomment for scale --> -->
 {% endblock %}
+
+{% block script %}
+	{{ block.super}}
 {% endblock %}

@@ -1,6 +1,31 @@
+function $(param)
+{
+	return document.querySelector(param);
+}
+
+function ss(param)
+{
+	return document.querySelectorAll(param);
+}
+
+updateLoading();
+
 var dd = document;
 var lockPage = dd.getElementsByClassName("lock-page")[0];
 var doneSliding = false;
+// var num_of_scripts = 3;
+
+// loading_counter = 1;
+
+// var imgs = ss("img");
+// var arrImgs = Array.prototype.slice.call(imgs,0);
+// arrImgs.forEach(function(el)
+// {
+// 	el.onload=function()
+// 	{
+// 		console.log("loaded");
+// 	}
+// })
 
 function changeLockUp()
 {
@@ -29,15 +54,10 @@ function lockPageAutoSlide()
 	}
 }
 
-function $(param)
-{
-	return document.querySelector(param);
-}
-
-function $all(param)
-{
-	return document.querySelectorAll(param);
-}
+// setInterval(function()
+// {
+// 	lockPageAutoSlide();
+// },6000)
 
 var unlockBtn = dd.getElementById("unlock");
 var aura_small = dd.getElementById("aura_small");
@@ -63,7 +83,7 @@ function iiestOverBesu()
 
 function fixIiest()
 {
-	iiest.style.bottom = "51.2vh";
+	iiest.style.bottom = "-1vh";
 	iiest.style.opacity = "1";
 	iiest.classList.remove("iiest-anim");
 }
@@ -71,13 +91,13 @@ function fixIiest()
 function besu_iiest()
 {
 	setTimeout(function()
-	{
-		iiestOverBesu();
-	}, 500);
+		{
+			iiestOverBesu();
+		}, 500);
 	setTimeout(function()
-	{
-		fixIiest();
-	}, 2400);
+		{
+			fixIiest();
+		}, 2400);
 }
 
 function removeAmimation()
@@ -94,23 +114,22 @@ function removeAmimation()
 function lockPageNone()
 {
 	setTimeout(function()
-	{
-		lockPage.style.display = "none";
-	}, 1500);	
+		{
+			lockPage.style.display = "none";
+		}, 500);	
 }
 
 setTimeout(function(){ startAnim(); }, 700);
 
-var unlock = function()
+unlockBtn.onclick=function()
 {
 	removeAmimation();
 	lockPage.classList.add("lock-page-up");
 	lockPageNone();
 	doneSliding = true;
 	besu_iiest();
+	startcanvas();
 }
-
-unlockBtn.onclick=unlock;
 
 var eventList = false;
 var events = dd.getElementById("events");

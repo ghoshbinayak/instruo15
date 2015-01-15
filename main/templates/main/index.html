@@ -1,3 +1,15 @@
 {% extends "main/base.html" %}
 
 {% load staticfiles %}
+
+{% block content %}
+	<div id="container-canvas" class="container-canvas">
+		<div id="output-canvas" class="container-canvas"></div>
+	</div>
+{% endblock %}
+
+{% block script %}
+	{{ block.super }}
+	<script src="{% static 'main/js/fss.min.canvas.js' %}"></script>
+	<script src="{% static 'main/js/example.js' %}"></script>
+{% endblock %}

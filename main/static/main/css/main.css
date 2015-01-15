@@ -7,8 +7,7 @@ body
 
 .landing-page
 {
-	background: url("/static/main/img/snes.jpg") no-repeat center center fixed;
-	background-size: cover;
+	background: #000;
 	z-index: -1;
 	width: 100vw;
 	height: 100vh;
@@ -16,7 +15,6 @@ body
 
 .lock-page
 {
-	/*display: none;           comment*/
 	z-index: 5;
 	background: #000 no-repeat center center fixed;
 	-webkit-background-size: cover;
@@ -32,32 +30,6 @@ body
 	        transition: 0.5s all  ease-out;
 }
 
-/*.fast-transition
-{
-	-webkit-transition: 0.2s all  linear;
-	   -moz-transition: 0.2s all  linear;
-	    -ms-transition: 0.2s all  linear;
-	     -o-transition: 0.2s all  linear;
-	        transition: 0.2s all  linear;
-}
-*/
-/*.lock-change-up
-{
-	-webkit-transform: translateY(-10%);
-	   -moz-transform: translateY(-10%);
-	    -ms-transform: translateY(-10%);
-	     -o-transform: translateY(-10%);
-	        transform: translateY(-10%);
-}*/
-
-/*.lock-change-down
-{
-	-webkit-transform: translateY(0%);
-	   -moz-transform: translateY(0%);
-	    -ms-transform: translateY(0%);
-	     -o-transform: translateY(0%);
-	        transform: translateY(0%);
-}*/
 
 .lock-page-up
 {
@@ -73,13 +45,11 @@ body
 {
 	width: 100vw;
 	height: 100vh;
-	/*background: rgba(0,0,0,0.4) no-repeat;*/
 }
 
 #title_text
 {
 	color: #A2F4FB;
-	/*font-size: 1.2em;*/
 	width: 30vw;
 	/*color: #fff;*/
 	text-shadow: 0px 0px 20px rgba(255,255,255,0.3);
@@ -95,7 +65,6 @@ body
 	position: fixed;
 	width: 13vw;
 	min-width: 170px;
-	/*max-width: 300px;*/
 	height: 100vh;
 }
 
@@ -112,7 +81,6 @@ body
 
 .sidebar-menu
 {
-	/*visibility: hidden;*/
 	z-index: 1;
 	position: absolute;
 	left: -60%;
@@ -170,7 +138,6 @@ img.menu_img
 
 .all-event
 {
-	/*margin-top: 15vh;*/
 }
 
 .unselectable
@@ -198,11 +165,8 @@ img.menu_img
 	display: block;
 	padding: 5px 0px;
 	margin-left: 5%;
-	/*margin-bottom: 20px;*/
 	margin-top: 8vh;
 	font-family: "Segoe UI"; 
-	/*font-size: 1.1pc;*/
-	/*margin-left: -60%;*/
 	cursor: pointer;
 	border: 1px solid #000;
 }
@@ -253,16 +217,16 @@ img.menu_img
 
 #besu
 {
-	position: absolute;
-	bottom: 59vh;
-	left: 87vw;
-	-webkit-transform: translate(-50%, -0%);
-	-moz-transform: translate(-50%, -0%);
-	-ms-transform: translate(-50%, -0%);
-	-o-transform: translate(-50%, -0%);
-	transform: translate(-50%, -0%);
-	font-size: 6.4vh;
-	font-family: sans-serif;
+ 	position: absolute;
+ 	margin-left: 50%;
+ 	bottom: 0;
+ 	-webkit-transform: translate(-50%, -0%);
+ 	-moz-transform: translate(-50%, -0%);
+ 	-ms-transform: translate(-50%, -0%);
+ 	-o-transform: translate(-50%, -0%);
+ 	transform: translate(-50%, -0%);
+ 	font-size: 6.4vh;
+ 	font-family: sans-serif;
 }
 
 .besu-anim
@@ -275,34 +239,29 @@ img.menu_img
 
  #over-anim
  {
+ 	overflow: hidden;
  	position: absolute;
- 	top: 40vh;
+ 	top: 0;
  	left: 79.5vw;
- 	width: 16vw;
- 	border-top: 1px solid #000;
- 	height: 20vh;
- 	background: url("/static/main/img/snes.jpg") no-repeat center center fixed;
-	background-size: cover;
+ 	width: 18vh;
+	border-bottom: 1px solid #000;
+	height: 40vh;
  }
 
  #iiest
  {
  	opacity: 0;
  	position: absolute;
- 	bottom: 70vh;
- 	left: 87vw;
- 	-webkit-transform: translate(-50%, -100%);
- 	-moz-transform: translate(-50%, -100%);
- 	-ms-transform: translate(-50%, -100%);
- 	-o-transform: translate(-50%, -100%);
- 	transform: translate(-50%, -100%);
+ 	margin-left: 50%;
+ 	bottom: 20vh;
+ 	-webkit-transform: translate(-50%, -0%);
+ 	-moz-transform: translate(-50%, -0%);
+ 	-ms-transform: translate(-50%, -0%);
+ 	-o-transform: translate(-50%, -0%);
+ 	transform: translate(-50%, -0%);
  	font-size: 6.4vh;
  	font-family: sans-serif;
- 	/*-webkit-animation: iiest_b 1.05s ease-in 1.05s forwards;
- 	   -moz-animation: iiest_b 1.05s ease-in 1.05s forwards;
- 	     -o-animation: iiest_b 1.05s ease-in 1.05s forwards;
- 	        animation: iiest_b 1.05s ease-in 1.05s forwards;*/
- }
+}
 
 .iiest-anim
 {
@@ -333,31 +292,39 @@ img.menu_img
 	        transform: translateX(-50%);
 }
 
+
+.container-canvas
+{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
  @-webkit-keyframes besu_a 
  {
  	0%   
  	{
- 		bottom: 59vh;
+ 		bottom: 0vh;
  		opacity: 1;
  	}
  	49%   
  	{
- 		bottom: 59vh;
+ 		bottom: 0vh;
  	}
 
  	52%   
  	{
- 		bottom: 54.9vh;
+ 		bottom: -5vh;
  	}
 
  	90% 
  	{
- 		bottom: 54.9vh;
+ 		bottom: -5vh;
  		opacity: 1;
  	}
  	100% 
  	{
- 		bottom: 50vh;
+ 		bottom: -15vh;
  		opacity: 0;
  	}
  }
@@ -366,27 +333,27 @@ img.menu_img
  {
  	0%   
  	{
- 		bottom: 59vh;
+ 		bottom: 0vh;
  		opacity: 1;
  	}
  	49%   
  	{
- 		bottom: 59vh;
+ 		bottom: 0vh;
  	}
 
  	52%   
  	{
- 		bottom: 54.9vh;
+ 		bottom: -5vh;
  	}
 
  	90% 
  	{
- 		bottom: 54.9vh;
+ 		bottom: -5vh;
  		opacity: 1;
  	}
  	100% 
  	{
- 		bottom: 50vh;
+ 		bottom: -15vh;
  		opacity: 0;
  	}
  }
@@ -396,60 +363,26 @@ img.menu_img
  	0%   
  	{
  		opacity: 0;
- 		bottom: 70vh;
+ 		bottom: 20vh;
  	}
- 	/*35%   
- 	{
- 		top: 49%;
- 	}
-
- 	65%   
- 	{
- 		top: 40%;
- 	}
-
-90% 
-{
-	-webkit-transform: translate(-50%, -50%);
-	-moz-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
-	-o-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-	}*/
 	100% 
 	{
 		opacity: 1;
-		bottom: 52vh
+		bottom: 1.5vh
 	}
 }
 
 @keyframes iiest_a 
 {
-	 	0%   
+	0%   
  	{
- 		bottom: 70vh;
+ 		opacity: 0;
+ 		bottom: 20vh;
  	}
- 	/*35%   
- 	{
- 		top: 49%;
- 	}
-
- 	65%   
- 	{
- 		top: 40%;
- 	}
-
-90% 
-{
-	-webkit-transform: translate(-50%, -50%);
-	-moz-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
-	-o-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-	}*/
 	100% 
 	{
-		bottom: 52vh
+		opacity: 1;
+		bottom: 1.5vh
 	}
 }
 
@@ -457,29 +390,14 @@ img.menu_img
  {
  	0%   
  	{
- 		bottom: 52vh;
- 	}
- 	/*35%   
- 	{
- 		top: 49%;
+ 		opacity: 1;
+ 		bottom: 1.5vh;
  	}
 
- 	65%   
- 	{
- 		top: 40%;
- 	}
-
-90% 
-{
-	-webkit-transform: translate(-50%, -50%);
-	-moz-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
-	-o-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-	}*/
 	100% 
 	{
-		bottom: 60vh;
+		opacity: 1;
+		bottom: 6vh;
 	}
 }
 
@@ -487,29 +405,14 @@ img.menu_img
 {
 0%   
  	{
- 		bottom: 52vh;
- 	}
- 	/*35%   
- 	{
- 		top: 49%;
+ 		opacity: 1;
+ 		bottom: 1.5vh;
  	}
 
- 	65%   
- 	{
- 		top: 40%;
- 	}
-
-90% 
-{
-	-webkit-transform: translate(-50%, -50%);
-	-moz-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
-	-o-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-	}*/
 	100% 
 	{
-		bottom: 60vh;
+		opacity: 1;
+		bottom: 6vh;
 	}
 }
 
@@ -517,58 +420,27 @@ img.menu_img
  {
  	0%   
  	{
- 		bottom: 60vh;
- 	}
- 	/*35%   
- 	{
- 		top: 49%;
+ 		opacity: 1;
+ 		bottom: 6vh;
  	}
 
- 	65%   
- 	{
- 		top: 40%;
- 	}
-
-90% 
-{
-	-webkit-transform: translate(-50%, -50%);
-	-moz-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
-	-o-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-	}*/
 	100% 
 	{
-		bottom: 51.2vh;
+		opacity: 1;
+		bottom: -1vh;
 	}
 }
 
 @keyframes iiest_c 
 {
-	 	0%   
+	0%   
  	{
- 		bottom: 60vh;
+ 		opacity: 1;
+ 		bottom: 6vh;
  	}
- 	/*35%   
- 	{
- 		top: 49%;
- 	}
-
- 	65%   
- 	{
- 		top: 40%;
- 	}
-
-90% 
-{
-	-webkit-transform: translate(-50%, -50%);
-	-moz-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
-	-o-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-	}*/
 	100% 
 	{
-		bottom: 51.2vh;
+		opacity: 1;
+		bottom: -1vh;
 	}
 }
