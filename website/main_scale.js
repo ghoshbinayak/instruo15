@@ -8,8 +8,6 @@ function ss(param)
 	return document.querySelectorAll(param);
 }
 
-console.log("main");
-
 updateLoading();
 
 var dd = document;
