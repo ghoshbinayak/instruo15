@@ -83,25 +83,25 @@ body
 {
 	z-index: 1;
 	position: absolute;
-	left: -60%;
+	left: -120%;
 	float: left;
-	width: 65%;
+	width: 120%;
 	height: 100%;
 	background: #fff;
-	box-shadow: 15px 0px 15px rgba(0,0,0,0.2);
+	box-shadow: 3px 0px 5px rgba(0,0,0,0.2);
 	-webkit-transition: all 0.5s ease;
-	   -moz-transition: all 0.5s ease;
-	    -ms-transition: all 0.5s ease;
-	     -o-transition: all 0.5s ease;
-	        transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
 }
 
 .sidebar-menu-right
 {
-	-webkit-transform: translateX(145%);
-	-ms-transform: translateX(145%);
-	-o-transform: translateX(145%);
-	transform: translateX(145%);
+	-webkit-transform: translateX(128%);
+	-ms-transform: translateX(128%);
+	-o-transform: translateX(128%);
+	transform: translateX(128%);
 }
 
 .sidebar-list > svg {
@@ -150,24 +150,28 @@ body
 .sidebar-menu ul
 {
 	padding: 0;
+	margin: 0;
 }
 
 .sidebar-menu li
 {
-	text-align: center;
-	text-align: -webkit-center;
+	/* text-align: center; */
+	/* text-align: -webkit-center; */
 	text-align: -ms-center;
 	text-align: -o-center;
 	text-align: -moz-center;
-	width: 90%;
+	width: 49%;
 	height: 22px;
 	display: block;
-	padding: 5px 0px;
-	margin-left: 5%;
-	margin-top: 8vh;
-	font-family: "Segoe UI"; 
+	padding: 10% 25%;
+	/* margin-left: 26%; */
+	/* margin-top: 8vh; */
+	font-family: "Segoe UI", sans-serif;
 	cursor: pointer;
-	border: 1px solid #000;
+	/* border: 1px solid #000; */
+	/* background: #555; */
+	border-bottom: 1px solid #ddd;
+	color: #666;
 }
 
 .home-page-container
