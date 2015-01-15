@@ -20,35 +20,49 @@
 		<div class="bg2" id="over2"></div>
 		<div id="big-i">I</div>
 		<div id="unlock">Let's Explore</div>
+		<div id="loading-pre" class="unselectable">Loading</div>
+		<div id="loading-pre-cont" class="unselectable"><div id="loading-post" class="unselectable">Loading</div></div>
 	</div>
-	<div class="landing-page">
-		<div class="sidebar-container">
-			<div class="sidebar">
-				<div id="home" class="text-center sidebar-list hint--right hint--success unselectable" data-hint="Return Home"><img class="menu_img" src="home.png" alt="home_pic"></div>
-				<div id="events" class="text-center sidebar-list hint--bottom hint--success unselectable" data-hint="Show Events List"><img class="menu_img" src="event.png" alt="menu_png"></div>
-				<div id="about" class="text-center sidebar-list hint--right hint--success unselectable" data-hint="About Instruo"><img class="menu_img" src="about.png" alt=""></div>
+	<div id="main-page">
+		<div class="landing-page">
+		 	<div id="container-canvas" class="container-canvas">
+	      		<div id="output-canvas" class="container-canvas"></div>
+	  		</div>
+			<div class="sidebar-container">
+				<div class="sidebar">
+					<div id="home" class="text-center sidebar-list hint--right hint--success unselectable" data-hint="Return Home"><img class="menu_img" src="" alt="home_pic"></div>
+					<div id="events" class="text-center sidebar-list hint--bottom hint--success unselectable" data-hint="Show Events List"><img class="menu_img" src="" alt="menu_png"></div>
+					<div id="about" class="text-center sidebar-list hint--right hint--success unselectable" data-hint="About Instruo"><img class="menu_img" src="" alt=""></div>
+				</div>
+				<div class="sidebar-menu">
+					<ul>
+						<li class="all-event">All events</li>
+						<li>Robotics</li>
+						<li>Coding</li>
+						<li>Photography</li>
+						<li>Gaming</li>
+						<li>Exhibition</li>
+					</ul>
+				</div>
 			</div>
-			<div class="sidebar-menu">
-				<ul>
-					<li class="all-event">All events</li>
-					<li>Robotics</li>
-					<li>Coding</li>
-					<li>Photography</li>
-					<li>Gaming</li>
-					<li>Exhibition</li>
-				</ul>
+			<div id="logo-info-container">
+				<div id="logo">Instruo 15</div>
+				<div id="logo-info">presented by</div>
+				<div id="tagline">Instruo, Kolkata's largest tchno management fest starts on 3rd April. Explore what we have to offer, come and enjoy.</div>
+				<div id="over-anim">
+					<div id="besu">BESU</div>
+					<div id="iiest">IIEST</div>
+				</div>
 			</div>
 		</div>
-		<div id="logo-info-container">
-			<div id="logo">Instruo 15</div>
-			<div id="logo-info">presented by</div>
-			<div id="besu">BESU</div>
-			<div id="over-anim"></div>
-			<div id="iiest">IIEST</div>
-			<div id="tagline">Instruo, Kolkata's largest tchno management fest starts on 3rd April. Explore what we have to offer, come and enjoy.</div>
+		<div id="event-page">
+			
 		</div>
 	</div>
 	<!-- <script src="main.js"></script> -->
+	<script src="loading.js"></script>     <!-- uncomment for scale -->
 	<script src="main_scale.js"></script>     <!-- uncomment for scale -->
+	<script src="fss.min.canvas.js"></script>
+    <script src="example.js"></script>
 </body>
 </html>

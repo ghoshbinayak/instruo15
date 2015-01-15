@@ -1,0 +1,117 @@
+<div class="wrapper">
+    <div class="events">
+
+    {% for event_index in range(9)  -%}
+        {# event_index is 0-based #}
+
+        <div class="event event-{{event_index+1}}">
+            <div class="event-full-page">
+                <div class="event-primary">
+                {% set cur_event=events[ev_order[event_index]-1] %}
+                    <div class="event-shape-perm"></div>
+                    <!-- <div class="event-shape-scale"></div> -->
+                    <div class="event-attract" style="background-image: url('img/{{cur_event.attract_bg}}.png');">
+                        <div class="event-tag">
+                            <div class="tag-text">
+                                {{ cur_event.tag_text_short }}
+                                <!-- #Gen. Quiz -->
+                            </div>
+                        </div>
+                        <!-- <div class="event-date">
+                            <div class="date-text">
+                                {# cur_event.dict_date_text={15:True,16:True,17:True} #}
+                                {% for date,is_on_date in cur_event.dict_date_text -%}
+                                    {%- if is_on_date -%}
+
+                                    <div class="day day-{{loop.index}}">
+                                        {{ date }}
+                                    </div>
+                                    
+                                    {%- endif -%}
+                                {%- endfor %}
+                            </div>
+                        </div> -->
+                    </div>
+
+                    {% if cur_event.name_text %}
+                        <div class="event-bar">
+                            <div class="event-name">
+                                <div class="name-text">
+                                    {{ cur_event.name_text }}
+                                    <!-- Gru-botics Mega -->
+                                </div>
+                            </div>
+                                <div class="event-preview-button">
+                                        <div class="preview-button-text button-show">
+                                            +
+                                        </div>
+                                        <div class="preview-button-text button-hide">
+                                            <
+                                        </div>
+                                </div>
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="event-preview event-preview-details-container">
+                    <div class="event-preview-details">
+                            <div class="preview-details-text">
+                                {{ cur_event.preview_details_text }}
+                            </div>
+                    </div>
+                </div>
+                <div class="event-preview event-preview-facts-container">
+                    <div class="event-preview-facts">
+                        <div class="fact fact-1">
+                            <div class="fact-text-container">
+                                <div class="fact-text">
+                                    <div class="fact-text-primary float-fix">
+                                        <div class="text-centered">
+                                            {{ cur_event.prize_money }}
+                                        </div>
+                                    </div>
+                                    <div class="fact-text-secondary float-fix">
+                                        <div class="text-centered">
+                                            Prizes worth 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fact fact-2">
+                            <div class="fact-text-container">
+                                <div class="fact-text">
+                                    <div class="fact-text-primary float-fix">
+                                        <div class="text-centered">
+                                            {% for date, is_on_date in cur_event.dict_date_text -%}
+                                                {%- if is_on_date -%}
+                                                    {{ date }}th
+                                                    <br/>
+                                                {%- endif -%}
+                                            {%- endfor %}
+                                        </div>
+                                    </div>
+                                    <div class="fact-text-secondary float-fix">
+                                        <div class="text-centered">
+                                            Date
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fact fact-3">
+                            <div class="fact-text-container">
+                                <div class="fact-text">
+                                    <div class="text-centered">
+                                        {{ cur_event.tag_text_full }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {%- endfor %}
+    </div>
+</div>

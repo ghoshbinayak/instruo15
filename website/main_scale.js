@@ -1,7 +1,34 @@
+function $(param)
+{
+	return document.querySelector(param);
+}
+
+function ss(param)
+{
+	return document.querySelectorAll(param);
+}
+
+console.log("main");
+
+updateLoading();
+
 var dd = document;
 var lockPage = dd.getElementsByClassName("lock-page")[0];
 var doneSliding = false;
-// $=dd.querySelectorAll;
+// var num_of_scripts = 3;
+
+// loading_counter = 1;
+
+// var imgs = ss("img");
+// var arrImgs = Array.prototype.slice.call(imgs,0);
+// arrImgs.forEach(function(el)
+// {
+// 	el.onload=function()
+// 	{
+// 		console.log("loaded");
+// 	}
+// })
+
 function changeLockUp()
 {
 	lockPage.classList.add("lock-change-up");
@@ -34,16 +61,6 @@ function lockPageAutoSlide()
 // 	lockPageAutoSlide();
 // },6000)
 
-function $(param)
-{
-	return document.querySelector(param);
-}
-
-function $all(param)
-{
-	return document.querySelectorAll(param);
-}
-
 var unlockBtn = dd.getElementById("unlock");
 var aura_small = dd.getElementById("aura_small");
 var	aura_big = dd.getElementById("aura_big");
@@ -68,7 +85,7 @@ function iiestOverBesu()
 
 function fixIiest()
 {
-	iiest.style.bottom = "51.2vh";
+	iiest.style.bottom = "-1vh";
 	iiest.style.opacity = "1";
 	iiest.classList.remove("iiest-anim");
 }
@@ -101,7 +118,7 @@ function lockPageNone()
 	setTimeout(function()
 		{
 			lockPage.style.display = "none";
-		}, 1500);	
+		}, 500);	
 }
 
 setTimeout(function(){ startAnim(); }, 700);
