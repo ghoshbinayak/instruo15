@@ -16,6 +16,9 @@ function cRand(param1 ,param2)
 {
   return parseInt(Math.randomInRange(param1,param2));
 }
+
+var comR = cRand(50,100), comG = cRand(0,100), comB = cRand(50,100);
+
 updateLoading();
   var MESH = {
     width: 1.2,
@@ -28,8 +31,8 @@ updateLoading();
     zRange: 1.0,
     // ambient: '#555555',
     // diffuse: '#FFFFFF',
-    ambient: rgbToHex(cRand(50, 100), cRand(0, 100), cRand(50, 100)),
-    diffuse: rgbToHex(cRand(50, 100), cRand(0, 100), cRand(50, 100)),
+    ambient: rgbToHex(comR, comG, comB),
+    diffuse: rgbToHex(comR+10, comG +10 , comB + 10),
     speed: 0.0005
   };
 
@@ -45,7 +48,7 @@ updateLoading();
     // diffuse: "#FF8800",
     // ambient: rgbToHex(cRand(50, 150), cRand(0, 150), cRand(50, 150)),
     // diffuse: rgbToHex(cRand(50, 150), cRand(0, 150), cRand(50, 150)),
-    ambient: '#555555',
+    ambient: '#777777',
     diffuse: '#FFFFFF',
     speed: 0.001,
     gravity: 1200,
@@ -168,6 +171,7 @@ updateLoading();
     // addControls();
     resize(container.offsetWidth, container.offsetHeight);
     animate();
+    dummyMouseClick();
   }
 
   function createRenderer() {
@@ -515,6 +519,13 @@ updateLoading();
     FSS.Vector3.subtract(attractor, center);
     LIGHT.autopilot = !LIGHT.autopilot;
     // autopilotController.updateDisplay();
+  }
+
+  function dummyMouseClick()
+  {
+    // FSS.Vector3.set(attractor, event.x, renderer.height - event.y);
+    // FSS.Vector3.subtract(attractor, center);
+    LIGHT.autopilot = !LIGHT.autopilot;
   }
 
   function onMouseMove(event) {
