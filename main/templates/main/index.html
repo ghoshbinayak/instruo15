@@ -3,13 +3,24 @@
 {% load staticfiles %}
 
 {% block content %}
+<div class="landing-page">
 	<div id="container-canvas" class="container-canvas">
 		<div id="output-canvas" class="container-canvas"></div>
 	</div>
+	<div id="logo-info-container">
+		<div id="logo">Instruo 15</div>
+		<div id="logo-info">presented by</div>
+		<div id="over-anim">
+			<div id="besu">BESU</div>
+			<div id="iiest">IIEST</div>
+		</div>
+		<div id="tagline">Instruo, Kolkata's largest tchno management fest starts on 3rd April. Explore what we have to offer, come and enjoy.</div>
+	</div>
+</div>
 {% endblock %}
 
 {% block script %}
-	{{ block.super }}
-	<script src="{% static 'main/js/fss.min.canvas.js' %}"></script>
-	<script src="{% static 'main/js/example.js' %}"></script>
+{{ block.super }}
+<script src="{% static 'main/js/fss.min.canvas.js' %}"></script>
+<script src="{% static 'main/js/example.js' %}"></script>
 {% endblock %}
