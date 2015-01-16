@@ -64,8 +64,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'jk',
-        'USER': 'adminbmynp8v',
-        'PASSWORD': 'RIHfFsHt7lkx',
+        'USER': 'admin5p7e7az',
+        'PASSWORD': 'M-xERTcnq7AL',
         'HOST': os.environ['OPENSHIFT_POSTGRESQL_DB_HOST'],
         'PORT': os.environ['OPENSHIFT_POSTGRESQL_DB_PORT'],
     }
