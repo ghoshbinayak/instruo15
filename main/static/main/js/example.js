@@ -19,16 +19,16 @@ updateLoading();
   var MESH = {
     width: 1.2,
     height: 1.2,
-    depth: 5,
+    depth: 0,
     segments: 8,
     slices: 5,
     xRange: 0.8,
     yRange: 0.1,
     zRange: 1.0,
-    // ambient: '#555555',
-    // diffuse: '#FFFFFF',
-    ambient: rgbToHex(cRand(50, 100), cRand(0, 100), cRand(50, 100)),
-    diffuse: rgbToHex(cRand(50, 100), cRand(0, 100), cRand(50, 100)),
+    ambient: '#A09C8E',
+    diffuse: '#C0C0C0',
+    // ambient: rgbToHex(cRand(50, 100), cRand(0, 100), cRand(50, 100)),
+    // diffuse: rgbToHex(cRand(50, 100), cRand(0, 100), cRand(50, 100)),
     speed: 0.0005
   };
 
@@ -37,15 +37,15 @@ updateLoading();
   // Light Properties
   //------------------------------
   var LIGHT = {
-    count: 2,
+    count: 1,
     xyScalar: 1, 
     zOffset: 100,
     // ambient: "#880066",
     // diffuse: "#FF8800",
     // ambient: rgbToHex(cRand(50, 150), cRand(0, 150), cRand(50, 150)),
     // diffuse: rgbToHex(cRand(50, 150), cRand(0, 150), cRand(50, 150)),
-    ambient: '#555555',
-    diffuse: '#FFFFFF',
+    ambient: '#463636',
+    diffuse: '#484848',
     speed: 0.001,
     gravity: 1200,
     dampening: 0.95,
@@ -517,8 +517,7 @@ updateLoading();
   }
 
   function onMouseMove(event) {
-    FSS.Vector3.set(attractor, event.x, renderer.height - event.y);
-    FSS.Vector3.subtract(attractor, center);
+     
   }
 
   function onWindowResize(event) {
