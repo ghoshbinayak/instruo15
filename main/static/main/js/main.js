@@ -11,7 +11,7 @@ function ss(param)
 updateLoading();
 
 var dd = document;
-var lockPage = dd.getElementsByClassName("lock-page")[0];
+var lockPage = ss(".lock-page")[0];
 var doneSliding = false;
 // var num_of_scripts = 3;
 
@@ -59,13 +59,16 @@ function lockPageAutoSlide()
 // 	lockPageAutoSlide();
 // },6000)
 
-var unlockBtn = dd.getElementById("unlock");
-var aura_small = dd.getElementById("aura_small");
-var	aura_big = dd.getElementById("aura_big");
-var	aura_big2 = dd.getElementById("aura_big2");
-var	over2 = dd.getElementById("over2");
+var unlockBtn = $("#unlock");
+var aura_small = $("#aura_small");
+var	aura_big = $("#aura_big");
+var	aura_big2 = $("#aura_big2");
+var	over2 = $("#over2");
 var besu = $("#besu");
 var iiest = $("#iiest");
+var subMenuShown = false;
+var events = $("#events");
+var slideRight = ss(".sidebar-menu")[0];
 
 function startAnim()
 {
@@ -123,29 +126,45 @@ setTimeout(function(){ startAnim(); }, 700);
 
 unlockBtn.onclick=function()
 {
+	window.scrollTo(0,0);
 	removeAmimation();
 	lockPage.classList.add("lock-page-up");
 	lockPageNone();
 	doneSliding = true;
 	besu_iiest();
 	startcanvas();
+	setTimeout(function(){
+		$("body").style.overflow = 'auto';	
+		$("body").style.overflowX = 'hidden';		
+	}, 500)
 }
 
-var eventList = false;
-var events = dd.getElementById("events");
+function showSidebarMenu () {
+	slideRight.classList.add("sidebar-menu-right");
+	events.setAttribute("data-hint","Hide Events List")
+	subMenuShown = true;
+}
+
+function hideSidebarMenu () {
+	slideRight.classList.remove("sidebar-menu-right");
+	events.setAttribute("data-hint","Show Events List")
+	subMenuShown = false;
+}
+
 events.onclick=function()
 {
-	var slideRight = dd.getElementsByClassName("sidebar-menu")[0];
-	if(!eventList)
+	if(!subMenuShown)
 	{
-		slideRight.classList.add("sidebar-menu-right");
-		events.setAttribute("data-hint","Hide Events List")
-		eventList = true;
+		showSidebarMenu();
 	}
 	else
 	{
-		slideRight.classList.remove("sidebar-menu-right");
-		events.setAttribute("data-hint","Show Events List")
-		eventList = false;
+		hideSidebarMenu();
+	}
+}
+
+$("#main-container").onclick = function(){
+	if(subMenuShown){
+		hideSidebarMenu();
 	}
 }
