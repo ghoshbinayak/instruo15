@@ -92,8 +92,12 @@
   padding-top: 5vh;
   padding-bottom: 15vh;
   font-family: sans-serif;
-/*background-color: lightgray;*/
+  background-color: #ffffff;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
+
 .events-shape {
   position: absolute;
   width: 100%;

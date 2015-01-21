@@ -124,7 +124,7 @@ function lockPageNone()
 
 setTimeout(function(){ startAnim(); }, 700);
 
-unlockBtn.onclick=function()
+function lockpageUnlock()
 {
 	window.scrollTo(0,0);
 	removeAmimation();
@@ -135,7 +135,8 @@ unlockBtn.onclick=function()
 	startcanvas();
 	setTimeout(function(){
 		$("body").style.overflow = 'auto';	
-		$("body").style.overflowX = 'hidden';		
+		$("body").style.overflowX = 'hidden';
+		animateTagline();		
 	}, 500)
 }
 
@@ -166,5 +167,65 @@ events.onclick=function()
 $("#main-container").onclick = function(){
 	if(subMenuShown){
 		hideSidebarMenu();
+	}
+}
+
+window.onkeydown = function(param){
+	var key = ('which' in param)?param.which:param.keyCode;
+	if(key == 13){
+		lockpageUnlock();
+	}
+}
+
+$("#unlock").onclick = function(){
+	lockpageUnlock();
+}
+
+function animateTagline(){
+	$('#tagline').classList.add('animateTagline');
+}
+
+function smoothScrollTo(param){
+	var numofsteps = 30;
+	var currentpos = -$('body').getBoundingClientRect().top;
+	var diff = Math.abs(currentpos - param)/(currentpos - param);
+	var step = Math.abs(currentpos - param)/numofsteps;
+
+	function scrollStep(curpos){
+		console.log(param);
+		console.log(curpos);
+		console.log(step);
+
+		if(curpos + step <= param){
+			window.scrollTo(0, curpos + step); 
+			setTimeout(function(){
+				scrollStep(curpos + step)
+			}, 8.33);
+		}
+	}
+	scrollStep(currentpos);
+}
+
+$('.all-event').onclick = function(){
+	smoothScrollTo($('.events').getBoundingClientRect().top);
+}
+
+// var canvasContainer = $(".container-canvas");
+var percentScrolled=0;
+document.onscroll = function(){
+	percentScrolled = - $('body').getBoundingClientRect().top/window.innerHeight;
+	if(percentScrolled >= .6)
+	{
+		stopAnim();
+	}
+	else
+	{
+		startcanvas();
+	}
+	if(percentScrolled <= 1)
+	{
+		// percentScrolled = (percentScrolled > 1)?1:percentScrolled;
+		$("canvas").style.opacity=""+(1-percentScrolled);
+		console.log("scrolled to "+ percentScrolled);
 	}
 }
