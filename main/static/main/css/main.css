@@ -572,10 +572,10 @@ body
 
 .text-is-here
 {
-    -webkit-transform: translateX(-102%);
-    -ms-transform: translateX(-102%);
-    -o-transform: translateX(-102%);
-    transform: translateX(-102%);
+    -webkit-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    transform: translateX(-100%);
 
     /*opacity: 0;*/
 }
