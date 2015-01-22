@@ -4,56 +4,29 @@
 {% load include_raw %}
 
 {% block css %}
-{{ block.super }}
-<link rel="stylesheet" href="{% static 'main/css/all_events.css' %}">
-<link rel="stylesheet" href="{% static 'main/css/single_event.css' %}">
+	{{ block.super }}
+    <link rel="stylesheet" href="{% static 'main/css/all_events.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/single_event.css' %}">
 {% endblock%}
 {% block content %}
-<div id="main-container">
-	<div class="landing-page">
-		<div id="container-canvas" class="container-canvas">
-			<div id="output-canvas" class="container-canvas"></div>
-		</div>
-		<div id="logo-info-container">
-			<div id="logo">Instruo <sup style="font-size: 4vh" >2015</sup></div>
-			<div id="logo-info">presented by</div>
-			<div id="over-anim">
-				<div id="besu">BESU</div>
-				<div id="iiest">IIEST</div>
+	<div id="main-container">
+		<div class="landing-page">
+			<div id="container-canvas" class="container-canvas">
+				<div id="output-canvas" class="container-canvas"></div>
 			</div>
-			<!-- <div id="tagline">Instruo, Kolkata's largest tchno management fest starts on 3rd April. Explore what we have to offer, come and enjoy.</div> -->
-			<div class="wrapper-tagline" id='tagline'>
-				<div class="text-hider text-hider-kol">
-					<div class="text-kol">
-						Kolkata's
-					</div>
+			<div id="logo-info-container">
+				<div id="logo">Instruo 15</div>
+				<div id="logo-info">presented by</div>
+				<div id="over-anim">
+					<div id="besu">BESU</div>
+					<div id="iiest">IIEST</div>
 				</div>
-				<div class="text-hider text-hider-big">
-					<div class="text-big">
-						BIGGEST
-					</div>
-				</div>
-				<div class="text-hider text-hider-tech">
-					<div class="text-tech">
-						Techno+Management
-					</div>
-				</div>
-				<div class="text-hider text-hider-fest">
-					<div class="text-fest">
-						FEST
-					</div>
-				</div>
-				<div class="text-hider text-hider-is-here">
-					<div class="text-is-here">
-						Is Here
-					</div>
-				</div>
+				<div id="tagline">Instruo, Kolkata's largest tchno management fest starts on 3rd April. Explore what we have to offer, come and enjoy.</div>
 			</div>
 		</div>
+		
+		<div class="events"></div>
 	</div>
-
-	<div class="events"></div>
-</div>
 {% endblock %}
 
 {% block script %}

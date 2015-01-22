@@ -2,34 +2,45 @@
   //------------------------------
   // Mesh Properties
   //------------------------------
-  function componentToHex(c) {
+  function componentToHex(c){
     var hex = c.toString(16);
     return hex.length == 1 ? "0" + hex : hex;
   }
 
-function rgbToHex(r, g, b) {
+function rgbToHex(r, g, b){
     return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
 
-function cRand(param1 ,param2)
-{
+function cRand(param1 ,param2){
   return parseInt(Math.randomInRange(param1,param2));
 }
+
+var comR = cRand(50, 150), comG =  cRand(25, 50), comB = cRand(50, 150);
+
 updateLoading();
+
+function randomColor()
+{
+  comR = cRand(50, 150), comG =  cRand(25, 50), comB = cRand(50, 150);
+  MESH.ambient = rgbToHex(comR, comG, comB);
+  MESH.diffuse = rgbToHex(comR +25, comG+25, comB+25);
+  initialise();
+}
+
   var MESH = {
     width: 1.2,
     height: 1.2,
-    depth: 0,
+    depth: 5,
     segments: 8,
     slices: 5,
-    xRange: 0.4,
-    yRange: 0.1 ,
+    xRange: 0.8,
+    yRange: 0.1,
     zRange: 1.0,
-    ambient: '#461e3b',
-    diffuse: '#512153',
-    // ambient: rgbToHex(cRand(50, 100), cRand(0, 100), cRand(50, 100)),
-    // diffuse: rgbToHex(cRand(50, 100), cRand(0, 100), cRand(50, 100)),
-    speed: 0.001
+    // ambient: '#555555',
+    // diffuse: '#FFFFFF',
+    ambient: rgbToHex(comR, comG, comB),
+    diffuse: rgbToHex(comR +25, comG+25, comB+25),
+    speed: 0.0005
   };
 
   mash = MESH;
@@ -44,10 +55,10 @@ updateLoading();
     // diffuse: "#FF8800",
     // ambient: rgbToHex(cRand(50, 150), cRand(0, 150), cRand(50, 150)),
     // diffuse: rgbToHex(cRand(50, 150), cRand(0, 150), cRand(50, 150)),
-    ambient: '#000000',
-    diffuse: '#999999',
-    speed: 0.001,
-    gravity: 1200,
+    ambient: '#222222',
+    diffuse: '#eeeeee',
+    speed: 1,
+    gravity: 900,
     dampening: 0.95,
     minLimit: 10,
     maxLimit: null,
@@ -66,11 +77,12 @@ updateLoading();
   //------------------------------
   // Render Properties
   //------------------------------
-
+  var WEBGL = 'webgl';
+  var CANVAS = 'canvas';
+  var SVG = 'svg';
   var RENDER = {
-    renderer: 'canvas'
+    renderer: CANVAS
   };
-  var sidebarOffset = 100;
 
   //------------------------------
   // Export Properties
@@ -107,6 +119,20 @@ updateLoading();
 
       update();
       render();
+//fuck
+      // switch(RENDER.renderer) {
+      //   case WEBGL:
+      //     window.open(webglRenderer.element.toDataURL(), '_blank');
+      //     break;
+      //   case CANVAS:
+      //     window.open(canvasRenderer.element.toDataURL(), '_blank');
+      //     break;
+      //   case SVG:
+      //     var data = encodeURIComponent(output.innerHTML);
+      //     var url = "data:image/svg+xml," + data;
+      //     window.open(url, '_blank');
+      //     break;
+      // }
       window.open(canvasRenderer.element.toDataURL(), '_blank');
 
       LIGHT.draw = true;
@@ -118,6 +144,12 @@ updateLoading();
     }
   };
 
+  //------------------------------
+  // UI Properties
+  //------------------------------
+  var UI = {
+    show: false
+  };
 
   //------------------------------
   // Global Properties
@@ -126,12 +158,14 @@ updateLoading();
   sstart = start;
   var center = FSS.Vector3.create();
   var attractor = FSS.Vector3.create();
+  var attractorEdit = [attractor, attractor, attractor, attractor];
   var container = document.getElementById('container-canvas');
   // var controls = document.getElementById('controls');
   var output = document.getElementById('output-canvas');
   // var ui = document.getElementById('ui');
   var renderer, scene, mesh, geometry, material;
   var webglRenderer, canvasRenderer, svgRenderer;
+  var sidebarOffset = 100;
   // var gui, autopilotController;
 
   //------------------------------
@@ -161,7 +195,18 @@ updateLoading();
     if (renderer) {
       output.removeChild(renderer.element);
     }
-
+    //fuck
+    // switch(index) {
+    //   case WEBGL:
+    //     renderer = webglRenderer;
+    //     break;
+    //   case CANVAS:
+    //     renderer = canvasRenderer;
+    //     break;
+    //   case SVG:
+    //     renderer = svgRenderer;
+    //     break;
+    // }
     renderer = canvasRenderer;
     renderer.setSize(container.offsetWidth, container.offsetHeight);
     output.appendChild(renderer.element);
@@ -207,7 +252,8 @@ updateLoading();
       scene.add(light);
 
       // Augment light for animation
-      light.mass = Math.randomInRange(0.5, 1);
+      // light.mass = Math.randomInRange(0.5, 1);
+      light.mass = 1;
       light.velocity = FSS.Vector3.create();
       light.acceleration = FSS.Vector3.create();
       light.force = FSS.Vector3.create();
@@ -227,7 +273,7 @@ updateLoading();
   }
 
   function resize(width, height) {
-    renderer.setSize(width + 100, height);
+    renderer.setSize(width+100, height);
     FSS.Vector3.set(center, renderer.halfWidth, renderer.halfHeight);
     createMesh();
   }
@@ -237,6 +283,7 @@ updateLoading();
   function animate() {
     if (toAnimate)
     {
+    	console.log("canvas running");
       now = Date.now() - start;
       update();
       render();
@@ -280,6 +327,7 @@ updateLoading();
         LIGHT.zOffset);
     }
 
+    //fuck
     // Animate Lights
     // for (l = scene.lights.length - 1; l >= 0; l--) {
     //   light = scene.lights[l];
@@ -287,30 +335,43 @@ updateLoading();
     //   // Reset the z position of the light
     //   FSS.Vector3.setZ(light.position, LIGHT.zOffset);
 
-    //   // // Calculate the force Luke!
-    //   // var D = Math.clamp(FSS.Vector3.distanceSquared(light.position, attractor), LIGHT.minDistance, LIGHT.maxDistance);
-    //   // var F = LIGHT.gravity * light.mass / D;
-    //   // FSS.Vector3.subtractVectors(light.force, attractor, light.position);
-    //   // FSS.Vector3.normalise(light.force);
-    //   // FSS.Vector3.multiplyScalar(light.force, F);
+    //   // Calculate the force Luke!
+    //   var D = Math.clamp(FSS.Vector3.distanceSquared(light.position, attractor), LIGHT.minDistance, LIGHT.maxDistance);
+    //   var F = LIGHT.gravity * light.mass / D;
+    //   FSS.Vector3.subtractVectors(light.force, attractor, light.position);
+    //   FSS.Vector3.normalise(light.force);
+    //   FSS.Vector3.multiplyScalar(light.force, F);
 
-    //   // // Update the light position
-    //   // FSS.Vector3.set(light.acceleration);
-    //   // FSS.Vector3.add(light.acceleration, light.force);
-    //   // FSS.Vector3.add(light.velocity, light.acceleration);
-    //   // FSS.Vector3.multiplyScalar(light.velocity, LIGHT.dampening);
-    //   // FSS.Vector3.limit(light.velocity, LIGHT.minLimit, LIGHT.maxLimit);
-    //   // FSS.Vector3.add(light.position, light.velocity);
-    //   // console.log(light.position);
-    //   FSS.Vector3.setX(light.position, 100);
-    //   FSS.Vector3.setY(light.position, 200);
+    //   // Update the light position
+    //   FSS.Vector3.set(light.acceleration);
+    //   FSS.Vector3.add(light.acceleration, light.force);
+    //   FSS.Vector3.add(light.velocity, light.acceleration);
+    //   FSS.Vector3.multiplyScalar(light.velocity, LIGHT.dampening);
+    //   FSS.Vector3.limit(light.velocity, LIGHT.minLimit, LIGHT.maxLimit);
+    //   FSS.Vector3.add(light.position, light.velocity);
     // }
-    scene.lights[0].position = [2*sidebarOffset - renderer.width/2, -renderer.height/2, LIGHT.zOffset];
-    scene.lights[1].position = [2*sidebarOffset - renderer.width/2, -renderer.height/2, LIGHT.zOffset];
-    scene.lights[2].position = [renderer.width/2 - 2*sidebarOffset, -renderer.height/2, LIGHT.zOffset];
-    scene.lights[3].position = [renderer.width/2 - 2*sidebarOffset, -renderer.height/2, LIGHT.zOffset];
-    // scene.lights[4].position = [0, renderer.height/2, LIGHT.zOffset];
 
+     for (l = scene.lights.length - 1; l >= 0; l--) {
+      light = scene.lights[l];
+      // Reset the z position of the light
+      FSS.Vector3.setZ(light.position, LIGHT.zOffset);
+
+      // Calculate the force Luke!
+      // var D = Math.clamp(FSS.Vector3.distanceSquared(light.position, attractorEdit[l]), LIGHT.minDistance, LIGHT.maxDistance);
+      // var F = LIGHT.gravity * light.mass / D;
+      // FSS.Vector3.subtractVectors(light.force, attractorEdit[l], light.position);
+      // FSS.Vector3.normalise(light.force);
+      // FSS.Vector3.multiplyScalar(light.force, F);
+
+      // // Update the light position
+      // FSS.Vector3.set(light.acceleration);
+      // FSS.Vector3.add(light.acceleration, light.force);
+      // FSS.Vector3.add(light.velocity, light.acceleration);
+      // FSS.Vector3.multiplyScalar(light.velocity, LIGHT.dampening);
+      // FSS.Vector3.limit(light.velocity, LIGHT.minLimit, LIGHT.maxLimit);
+      // FSS.Vector3.add(light.position, light.velocity);
+      light.position = attractorEdit[l];
+    }
 
     // Animate Vertices
     for (v = geometry.vertices.length - 1; v >= 0; v--) {
@@ -339,7 +400,32 @@ updateLoading();
         light = scene.lights[l];
         lx = light.position[0];
         ly = light.position[1];
-       
+        //fuck
+        /*switch(RENDER.renderer) {
+          case CANVAS:
+            // renderer.context.lineWidth = 0.5;
+            // renderer.context.beginPath();
+            // renderer.context.arc(lx, ly, 10, 0, Math.PIM2);
+            // renderer.context.strokeStyle = light.ambientHex;
+            // renderer.context.stroke();
+            // renderer.context.beginPath();
+            // renderer.context.arc(lx, ly, 4, 0, Math.PIM2);
+            // renderer.context.fillStyle = light.diffuseHex;
+            // renderer.context.fill();
+            break;
+          case SVG:
+            lx += renderer.halfWidth;
+            ly = renderer.halfHeight - ly;
+            light.core.setAttributeNS(null, 'fill', light.diffuseHex);
+            light.core.setAttributeNS(null, 'cx', lx);
+            light.core.setAttributeNS(null, 'cy', ly);
+            renderer.element.appendChild(light.core);
+            light.ring.setAttributeNS(null, 'stroke', light.ambientHex);
+            light.ring.setAttributeNS(null, 'cx', lx);
+            light.ring.setAttributeNS(null, 'cy', ly);
+            renderer.element.appendChild(light.ring);
+            break;
+        }*/
       }
     }
   }
@@ -350,6 +436,113 @@ updateLoading();
     container.addEventListener('mousemove', onMouseMove);
   }
 
+  // function addControls() {
+  //   var i, l, light, folder, controller;
+
+  //   // Create GUI
+  //   gui = new dat.GUI({autoPlace:false});
+  //   controls.appendChild(gui.domElement);
+
+  //   // Create folders
+  //   uiFolder = gui.addFolder('UI');
+  //   renderFolder = gui.addFolder('Render');
+  //   meshFolder = gui.addFolder('Mesh');
+  //   lightFolder = gui.addFolder('Light');
+  //   exportFolder = gui.addFolder('Export');
+
+  //   // Open folders
+  //   uiFolder.open();
+  //   renderFolder.open();
+  //   // meshFolder.open();
+  //   lightFolder.open();
+  //   // exportFolder.open();
+
+  //   // Add UI Controls
+  //   controller = uiFolder.add(UI, 'show');
+  //   controller.onChange(function(value) {
+  //     ui.className = value ? 'wrapper' : 'wrapper hide';
+  //   });
+
+  //   // Add Render Controls
+  //   controller = renderFolder.add(RENDER, 'renderer', {webgl:WEBGL, canvas:CANVAS, svg:SVG});
+  //   controller.onChange(function(value) {
+  //     setRenderer(value);
+  //   });
+
+  //   // Add Mesh Controls
+  //   controller = meshFolder.addColor(MESH, 'ambient');
+  //   controller.onChange(function(value) {
+  //     for (i = 0, l = scene.meshes.length; i < l; i++) {
+  //       scene.meshes[i].material.ambient.set(value);
+  //     }
+  //   });
+  //   controller = meshFolder.addColor(MESH, 'diffuse');
+  //   controller.onChange(function(value) {
+  //     for (i = 0, l = scene.meshes.length; i < l; i++) {
+  //       scene.meshes[i].material.diffuse.set(value);
+  //     }
+  //   });
+  //   controller = meshFolder.add(MESH, 'width', 0.05, 2);
+  //   controller.onChange(function(value) {
+  //     if (geometry.width !== value * renderer.width) { createMesh(); }
+  //   });
+  //   controller = meshFolder.add(MESH, 'height', 0.05, 2);
+  //   controller.onChange(function(value) {
+  //     if (geometry.height !== value * renderer.height) { createMesh(); }
+  //   });
+  //   controller = meshFolder.add(MESH, 'depth', 0, 50);
+  //   controller = meshFolder.add(MESH, 'segments', 1, 20);
+  //   controller.step(1);
+  //   controller.onChange(function(value) {
+  //     if (geometry.segments !== value) { createMesh(); }
+  //   });
+  //   controller = meshFolder.add(MESH, 'slices', 1, 20);
+  //   controller.step(1);
+  //   controller.onChange(function(value) {
+  //     if (geometry.slices !== value) { createMesh(); }
+  //   });
+  //   controller = meshFolder.add(MESH, 'xRange', 0, 1);
+  //   controller = meshFolder.add(MESH, 'yRange', 0, 1);
+  //   controller = meshFolder.add(MESH, 'speed', 0, 0.01);
+
+  //   // Add Light Controls
+  //   autopilotController = lightFolder.add(LIGHT, 'autopilot');
+  //   controller = lightFolder.addColor(LIGHT, 'ambient');
+  //   controller.onChange(function(value) {
+  //     for (i = 0, l = scene.lights.length; i < l; i++) {
+  //       light = scene.lights[i];
+  //       light.ambient.set(value);
+  //       light.ambientHex = light.ambient.format();
+  //     }
+  //   });
+  //   controller = lightFolder.addColor(LIGHT, 'diffuse');
+  //   controller.onChange(function(value) {
+  //     for (i = 0, l = scene.lights.length; i < l; i++) {
+  //       light = scene.lights[i];
+  //       light.diffuse.set(value);
+  //       light.diffuseHex = light.diffuse.format();
+  //     }
+  //   });
+  //   controller = lightFolder.add(LIGHT, 'count', 0, 5);
+  //   controller.step(1);
+  //   controller.onChange(function(value) {
+  //     if (scene.lights.length !== value) { createLights(); }
+  //   });
+  //   controller = lightFolder.add(LIGHT, 'zOffset', 0, 500);
+  //   controller.step(1);
+
+  //   // Add Export Controls
+  //   controller = exportFolder.add(EXPORT, 'width', 100, 4000);
+  //   controller.step(100);
+  //   controller = exportFolder.add(EXPORT, 'height', 100, 4000);
+  //   controller.step(100);
+  //   controller = exportFolder.add(EXPORT, 'drawLights');
+  //   controller = exportFolder.add(EXPORT, 'minLightX', 0, 1);
+  //   controller = exportFolder.add(EXPORT, 'maxLightX', 0, 1);
+  //   controller = exportFolder.add(EXPORT, 'minLightY', 0, 1);
+  //   controller = exportFolder.add(EXPORT, 'maxLightY', 0, 1);
+  //   controller = exportFolder.add(EXPORT, 'export');
+  // }
 
   //------------------------------
   // Callbacks
@@ -358,20 +551,34 @@ updateLoading();
     FSS.Vector3.set(attractor, event.x, renderer.height - event.y);
     FSS.Vector3.subtract(attractor, center);
     LIGHT.autopilot = !LIGHT.autopilot;
+    console.log("autopilot "+LIGHT.autopilot);
     // autopilotController.updateDisplay();
   }
 
   function onMouseMove(event) {
-     
+    // FSS.Vector3.set(attractor, event.x, renderer.height - event.y);
+    // FSS.Vector3.subtract(attractor, center);
   }
 
   function onWindowResize(event) {
     resize(container.offsetWidth, container.offsetHeight);
+    fixLightsCorner();
     render();
   }
 
+  function fixLightsCorner(){
+    attractorEdit[0] = [2*sidebarOffset - renderer.width/2, sidebarOffset -  renderer.height/2, LIGHT.zOffset];
+    attractorEdit[1] = [2*sidebarOffset - renderer.width/2, renderer.height/2 - sidebarOffset, LIGHT.zOffset];
+    attractorEdit[2] = [renderer.width/2 - 2*sidebarOffset, sidebarOffset - renderer.height/2, LIGHT.zOffset];
+    attractorEdit[3] = [renderer.width/2 - 2*sidebarOffset, renderer.height/2 -sidebarOffset , LIGHT.zOffset];
+  }
 
-
+  function canvasBlur(){
+    ss("canvas")[0].classList.add("canvas-blur");
+  } 
+  
   // Let there be light!
   initialise();
+  fixLightsCorner();
+  canvasBlur();
   stopAnim();

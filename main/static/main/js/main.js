@@ -69,6 +69,7 @@ var iiest = $("#iiest");
 var subMenuShown = false;
 var events = $("#events");
 var slideRight = ss(".sidebar-menu")[0];
+var body = $("body");
 
 function startAnim()
 {
@@ -124,7 +125,7 @@ function lockPageNone()
 
 setTimeout(function(){ startAnim(); }, 700);
 
-function lockpageUnlock()
+unlockBtn.onclick=function()
 {
 	window.scrollTo(0,0);
 	removeAmimation();
@@ -135,8 +136,7 @@ function lockpageUnlock()
 	startcanvas();
 	setTimeout(function(){
 		$("body").style.overflow = 'auto';	
-		$("body").style.overflowX = 'hidden';
-		animateTagline();		
+		$("body").style.overflowX = 'hidden';		
 	}, 500)
 }
 
@@ -170,50 +170,10 @@ $("#main-container").onclick = function(){
 	}
 }
 
-window.onkeydown = function(param){
-	var key = ('which' in param)?param.which:param.keyCode;
-	if(key == 13){
-		lockpageUnlock();
-	}
-}
-
-$("#unlock").onclick = function(){
-	lockpageUnlock();
-}
-
-function animateTagline(){
-	$('#tagline').classList.add('animateTagline');
-}
-
-function smoothScrollTo(param){
-	var numofsteps = 30;
-	var currentpos = -$('body').getBoundingClientRect().top;
-	var diff = Math.abs(currentpos - param)/(currentpos - param);
-	var step = Math.abs(currentpos - param)/numofsteps;
-
-	function scrollStep(curpos){
-		console.log(param);
-		console.log(curpos);
-		console.log(step);
-
-		if(curpos + step <= param){
-			window.scrollTo(0, curpos + step); 
-			setTimeout(function(){
-				scrollStep(curpos + step)
-			}, 8.33);
-		}
-	}
-	scrollStep(currentpos);
-}
-
-$('.all-event').onclick = function(){
-	smoothScrollTo($('.events').getBoundingClientRect().top);
-}
-
-// var canvasContainer = $(".container-canvas");
+var canvasContainer = $(".container-canvas");
 var percentScrolled=0;
 document.onscroll = function(){
-	percentScrolled = - $('body').getBoundingClientRect().top/window.innerHeight;
+	percentScrolled = -body.getBoundingClientRect().top/window.innerHeight;
 	if(percentScrolled >= .6)
 	{
 		stopAnim();
@@ -226,6 +186,42 @@ document.onscroll = function(){
 	{
 		// percentScrolled = (percentScrolled > 1)?1:percentScrolled;
 		$("canvas").style.opacity=""+(1-percentScrolled);
-		console.log("scrolled to "+ percentScrolled);
+		console.log("scrolled to "+percentScrolled);
 	}
+}
+
+$(".all-event").onclick = function()
+{
+	smoothScrollTo($(".events").getBoundingClientRect().top);
+}
+
+// var scrollSteps = 60;
+
+function scrollActually(count, pxsToMove)
+{
+	var stepSize = 10;
+	var sign = Math.abs(pxsToMove)/pxsToMove;
+	if (Math.abs(pxsToMove) > stepSize)
+	{
+		console.log(count);
+		window.scrollTo(0, Math.abs($('body').getBoundingClientRect().top) + stepSize*sign);
+		count++;
+		setTimeout(function()
+			{
+				scrollActually(count, pxsToMove - sign*stepSize);
+			}, 1);
+	}
+	else
+	{
+		window.scrollTo(0, Math.abs($('body').getBoundingClientRect().top)+pxsToMove);
+	}
+}
+
+
+
+function smoothScrollTo(pxToMove)
+{
+	var currPos = Math.abs($('body').getBoundingClientRect().top);
+	// var stepsInPx = pxToMove/scrollSteps;
+	scrollActually(0, pxToMove);
 }
