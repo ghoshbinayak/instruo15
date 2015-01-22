@@ -280,31 +280,6 @@ updateLoading();
         LIGHT.zOffset);
     }
 
-    // Animate Lights
-    // for (l = scene.lights.length - 1; l >= 0; l--) {
-    //   light = scene.lights[l];
-
-    //   // Reset the z position of the light
-    //   FSS.Vector3.setZ(light.position, LIGHT.zOffset);
-
-    //   // // Calculate the force Luke!
-    //   // var D = Math.clamp(FSS.Vector3.distanceSquared(light.position, attractor), LIGHT.minDistance, LIGHT.maxDistance);
-    //   // var F = LIGHT.gravity * light.mass / D;
-    //   // FSS.Vector3.subtractVectors(light.force, attractor, light.position);
-    //   // FSS.Vector3.normalise(light.force);
-    //   // FSS.Vector3.multiplyScalar(light.force, F);
-
-    //   // // Update the light position
-    //   // FSS.Vector3.set(light.acceleration);
-    //   // FSS.Vector3.add(light.acceleration, light.force);
-    //   // FSS.Vector3.add(light.velocity, light.acceleration);
-    //   // FSS.Vector3.multiplyScalar(light.velocity, LIGHT.dampening);
-    //   // FSS.Vector3.limit(light.velocity, LIGHT.minLimit, LIGHT.maxLimit);
-    //   // FSS.Vector3.add(light.position, light.velocity);
-    //   // console.log(light.position);
-    //   FSS.Vector3.setX(light.position, 100);
-    //   FSS.Vector3.setY(light.position, 200);
-    // }
     scene.lights[0].position = [2*sidebarOffset - renderer.width/2, -renderer.height/2, LIGHT.zOffset];
     scene.lights[1].position = [2*sidebarOffset - renderer.width/2, -renderer.height/2, LIGHT.zOffset];
     scene.lights[2].position = [renderer.width/2 - 2*sidebarOffset, -renderer.height/2, LIGHT.zOffset];
