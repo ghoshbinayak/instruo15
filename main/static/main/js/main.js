@@ -185,29 +185,48 @@ function animateTagline(){
 	$('#tagline').classList.add('animateTagline');
 }
 
-function smoothScrollTo(param){
-	var numofsteps = 30;
-	var currentpos = -$('body').getBoundingClientRect().top;
-	var diff = Math.abs(currentpos - param)/(currentpos - param);
-	var step = Math.abs(currentpos - param)/numofsteps;
+$(".all-event").onclick = function()
+{
+	smoothScrollTo($(".events").getBoundingClientRect().top);
+}
 
-	function scrollStep(curpos){
-		console.log(param);
-		console.log(curpos);
-		console.log(step);
+// var scrollSteps = 60;
 
-		if(curpos + step <= param){
-			window.scrollTo(0, curpos + step); 
-			setTimeout(function(){
-				scrollStep(curpos + step)
-			}, 8.33);
-		}
+function scrollActually(count, pxsToMove)
+{
+	var stepSize = 10;
+	var sign = Math.abs(pxsToMove)/pxsToMove;
+	if (Math.abs(pxsToMove) > stepSize)
+	{
+		console.log(count);
+		window.scrollTo(0, Math.abs($('body').getBoundingClientRect().top) + stepSize*sign);
+		count++;
+		setTimeout(function()
+			{
+				scrollActually(count, pxsToMove - sign*stepSize);
+			}, 1);
 	}
-	scrollStep(currentpos);
+	else
+	{
+		window.scrollTo(0, Math.abs($('body').getBoundingClientRect().top)+pxsToMove);
+	}
+}
+
+
+
+function smoothScrollTo(pxToMove)
+{
+	var currPos = Math.abs($('body').getBoundingClientRect().top);
+	// var stepsInPx = pxToMove/scrollSteps;
+	scrollActually(0, pxToMove);
 }
 
 $('.all-event').onclick = function(){
 	smoothScrollTo($('.events').getBoundingClientRect().top);
+}
+
+$('#home').onclick = function(){
+	smoothScrollTo($('body').getBoundingClientRect().top);
 }
 
 // var canvasContainer = $(".container-canvas");
