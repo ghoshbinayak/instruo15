@@ -15,6 +15,20 @@ function cRand(param1 ,param2)
 {
   return parseInt(Math.randomInRange(param1,param2));
 }
+
+
+var comR = cRand(50, 150), comG =  cRand(25, 50), comB = cRand(50, 150);
+
+updateLoading();
+
+function randomColor()
+{
+  comR = cRand(50, 150), comG =  cRand(25, 50), comB = cRand(50, 150);
+  MESH.ambient = rgbToHex(comR, comG, comB);
+  MESH.diffuse = rgbToHex(comR +25, comG+25, comB+25);
+  initialise();
+}
+
 updateLoading();
   var MESH = {
     width: 1.2,
@@ -25,14 +39,14 @@ updateLoading();
     xRange: 0.4,
     yRange: 0.1 ,
     zRange: 1.0,
-    ambient: '#461e3b',
-    diffuse: '#512153',
-    // ambient: rgbToHex(cRand(50, 100), cRand(0, 100), cRand(50, 100)),
-    // diffuse: rgbToHex(cRand(50, 100), cRand(0, 100), cRand(50, 100)),
+    // ambient: '#461e3b',
+    // diffuse: '#512153',
+    ambient: rgbToHex(cRand(50, 100), cRand(0, 100), cRand(50, 100)),
+    diffuse: rgbToHex(cRand(50, 100), cRand(0, 100), cRand(50, 100)),
     speed: 0.001
   };
 
-  mash = MESH;
+
   //------------------------------
   // Light Properties
   //------------------------------
@@ -373,5 +387,6 @@ updateLoading();
 
 
   // Let there be light!
+  randomColor();
   initialise();
   stopAnim();

@@ -572,10 +572,10 @@ body
 
 .text-is-here
 {
-    -webkit-transform: translateX(-100%);
-    -ms-transform: translateX(-100%);
-    -o-transform: translateX(-100%);
-    transform: translateX(-100%);
+    -webkit-transform: translateX(-110%);
+    -ms-transform: translateX(-110%);
+    -o-transform: translateX(-110%);
+    transform: translateX(-110%);
 
     /*opacity: 0;*/
 }
@@ -649,4 +649,210 @@ body
     -webkit-transition-delay: 3s;
     -o-transition-delay: 3s;
     transition-delay: 3s;
+}
+
+
+/* The big day */
+.wrapper-date
+{
+    width: 300px;
+    height: 100px;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    perspective:35em;
+    -webkit-user-select:none;
+    cursor: pointer;
+}
+
+.wrapper-date:hover .date-1
+{
+    -webkit-transform: rotateY(-15deg);
+    -ms-transform: rotateY(-15deg);
+    -o-transform: rotateY(-15deg);
+    transform: rotateY(-15deg);
+}
+
+.wrapper-date:hover .date-2
+{
+    -webkit-transform: scale(1,1);
+    -ms-transform: scale(1,1);
+    -o-transform: scale(1,1);
+    transform: scale(1,1);
+}
+
+.wrapper-date:hover .date-3
+{
+    -webkit-transform: rotateY(15deg);
+    -ms-transform: rotateY(15deg);
+    -o-transform: rotateY(15deg);
+    transform: rotateY(15deg);
+}
+
+
+.date
+{
+    position: absolute;
+    width: 33.33%;
+    height: 100%;
+    
+    -webkit-transition-timing-function: linear;
+    -o-transition-timing-function: linear;
+    transition-timing-function: linear;
+    transition: 0.5s all;
+
+    overflow: hidden;
+}
+
+.date-1
+{
+    left: 0;
+    background-color: cyan;
+    
+    transform: translateX(50.5%);
+    transform-origin: right;
+}
+
+.date-2
+{
+    left: 33.33%;
+    background-color: darkcyan;
+    z-index: -5;
+
+    -webkit-transform: scale(0,1);
+    -ms-transform: scale(0,1);
+    -o-transform: scale(0,1);
+    transform: scale(0,1);
+}
+
+.date-3
+{
+    left: 66.66%;
+    background-color: cyan;
+
+    transform: translateX(-50.5%);
+    transform-origin: left;
+}
+
+.date-text
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    font-size: 2em;
+    color: rgb(70,70,70);
+}
+
+.date-2 .date-text
+{
+    color: lightgray;
+}
+
+.date-connector
+{
+    position: absolute;
+    z-index: -5;
+    width: 100%;
+    height: 2px;
+    top: 50%;
+    /*-webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);*/
+
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    transition: 0.5s all;
+}
+
+/*.wrapper-date:hover .date-1 .date-connector,.wrapper-date:hover .date-3 .date-connector
+{
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+}
+*/
+.date-1 .date-connector,.date-3 .date-connector
+{
+    -webkit-transform: scaleX(0.2);
+    -ms-transform: scaleX(0.2);
+    -o-transform: scaleX(0.2);
+    transform: scaleX(0.2);
+    
+    background-color: rgb(70,70,70);
+}
+
+.date-1 .date-connector
+{
+    right: 0;
+    -webkit-transform-origin: right;
+    -moz-transform-origin: right;
+    -ms-transform-origin: right;
+    -o-transform-origin: right;
+    transform-origin: right;
+}
+
+.date-3 .date-connector
+{
+    left: 0;
+    -webkit-transform-origin: left;
+    -moz-transform-origin: left;
+    -ms-transform-origin: left;
+    -o-transform-origin: left;
+    transform-origin: left;
+}
+
+.date-2 .date-connector
+{
+
+    background-color: lightgray;
+}
+
+.date-month
+{
+    position: absolute;
+    font-size: 2em;
+    bottom: 0.2em;
+
+}
+
+.date-2 .date-month
+{
+    color: lightgray;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.date-1 .date-month
+{
+    left: 100%;
+    color: rgb(70,70,70);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.date-3 .date-month
+{
+    right: 100%;
+    color: rgb(70,70,70);
+    -webkit-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    -o-transform: translateX(50%);
+    transform: translateX(50%);
 }
