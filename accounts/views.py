@@ -178,7 +178,7 @@ def logout(request):
 #         code = request.GET['code']
 #         pprint(code)
 #         try:
-#             # Upgrade the authorization code into a credentials object
+# Upgrade the authorization code into a credentials object
 #             oauth_flow = flow_from_clientsecrets(
 #                 BASE_DIR + '/accounts/client_secrets.json', scope='')
 #             oauth_flow.redirect_uri = 'http://localhost:8000/accounts/googlesignin'
@@ -329,16 +329,17 @@ def profile_edit(request):
         form = forms.ProfileEditForm(request.POST)
         if form.is_valid():
             user.profile.phone = form.cleaned_data.get('phone')
-            user.profile.department = form.cleaned_data.get('department')
-            user.profile.facebook_link = form.cleaned_data.get('facebook')
-            user.profile.batch_of = form.cleaned_data.get('batch_of')
+            # user.profile.department = form.cleaned_data.get('department')
+            if user.is_organiser:
+                user.profile.facebook_link = form.cleaned_data.get('facebook')
+            # user.profile.batch_of = form.cleaned_data.get('batch_of')
             user.profile.save()
         return HttpResponseRedirect(reverse('accounts:profile'))
     else:
         initial = {}
         initial['phone'] = user.profile.phone
-        initial['department'] = user.profile.department
-        initial['batch_of'] = user.profile.batch_of
-        initial['facebook'] = user.profile.facebook_link
+        # initial['department'] = user.profile.department
+        if user.is_organiser:
+            initial['facebook'] = user.organiserprofile.facebook_url
         form = forms.ProfileEditForm(initial=initial)
         return render(request, 'accounts/profile_edit.html', {'form': form})

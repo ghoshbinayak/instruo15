@@ -3,17 +3,20 @@
 {% load staticfiles %}
 
 {% block css %}	
-<link rel="stylesheet" type="text/css" href="{% static 'events/editor.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'events/bootstrap-datetimepicker.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'events/css/editor.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'events/css/bootstrap.min.css'%}">
+<link rel="stylesheet" type="text/css" href="{% static 'events/css/bootstrap-datetimepicker.min.css' %}">
 {% endblock %}
 
 {% block scripts %}
 {{block.super}}
-<script src="{% static 'main/jquery.form.min.js' %}" type="text/javascript"></script>
-<script src="{% static 'main/tinymce/jquery.tinymce.min.js' %}" type="text/javascript"></script>
-<script src="{% static 'events/editor.js' %}" type="text/javascript"></script>
-<script type="text/javascript" src="{% static 'events/moment.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'events/bootstrap-datetimepicker.min.js' %}"></script>
+<script src="{% static 'events/js/jquery.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'events/js/jquery.form.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'events/tinymce/jquery.tinymce.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'events/js/editor.js' %}" type="text/javascript"></script>
+<script type="text/javascript" src="{% static 'events/js/moment.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'events/js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'events/js/bootstrap-datetimepicker.min.js' %}"></script>
 {% endblock%}
 
 {% block profile-info %}

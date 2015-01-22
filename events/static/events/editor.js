@@ -45,7 +45,7 @@ var enable_submit = function() {
 
 $(document).ready(function(){
         var poster = $("#id_cover_image_link").val();
-        $("#form-background").css({"background-image": "url(" + poster + ")",});
+        $("#form-background").css({"background-image": (poster!="")?"url(" + poster + ")":"none",});
         $("#photo_uploader").hide();
         $("#poster_uploader").hide();
         $("#id_cover_image_link").hide();

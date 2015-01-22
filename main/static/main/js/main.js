@@ -216,6 +216,7 @@ function scrollActually(count, pxsToMove)
 
 function smoothScrollTo(pxToMove)
 {
+	// stopAnim();
 	var currPos = Math.abs($('body').getBoundingClientRect().top);
 	// var stepsInPx = pxToMove/scrollSteps;
 	scrollActually(0, pxToMove);
@@ -233,7 +234,7 @@ $('#home').onclick = function(){
 var percentScrolled=0;
 document.onscroll = function(){
 	percentScrolled = - $('body').getBoundingClientRect().top/window.innerHeight;
-	if(percentScrolled >= .6)
+	if(percentScrolled >= .01)
 	{
 		stopAnim();
 	}

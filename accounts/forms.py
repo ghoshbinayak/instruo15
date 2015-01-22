@@ -93,6 +93,6 @@ BATCH_CHOICES = [('2000', '2000'), ('2001', '2001'), ('2002', '2002'),
 class ProfileEditForm(django_forms.Form):
     phone = django_forms.CharField(max_length=10, required=False)
     facebook = django_forms.CharField(max_length=100, required=False)
-    department = django_forms.ChoiceField(
-        required=False, widget=Select, choices=DEPT_CHOICES)
-    batch_of = django_forms.ChoiceField(choices=BATCH_CHOICES, required=False)
+    # department = django_forms.ChoiceField(
+    #     required=False, widget=Select, choices=DEPT_CHOICES)
+    # batch_of = django_forms.ChoiceField(choices=BATCH_CHOICES, required=False)
