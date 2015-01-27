@@ -53,31 +53,31 @@
 			<!-- The big day -->
 			<div class="wrapper-date">
 				<div class="date date-1">
-				    <div class="date-text">
-				        3
-				    </div>
-				    <div class="date-month">
-				        April
-				    </div>
-				    <div class="date-connector"></div>
+					<div class="date-text">
+						3
+					</div>
+					<div class="date-month">
+						April
+					</div>
+					<div class="date-connector"></div>
 				</div>
 				<div class="date date-2">
-				    <div class="date-text">
-				        4
-				    </div>
+					<div class="date-text">
+						4
+					</div>
 				    <!-- <div class="date-month">
 				        April
 				    </div> -->
 				    <div class="date-connector"></div>
 				</div>
 				<div class="date date-3">
-				    <div class="date-text">
-				        5
-				    </div>
-				    <div class="date-month">
-				        April
-				    </div>
-				    <div class="date-connector"></div>
+					<div class="date-text">
+						5
+					</div>
+					<div class="date-month">
+						April
+					</div>
+					<div class="date-connector"></div>
 				</div>
 			</div>
 
@@ -85,6 +85,16 @@
 	</div>
 
 	<div class="events"></div>
+	<div id="contacts-container">
+		{% include "main/contacts.html" %}
+	</div>
+	<div id="location-container">
+	<h2 class="location-heading">Come join us at IIEST</h2>
+		<iframe class="location-gmaps" 
+		frameborder="0" style="border:0"
+		src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDyjFcbQbCn48QHVsK-ax6Rh8lvtKHLEzk&q=iiest+shibpur&zoom=15">
+		</iframe>
+	</div>
 </div>
 {% endblock %}
 

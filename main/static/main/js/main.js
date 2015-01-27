@@ -69,6 +69,11 @@ var iiest = $("#iiest");
 var subMenuShown = false;
 var events = $("#events");
 var slideRight = ss(".sidebar-menu")[0];
+// var detailed = $(".contacts-detailed-info");
+// var min = $(".contacts-min-name");
+var contactDetailShown = false;
+var minImg = ss(".contacts-min-img");
+minImg = Array.prototype.slice.call(minImg,0);
 
 function startAnim()
 {
@@ -168,6 +173,18 @@ $("#main-container").onclick = function(){
 	if(subMenuShown){
 		hideSidebarMenu();
 	}
+
+	if(contactDetailShown){
+		minImg.forEach(function(el){
+			var parent = el.parentElement;
+			var children = parent.children;
+			children[0].classList.remove("contacts-detail-shown");
+			children[2].classList.remove("contacts-min-hidden");
+			children[1].classList.remove("contacts-min-img-small");
+			console.log("dguit");
+		});
+		contactDetailShown = false;		
+	}
 }
 
 window.onkeydown = function(param){
@@ -230,6 +247,16 @@ $('#home').onclick = function(){
 	smoothScrollTo($('body').getBoundingClientRect().top);
 }
 
+$('#sidebar-location').onclick = function(){
+	smoothScrollTo($('#location-container').getBoundingClientRect().top);
+}
+
+$('#sidebar-contacts').onclick = function(){
+	smoothScrollTo($('#contacts-container').getBoundingClientRect().top);
+}
+
+
+
 // var canvasContainer = $(".container-canvas");
 var percentScrolled=0;
 document.onscroll = function(){
@@ -246,6 +273,27 @@ document.onscroll = function(){
 	{
 		// percentScrolled = (percentScrolled > 1)?1:percentScrolled;
 		$("canvas").style.opacity=""+(1-percentScrolled);
-		console.log("scrolled to "+ percentScrolled);
+		// console.log("scrolled to "+ percentScrolled);
+	}
+	else {
+		$("canvas").style.opacity="0";
 	}
 }
+
+
+minImg.forEach(function(el){
+	el.onclick = function(){
+		var parent = el.parentElement;
+		var children = parent.children;
+		children[0].classList.add("contacts-detail-shown");
+		children[2].classList.add("contacts-min-hidden");
+		children[1].classList.add("contacts-min-img-small");
+		if(!contactDetailShown) {		
+			setTimeout(function()
+			{
+				// console.log("blue");
+				contactDetailShown = true;
+			},1);
+		}
+	}
+});
