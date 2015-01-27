@@ -1,0 +1,22 @@
+
+<h2 class="contacts-heading">And here's the team!</h2>
+{% for x in  numofcontacts %}
+		<!-- <div id="topbar1"> -->
+			<div class="contacts-member">
+				<div class="contacts-detailed-info">
+					<div class="contacts-detailed-name">Anonymous</div>
+					<div class="contacts-about-person">Lazy lad</div>
+					<div class="contacts-phone-number">1800-5299-523</div>
+					<div class="contacts-goog">
+						<a href="contacts-mailto:anon@anonymous.an"></a>
+					</div>
+					<div class="contacts-fb"></div>
+				</div>
+				<div class="contacts-min-img" style="background-image: url('/static/main/img/face ({{x}}).jpg')"></div>
+				<div class="contacts-min-name">Anonymous</div>
+			</div>
+		<!-- </div> -->
+{% endfor %}
+<div class="float-fix">
+	
+</div>
