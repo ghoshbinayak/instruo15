@@ -8,7 +8,7 @@
             {% set cur_event=events[ev_order[event_index]-1] %}
                 <div class="event-shape-perm"></div>
                 <!-- <div class="event-shape-scale"></div> -->
-                <div class="event-attract" style="background-image: url('img/{{cur_event.attract_bg}}.png');">
+                <div class="event-attract" style="background-image: url('{{cur_event.poster}}');">
                     <div class="event-tag">
                         <div class="tag-text">
                             {{ cur_event.tag_text_short }}

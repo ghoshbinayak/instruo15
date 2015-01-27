@@ -25,13 +25,13 @@ window.onload =function () {
     data={}
     data.events=[
                     {
-                        "tag_text_short":"Gen. Quiz",
+                        "tag_text_short":"General",
                         "tag_text_full":"General Quiz",
                         "dict_date_text":{15:true,16:true,17:true},
-                        "name_text":"Gru-botics Mega",
+                        "name_text":"Prashnavali",
                         "preview_details_text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rem alias, nostrum consequatur repellendus delectus eius, voluptatem dolor commodi ipsam mollitia dolore. Optio perspiciatis nesciunt culpa omnis quos, recusandae odio. Debitis sequi error, minima laboriosam eveniet id consequuntur veniam, dolores voluptatum corporis repudiandae quae explicabo officia, nam! Tempore, vero, totam.",
-                        "prize_money":"50K",
-                        "attract_bg": 1,
+                        "prize_money":"",
+                        "poster": 1,
                         
                         "shape_before_trf_x":rand_range(-35, 35),
                         "shape_before_trf_y":rand_range(-35, 35),
@@ -50,13 +50,13 @@ window.onload =function () {
 
                     },
                     {
-                        "tag_text_short":"Rbtx",
+                        "tag_text_short":"Robotics",
                         "tag_text_full":"Robotics 1",
                         "dict_date_text":{15:true,16:false,17:true},
                         "name_text":"Gru-botics Mega",
                         "preview_details_text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rem alias, nostrum consequatur repellendus delectus eius, voluptatem dolor commodi ipsam mollitia dolore. Optio perspiciatis nesciunt culpa omnis quos, recusandae odio. Debitis sequi error, minima laboriosam eveniet id consequuntur veniam, dolores voluptatum corporis repudiandae quae explicabo officia, nam! Tempore, vero, totam.",
                         "prize_money":"50K",
-                        "attract_bg": 2,
+                        "poster": 2,
                         
                         "shape_before_trf_x":rand_range(-35, 35),
                         "shape_before_trf_y":rand_range(-35, 35),
@@ -81,7 +81,7 @@ window.onload =function () {
                         "name_text":"Gru-botics Mega",
                         "preview_details_text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rem alias, nostrum consequatur repellendus delectus eius, voluptatem dolor commodi ipsam mollitia dolore. Optio perspiciatis nesciunt culpa omnis quos, recusandae odio. Debitis sequi error, minima laboriosam eveniet id consequuntur veniam, dolores voluptatum corporis repudiandae quae explicabo officia, nam! Tempore, vero, totam.",
                         "prize_money":"50K",
-                        "attract_bg": 3,
+                        "poster": 3,
                         
                         "shape_before_trf_x":rand_range(-35, 35),
                         "shape_before_trf_y":rand_range(-35, 35),
@@ -106,7 +106,7 @@ window.onload =function () {
                         "name_text":"Gru-botics Mega",
                         "preview_details_text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rem alias, nostrum consequatur repellendus delectus eius, voluptatem dolor commodi ipsam mollitia dolore. Optio perspiciatis nesciunt culpa omnis quos, recusandae odio. Debitis sequi error, minima laboriosam eveniet id consequuntur veniam, dolores voluptatum corporis repudiandae quae explicabo officia, nam! Tempore, vero, totam.",
                         "prize_money":"50K",
-                        "attract_bg": 4,
+                        "poster": 4,
                         
                         "shape_before_trf_x":rand_range(-35, 35),
                         "shape_before_trf_y":rand_range(-35, 35),
@@ -125,13 +125,13 @@ window.onload =function () {
 
                     },
                     {
-                        // "tag_text_short":"Gen. Quiz",
-                        // "tag_text_full":"General Quiz",
-                        // "dict_date_text":{15:true,16:true,17:true},
-                        // "name_text":"Gru-botics Mega",
-                        // "preview_details_text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rem alias, nostrum consequatur repellendus delectus eius, voluptatem dolor commodi ipsam mollitia dolore. Optio perspiciatis nesciunt culpa omnis quos, recusandae odio. Debitis sequi error, minima laboriosam eveniet id consequuntur veniam, dolores voluptatum corporis repudiandae quae explicabo officia, nam! Tempore, vero, totam.",
-                        // "prize_money":"50K",
-                        // "attract_bg": 1,
+                        "tag_text_short":"Gen. Quiz",
+                        "tag_text_full":"General Quiz",
+                        "dict_date_text":{15:true,16:true,17:true},
+                        "name_text":"Gru-botics Mega",
+                        "preview_details_text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rem alias, nostrum consequatur repellendus delectus eius, voluptatem dolor commodi ipsam mollitia dolore. Optio perspiciatis nesciunt culpa omnis quos, recusandae odio. Debitis sequi error, minima laboriosam eveniet id consequuntur veniam, dolores voluptatum corporis repudiandae quae explicabo officia, nam! Tempore, vero, totam.",
+                        "prize_money":"50K",
+                        "poster": 1,
                         
                         "shape_before_trf_x":rand_range(-35, 35),
                         "shape_before_trf_y":rand_range(-35, 35),
@@ -150,13 +150,13 @@ window.onload =function () {
 
                     },
                     {
-                        // "tag_text_short":"Gen. Quiz",
-                        // "tag_text_full":"General Quiz",
-                        // "dict_date_text":{15:true,16:true,17:true},
-                        // "name_text":"Gru-botics Mega",
-                        // "preview_details_text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rem alias, nostrum consequatur repellendus delectus eius, voluptatem dolor commodi ipsam mollitia dolore. Optio perspiciatis nesciunt culpa omnis quos, recusandae odio. Debitis sequi error, minima laboriosam eveniet id consequuntur veniam, dolores voluptatum corporis repudiandae quae explicabo officia, nam! Tempore, vero, totam.",
-                        // "prize_money":"50K",
-                        // "attract_bg": 1,
+                        "tag_text_short":"Gen. Quiz",
+                        "tag_text_full":"General Quiz",
+                        "dict_date_text":{15:true,16:true,17:true},
+                        "name_text":"Gru-botics Mega",
+                        "preview_details_text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rem alias, nostrum consequatur repellendus delectus eius, voluptatem dolor commodi ipsam mollitia dolore. Optio perspiciatis nesciunt culpa omnis quos, recusandae odio. Debitis sequi error, minima laboriosam eveniet id consequuntur veniam, dolores voluptatum corporis repudiandae quae explicabo officia, nam! Tempore, vero, totam.",
+                        "prize_money":"50K",
+                        "poster": 1,
                         
                         "shape_before_trf_x":rand_range(-35, 35),
                         "shape_before_trf_y":rand_range(-35, 35),
@@ -175,13 +175,13 @@ window.onload =function () {
 
                     },
                     {
-                        // "tag_text_short":"Gen. Quiz",
-                        // "tag_text_full":"General Quiz",
-                        // "dict_date_text":{15:true,16:true,17:true},
-                        // "name_text":"Gru-botics Mega",
-                        // "preview_details_text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rem alias, nostrum consequatur repellendus delectus eius, voluptatem dolor commodi ipsam mollitia dolore. Optio perspiciatis nesciunt culpa omnis quos, recusandae odio. Debitis sequi error, minima laboriosam eveniet id consequuntur veniam, dolores voluptatum corporis repudiandae quae explicabo officia, nam! Tempore, vero, totam.",
-                        // "prize_money":"50K",
-                        // "attract_bg": 1,
+                        "tag_text_short":"Gen. Quiz",
+                        "tag_text_full":"General Quiz",
+                        "dict_date_text":{15:true,16:true,17:true},
+                        "name_text":"Gru-botics Mega",
+                        "preview_details_text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rem alias, nostrum consequatur repellendus delectus eius, voluptatem dolor commodi ipsam mollitia dolore. Optio perspiciatis nesciunt culpa omnis quos, recusandae odio. Debitis sequi error, minima laboriosam eveniet id consequuntur veniam, dolores voluptatum corporis repudiandae quae explicabo officia, nam! Tempore, vero, totam.",
+                        "prize_money":"50K",
+                        "poster": 1,
                         
                         "shape_before_trf_x":rand_range(-35, 35),
                         "shape_before_trf_y":rand_range(-35, 35),
@@ -200,13 +200,13 @@ window.onload =function () {
 
                     },
                     {
-                        // "tag_text_short":"Gen. Quiz",
-                        // "tag_text_full":"General Quiz",
-                        // "dict_date_text":{15:true,16:true,17:true},
-                        // "name_text":"Gru-botics Mega",
-                        // "preview_details_text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rem alias, nostrum consequatur repellendus delectus eius, voluptatem dolor commodi ipsam mollitia dolore. Optio perspiciatis nesciunt culpa omnis quos, recusandae odio. Debitis sequi error, minima laboriosam eveniet id consequuntur veniam, dolores voluptatum corporis repudiandae quae explicabo officia, nam! Tempore, vero, totam.",
-                        // "prize_money":"50K",
-                        // "attract_bg": 1,
+                        "tag_text_short":"Gen. Quiz",
+                        "tag_text_full":"General Quiz",
+                        "dict_date_text":{15:true,16:true,17:true},
+                        "name_text":"Gru-botics Mega",
+                        "preview_details_text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rem alias, nostrum consequatur repellendus delectus eius, voluptatem dolor commodi ipsam mollitia dolore. Optio perspiciatis nesciunt culpa omnis quos, recusandae odio. Debitis sequi error, minima laboriosam eveniet id consequuntur veniam, dolores voluptatum corporis repudiandae quae explicabo officia, nam! Tempore, vero, totam.",
+                        "prize_money":"50K",
+                        "poster": 1,
                         
                         "shape_before_trf_x":rand_range(-35, 35),
                         "shape_before_trf_y":rand_range(-35, 35),
@@ -225,13 +225,13 @@ window.onload =function () {
 
                     },
                     {
-                        // "tag_text_short":"Gen. Quiz",
-                        // "tag_text_full":"General Quiz",
-                        // "dict_date_text":{15:true,16:true,17:true},
-                        // "name_text":"Gru-botics Mega",
-                        // "preview_details_text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rem alias, nostrum consequatur repellendus delectus eius, voluptatem dolor commodi ipsam mollitia dolore. Optio perspiciatis nesciunt culpa omnis quos, recusandae odio. Debitis sequi error, minima laboriosam eveniet id consequuntur veniam, dolores voluptatum corporis repudiandae quae explicabo officia, nam! Tempore, vero, totam.",
-                        // "prize_money":"50K",
-                        // "attract_bg": 1,
+                        "tag_text_short":"Gen. Quiz",
+                        "tag_text_full":"General Quiz",
+                        "dict_date_text":{15:true,16:true,17:true},
+                        "name_text":"Gru-botics Mega",
+                        "preview_details_text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel rem alias, nostrum consequatur repellendus delectus eius, voluptatem dolor commodi ipsam mollitia dolore. Optio perspiciatis nesciunt culpa omnis quos, recusandae odio. Debitis sequi error, minima laboriosam eveniet id consequuntur veniam, dolores voluptatum corporis repudiandae quae explicabo officia, nam! Tempore, vero, totam.",
+                        "prize_money":"50K",
+                        "poster": 1,
                         
                         "shape_before_trf_x":rand_range(-35, 35),
                         "shape_before_trf_y":rand_range(-35, 35),
@@ -323,7 +323,7 @@ window.onload =function () {
                             events_ele.classList.add(str_preview_on)
                         }
                         // todo - pass ele name
-                        request_details(cur_ele)
+                        // request_details(cur_ele)
                     }
                 }
             })();
