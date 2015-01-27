@@ -2,12 +2,13 @@ from django.shortcuts import render
 from events.forms import EventPostForm
 import uuid
 import os
+import json
 from django.utils import timezone
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.conf import settings
 from accounts.models import Organiser
-from events.models import event
+from events.models import event, category
 from events.models import event_list
 
 
@@ -47,6 +48,8 @@ def new(request):
             coordinator1 = Organiser.objects.get(email=request.user.email)
             coordinator2 = Organiser.objects.get(
                 email=form.cleaned_data['second_coordinator'])
+            cat = form.cleaned_data['category']
+            cat = category.objects.get(name=cat)
             new_event = event(
                 uuid=event_id,
                 f_uuid=event_id,
@@ -74,7 +77,9 @@ def new(request):
             new_event.save()
             entry = event_list(f_uuid=event_id,
                                c_uuid=new_event,
-                               l_uuid=new_event)
+                               l_uuid=new_event,
+                               category=cat,
+                               )
             entry.save()
             return render(request, 'events/index.html',
                           {'events': [new_event]})
@@ -103,8 +108,11 @@ def edit(request):
             form.clean()
             title = form.cleaned_data['title']
             description = form.cleaned_data['description']
+            cat = form.cleaned_data['category']
+            cat = category.objects.get(name=cat)
             time = form.cleaned_data['time']
-            coordinator1 = request.user
+            coordinator1 = Organiser.objects.get(
+                email=request.user.email)
             coordinator2 = Organiser.objects.get(
                 email=form.cleaned_data['second_coordinator'])
             try:
@@ -145,6 +153,7 @@ def edit(request):
                 new_event.cover_image_link = cover_image_link
             new_event.save()
             requested_event.l_uuid = new_event
+            requested_event.category = cat
             requested_event.save()
             return render(request, 'events/index.html', {'events': [new_event]})
         else:
@@ -174,6 +183,8 @@ def edit(request):
         initial['time'] = requested_event.time.strftime("%d/%m/%Y %I:%M %p")
         initial['volunteer1'] = requested_event.volunteer1
         initial['volunteer2'] = requested_event.volunteer2
+        initial['category'] = requested_event.category
+        initial['short_description'] = requested_event.short_description
         if request.user == requested_event.coordinator1:
             initial['second_coordinator'] = requested_event.coordinator2
         else:
@@ -191,5 +202,66 @@ def delete(request):
 
 
 def show(request):
-    events = event_list.objects.all()
-    return render(request, 'events/index.html', {'events': events})
+    if request.is_ajax:
+        # for a particular event
+        if 'category' in request.GET:
+            requseted_category = request.GET['category']
+            try:
+                requseted_category =category.objects.get(name=requseted_category)
+                requested_events = requseted_category.event_list_set.all()
+                json_response = []
+                for e in requested_events:
+                    json_response.append(json.dumps({
+                                     'id': str(e.f_uuid),
+                                     'tag_text_short': str(e.category),
+                                     'name_text': str(e.c_uuid.title),
+                                     'preview_details_text': str(e.c_uuid.short_description),
+                                     'prize_money': 'lots',
+                                     'poster': str(e.c_uuid.cover_image_link)
+                                     }))
+                json_response = json.dumps(json_response)
+                return HttpResponse(json_response,
+                                    content_type='application/json')
+            except category.DoesNotExist:
+                json_response = json.dumps({
+                    'status': 400, 'message': 'category does not exist.'})
+                return HttpResponse(json_response,
+                                    content_type='application/json')
+        elif 'id' in request.GET:
+            id = request.GET['id']
+            try:
+                requested_event = event_list.objects.get(f_uuid=id)
+                json_response = json.dumps({
+                    'status': 200,
+                    'id': str(requested_event.c_uuid.f_uuid),
+                    'tag_text_short': str(requested_event.category),
+                    'name_text': str(requested_event.c_uuid.title),
+                    'preview_details_text': str(requested_event.c_uuid.short_description),
+                    'prize_money': 'lots',
+                    'poster': str(requested_event.c_uuid.cover_image_link),
+                    'description': str(requested_event.c_uuid.description)
+                    })
+                return HttpResponse(json_response,
+                                    content_type='application/json')
+            except event_list.DoesNotExist:
+                json_response = json.dumps({
+                    'status': 400, 'message': 'event does not exist.'})
+                return HttpResponse(json_response,
+                                    content_type='application/json')
+        else:
+            all_events = event_list.objects.all()
+            json_response = []
+            for e in all_events:
+                json_response.append(json.dumps({
+                                 'id': str(e.f_uuid),
+                                 'tag_text_short': str(e.category),
+                                 'name_text': str(e.c_uuid.title),
+                                 'preview_details_text': str(e.c_uuid.short_description),
+                                 'prize_money': 'lots',
+                                 'poster': str(e.c_uuid.cover_image_link)
+                                 }))
+            json_response = json.dumps(json_response)
+            return HttpResponse(json_response, content_type='application/json')
+    else:
+        events = event_list.objects.all()
+        return render(request, 'events/index.html', {'events': events})

@@ -3,6 +3,12 @@ from accounts.models import Organiser
 from django.utils import timezone
 import bleach
 import re
+from django.forms.widgets import Select
+from events.models import category
+
+# CATEGORIES = ('', '')
+# for cata in category.objects.all():
+#     CATEGORIES = CATEGORIES, (cata.id, cata.name)
 
 
 class EventPostForm(django_forms.Form):
@@ -25,6 +31,11 @@ class EventPostForm(django_forms.Form):
         max_length=256,
         widget=django_forms.TextInput(
             attrs={'placeholder': 'Location of the Event.'}))
+    # category = django_forms.ChoiceField(required=True, widget=Select,
+    # choices=category.objects.values_list('id', 'name'))
+    category = django_forms.ModelChoiceField(
+        queryset=category.objects.all(), required=True, empty_label=None)
+    short_description = django_forms.CharField(widget=django_forms.Textarea)
     description = django_forms.CharField(widget=django_forms.Textarea)
     second_coordinator = django_forms.EmailField(
         widget=django_forms.EmailInput(

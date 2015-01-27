@@ -2,6 +2,16 @@ from django.db import models
 from accounts.models import Organiser
 
 
+class category(models.Model):
+
+    """model cotaining the category names"""
+    name = models.CharField(max_length=100, default="uncatagorised")
+    description = models.TextField()
+
+    def __unicode__(self):
+        return self.name
+
+
 class event(models.Model):
 
     """an event instance"""
@@ -12,6 +22,7 @@ class event(models.Model):
     cover_image_link = models.CharField(max_length=256)
     time = models.DateTimeField()
     location = models.CharField(max_length=256)
+    short_description = models.TextField()
     description = models.TextField()
     coordinator1 = models.ForeignKey(
         Organiser, related_name='event_coordinator1')
@@ -26,7 +37,7 @@ class event(models.Model):
     announcements = models.TextField(default="NONE", blank=True)
 
     def __unicode__(self):
-        return self.title
+        return 'fuuid: ' + self.f_uuid + ' uuid: ' + self.uuid
 
 
 class event_list(models.Model):
@@ -38,5 +49,9 @@ class event_list(models.Model):
     c_uuid = models.ForeignKey(event, related_name='approved_event_current')
     # uuid of latest event instance
     l_uuid = models.ForeignKey(event, related_name='approved_event_latest')
+    category = models.ForeignKey(category, default=1)
     published = models.BooleanField(default=False)
     timestamp = models.DateTimeField(auto_now=True)  # time last updated
+
+    def __unicode__(self):
+        return self.c_uuid.title
