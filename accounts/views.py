@@ -331,13 +331,16 @@ def profile_edit(request):
             user.profile.phone = form.cleaned_data.get('phone')
             # user.profile.department = form.cleaned_data.get('department')
             if user.is_organiser:
-                user.profile.facebook_link = form.cleaned_data.get('facebook')
+                user.organiserprofile.facebook_url = form.cleaned_data.get('facebook')
             # user.profile.batch_of = form.cleaned_data.get('batch_of')
             user.profile.save()
+            user.organiserprofile.save()
         return HttpResponseRedirect(reverse('accounts:profile'))
     else:
         initial = {}
         initial['phone'] = user.profile.phone
+        if user.is_organiser:
+          initial['facebook'] = user.organiserprofile.facebook_url
         # initial['department'] = user.profile.department
         if user.is_organiser:
             initial['facebook'] = user.organiserprofile.facebook_url
