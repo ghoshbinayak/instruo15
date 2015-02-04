@@ -870,6 +870,7 @@ body
     padding-left: 12vw;
     padding-right: 8vw;
     min-height: 100vh;
+    font-size: 1.4vw;
 }
 
 #contacts-topbar1
@@ -891,8 +892,8 @@ body
 {
     z-index: 15;
     position: absolute;
-    width: 8em;
-    height: 8em;
+    width: 10vw;
+    height: 10vw;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
@@ -1099,9 +1100,10 @@ body
     margin-left: 7vw;
     width: 90vw;
     height: 110vh;
+
 }
 
-iframe.location-gmaps {
+.location-gmaps {
     width: 90%;
     height: 80%;
     margin-top: 3vh;
@@ -1115,4 +1117,46 @@ h2 {
     font-family: sans-serif;
     color: #444;
     font-size: 3em;
+}
+
+
+/* sponsors page */
+#sponsors-container *
+{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.sponsors-headline
+{
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+#sponsors-container
+{
+    background-color: #fff;
+    width: 80vw;
+    padding-left: 12vw;
+    padding-right: 8vw;
+    min-height: 100vh;
+    font-size: 1.4vw;
+    clear: both;
+}
+
+.sponsor {
+    width: 11.33vw;
+    margin: 4vw;
+    float: left;
+    height: 11.33vw;
+}
+
+.sponsor-logo {
+    width: 100%;
+}
+
+#event-container, #sponsors-container, #location-container, #contacts-container {
+    margin-top: 10vh;
 }

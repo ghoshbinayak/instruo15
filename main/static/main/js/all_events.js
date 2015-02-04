@@ -274,57 +274,57 @@ window.onload =function () {
                 if (cur_ele.preview_button)
                 {
 
-                    cur_ele.preview_button.onclick = function (ev)
-                    {
-                        if (last_zoomed && last_zoomed!==cur_ele)
-                        {
-                            var list_c=last_zoomed.classList
-                            if (list_c.contains(str_event_preview_on))
-                            {
-                                list_c.remove(str_event_preview_on)
+                    // cur_ele.preview_button.onclick = function (ev)
+                    // {
+                    //     if (last_zoomed && last_zoomed!==cur_ele)
+                    //     {
+                    //         var list_c=last_zoomed.classList
+                    //         if (list_c.contains(str_event_preview_on))
+                    //         {
+                    //             list_c.remove(str_event_preview_on)
 
-                            }
-                            if (list_c.contains(str_event_preview_off))
-                            {
-                                list_c.remove(str_event_preview_off)
+                    //         }
+                    //         if (list_c.contains(str_event_preview_off))
+                    //         {
+                    //             list_c.remove(str_event_preview_off)
 
-                            }
-                        }
+                    //         }
+                    //     }
 
-                        last_zoomed = cur_ele
-                        var list_c=cur_ele.classList
-                        if (list_c.contains(str_event_preview_on))
-                        {
-                            list_c.remove(str_event_preview_on)
-                            list_c.add(str_event_preview_off)
+                    //     last_zoomed = cur_ele
+                    //     var list_c=cur_ele.classList
+                    //     if (list_c.contains(str_event_preview_on))
+                    //     {
+                    //         list_c.remove(str_event_preview_on)
+                    //         list_c.add(str_event_preview_off)
 
-                        }
-                        else
-                        {
-                            if (list_c.contains(str_event_preview_off))
-                            {
-                                list_c.remove(str_event_preview_off)
-                            }
-                                list_c.add(str_event_preview_on)
+                    //     }
+                    //     else
+                    //     {
+                    //         if (list_c.contains(str_event_preview_off))
+                    //         {
+                    //             list_c.remove(str_event_preview_off)
+                    //         }
+                    //             list_c.add(str_event_preview_on)
                                 
-                        } 
+                    //     } 
 
-                        if (events_ele.classList.contains(str_preview_on))
-                        {
-                            events_ele.classList.remove(str_preview_on)
-                            events_ele.classList.add(str_preview_off)   
-                        }
-                        else
-                        {
-                            if (events_ele.classList.contains(str_preview_off))
-                            {
-                                events_ele.classList.remove(str_preview_off)
-                            }
-                            events_ele.classList.add(str_preview_on)
-                        }
-                        // todo - pass ele name
-                        // request_details(cur_ele)
-                    }
+                    //     if (events_ele.classList.contains(str_preview_on))
+                    //     {
+                    //         events_ele.classList.remove(str_preview_on)
+                    //         events_ele.classList.add(str_preview_off)   
+                    //     }
+                    //     else
+                    //     {
+                    //         if (events_ele.classList.contains(str_preview_off))
+                    //         {
+                    //             events_ele.classList.remove(str_preview_off)
+                    //         }
+                    //         events_ele.classList.add(str_preview_on)
+                    //     }
+                    //     // todo - pass ele name
+                    //     // request_details(cur_ele)
+                    // }
                 }
             })();
         };

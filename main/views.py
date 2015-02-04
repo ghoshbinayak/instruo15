@@ -5,4 +5,5 @@ from django.shortcuts import render
 
 def home(request):
     numofcontacts = range(6)
-    return render(request, 'main/index.html', {'numofcontacts': numofcontacts})
+    numofsponsors = range(10)
+    return render(request, 'main/index.html', {'numofcontacts': numofcontacts, 'numofsponsors': numofsponsors})

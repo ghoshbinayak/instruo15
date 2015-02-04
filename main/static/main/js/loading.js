@@ -18,7 +18,7 @@ for(var iii = 0; iii < arrImgs.length; iii++)
 		console.log("loaded");
 		updateLoading();
 	}
-	arrImgs[iii].src = (iii+1) + ".png"
+	// arrImgs[iii].src = (iii+1) + ".png"
 }
 var loader = $("#loading-pre-cont");
 function updateLoading()

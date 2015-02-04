@@ -84,16 +84,23 @@
 		</div>
 	</div>
 
-	<div class="events"></div>
-	<div id="contacts-container">
-		{% include "main/contacts.html" %}
+	<div class="events-container">
+		<div class="events-container-ie">
+			<div class="events"></div>
+		</div>
 	</div>
+	
+	<div id="contacts-container">
+		<div class="contacts-container-ie">			
+			{% include "main/contacts.html" %}
+		</div>
+	</div>
+	 <div id="sponsors-container">
+		{% include 'main/sponsors.html' %}
+	 </div>
 	<div id="location-container">
-	<h2 class="location-heading">Come join us at IIEST</h2>
-		<iframe class="location-gmaps" 
-		frameborder="0" style="border:0"
-		src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDyjFcbQbCn48QHVsK-ax6Rh8lvtKHLEzk&q=iiest+shibpur&zoom=15">
-		</iframe>
+		<h2 class="location-heading">Come join us at IIEST</h2>
+		<div class="location-gmaps"></div>
 	</div>
 </div>
 {% endblock %}
@@ -102,6 +109,7 @@
 {{ block.super }}
 <script src="{% static 'main/js/fss.min.canvas.js' %}"></script>
 <script src="{% static 'main/js/example.js' %}"></script>
+<script src="{% static 'main/js/maps.js' %}"></script>
 <script type="text/javascript" src="{% static 'main/js/nunjucks.js' %}"></script>
 <script type="text/javascript" src="{% static 'main/js/all_events.js' %}"></script>
 <script type="text/javascript" src="{% static 'main/js/ev_shape_scroll.js' %}"></script>
