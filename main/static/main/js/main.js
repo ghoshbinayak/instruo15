@@ -240,7 +240,7 @@ function smoothScrollTo(pxToMove)
 }
 
 $('.all-event').onclick = function(){
-	smoothScrollTo($('.events').getBoundingClientRect().top);
+	smoothScrollTo($('.events-container').getBoundingClientRect().top);
 }
 
 $('#home').onclick = function(){
@@ -248,11 +248,15 @@ $('#home').onclick = function(){
 }
 
 $('#sidebar-location').onclick = function(){
-	smoothScrollTo($('#location-container').getBoundingClientRect().top);
+	smoothScrollTo($('.location-container').getBoundingClientRect().top);
 }
 
 $('#sidebar-contacts').onclick = function(){
-	smoothScrollTo($('#contacts-container').getBoundingClientRect().top);
+	smoothScrollTo($('.contacts-container').getBoundingClientRect().top);
+}
+
+$('#sidebar-sponsors').onclick = function(){
+	smoothScrollTo($('.sponsors-container').getBoundingClientRect().top);
 }
 
 

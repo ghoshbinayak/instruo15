@@ -863,11 +863,11 @@ body
 
 
 
-#contacts-container
+.contacts-container
 {   
     background-color: #fff;
     width: 80vw;
-    padding-left: 12vw;
+    padding-left: 7vw;
     padding-right: 8vw;
     min-height: 100vh;
     font-size: 1.4vw;
@@ -1095,7 +1095,7 @@ body
 
 
 /* Location page */
-#location-container
+.location-container
 {
     margin-left: 7vw;
     width: 90vw;
@@ -1121,7 +1121,7 @@ h2 {
 
 
 /* sponsors page */
-#sponsors-container *
+.sponsors-container *
 {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -1135,12 +1135,11 @@ h2 {
     margin-bottom: 1em;
 }
 
-#sponsors-container
-{
+.sponsors-container {
     background-color: #fff;
     width: 80vw;
-    padding-left: 12vw;
-    padding-right: 8vw;
+    padding-left: 7vw;
+    /* padding-right: 8vw; */
     min-height: 100vh;
     font-size: 1.4vw;
     clear: both;
@@ -1157,6 +1156,57 @@ h2 {
     width: 100%;
 }
 
-#event-container, #sponsors-container, #location-container, #contacts-container {
+.events-container, .sponsors-container, .location-container, .contacts-container {
     margin-top: 10vh;
+    margin-left: 7vw;
+}
+
+/* events page */
+
+.eventlist-elem-tag {
+    position: absolute;
+    top: 0;
+    background: lightgrey;
+    padding: 4px;
+    font-size: 0.8em;
+}
+
+.eventlist-elem-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: wheat;
+    background-size: cover;
+    background-position: 50% 50%;
+    -webkit-filter: sepia();
+    -o-filter: sepia();
+    filter: sepia();
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.eventlist-elem-wrapper:hover .eventlist-elem-img{
+    -webkit-filter: none;
+    -o-filter: none;
+    filter: none;
+}
+
+.eventlist-elem-name {
+    position: absolute;
+    bottom: 0;
+    height: 11%;
+    background: rgba(0, 0, 0, 0.48);
+    width: 90%;
+    color: rgb(252, 252, 252);
+    padding: 5%;
+}
+
+.eventlist-elem-wrapper {
+    width: 26vw;
+    background: blue;
+    float: left;
+    height: 13vw;
+    margin: 2vw;
+    position: relative;
 }
