@@ -1,0 +1,24 @@
+{% load staticfiles %}
+<h2 class="sponsors-headline">
+    Last year's sponsors.
+</h2>
+<div class="sponsors-grid">
+    <div class="sponsor sponsor-1"><img class='sponsor-logo' src="/static/main/img/sponsors/pic01.jpg" alt="sponsor"></div>
+    <div class="sponsor sponsor-2"><img class='sponsor-logo' src="/static/main/img/sponsors/pic02.jpg" alt="sponsor"></div>
+    <div class="sponsor sponsor-3"><img class='sponsor-logo' src="/static/main/img/sponsors/pic03.jpg" alt="sponsor"></div>
+    <div class="sponsor sponsor-4"><img class='sponsor-logo' src="/static/main/img/sponsors/pic04.jpg" alt="sponsor"></div>
+    <div class="sponsor sponsor-4"><img class='sponsor-logo' src="/static/main/img/sponsors/pic05.jpg" alt="sponsor"></div>
+    <div class="sponsor sponsor-4"><img class='sponsor-logo' src="/static/main/img/sponsors/pic06.png" alt="sponsor"></div>
+    <div class="sponsor sponsor-7"><img class='sponsor-logo' src="/static/main/img/sponsors/pic07.jpg" alt="sponsor"></div>
+    <div class="sponsor sponsor-8"><img class='sponsor-logo' src="/static/main/img/sponsors/pic08.jpg" alt="sponsor"></div>
+    <div class="sponsor sponsor-9"><img class='sponsor-logo' src="/static/main/img/sponsors/pic09.jpg" alt="sponsor"></div>
+    <div class="sponsor sponsor-10"><img class='sponsor-logo' src="/static/main/img/sponsors/pic10.jpg" alt="sponsor"></div>
+    <div class="sponsor sponsor-11"><img class='sponsor-logo' src="/static/main/img/sponsors/pic12.jpg" alt="sponsor"></div>
+    <div class="sponsor sponsor-12"><img class='sponsor-logo' src="/static/main/img/sponsors/pic11.png" alt="sponsor"></div>
+{% comment %}
+{% for x in  numofsponsors %}
+    <div class="sponsor sponsor-1"><img src="{% static 'main/img/sponsors/pic1.jpg' %}" alt="sponsor"></div>
+{% endfor %}
+{% endcomment %}
+    <div class="float-fix"></div>
+</div>
