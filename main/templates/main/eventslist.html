@@ -1,0 +1,12 @@
+{% load staticfiles %}
+
+{% for event in eventlist %}
+	<div class="eventlist-elem-wrapper">
+		<div style="background-image: url('{{event.img}}')" class="eventlist-elem-img" alt="{{event.name}}"></div>
+		<div class="eventlist-overlay"></div>
+		<div class="eventlist-elem-tag">{{event.tag}}</div>
+		<div class="eventlist-elem-name">{{event.name}}</div>
+	</div>
+{% endfor %}
+<div class="float-fix"></div>
+ <!-- end events -->
