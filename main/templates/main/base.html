@@ -10,18 +10,7 @@
 {% endblock %}
 
 {% block body %}
-<div class="lock-page">
-	<div  class="aura move" id="aura_big"></div>
-	<div class="aura move2" id="aura_big2"></div>	  <!-- uncomment for scale mode -->
-	<div class="aura small c" id="aura_small"></div>
-	<div class="bg" id="over"></div>
-	<div class="bg2" id="over2"></div>
-	<div id="big-i">Instruo</div>
-	<div id="unlock"> Go! </div>
-	<div id="loading-pre" class="unselectable">Loading</div>
-	<div id="loading-pre-cont" class="unselectable"><div id="loading-post" class="unselectable">Loading</div></div>
-</div>
-
+{% include 'main/lockpage.html' %}
 <div class="sidebar-container">
 	<div class="sidebar">
 		<div id="home" class="text-center sidebar-list hint--right hint--success unselectable" data-hint="Return Home">
