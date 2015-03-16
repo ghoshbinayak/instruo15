@@ -11,44 +11,55 @@ INST = {
 };
 
 
-INST['loading'] = {
+INST.loading = {
 	counter: 1,
 	maxWidth: 20,
-	numScripts: 4,
+	numScripts: 0,
 	imgs: null,
 	arrImgs: null,
 	loader: null,
+	unlockBtn: null,
+	aura_small: null,
+	aura_big: null,
+	aura_big2: null,
+	over2: null,
+	lockPage: null,
 	init: function(){
+		var that = this;
+		this.aura_small = INST.s("#aura_small");
+		this.aura_big = INST.s("#aura_big");
+		this.aura_big2 = INST.s("#aura_big2");
+		this.over2 = INST.s("#over2");
 		this.imgs =INST.S("img");
 		this.arrImgs = Array.prototype.slice.call(this.imgs,0);
 		this.loader = INST.s("#loading-pre-cont");
-
+		this.unlockBtn = INST.s("#unlock");
+		this.lockPage = INST.s("#lock-page");
 		for(var iii = 0; iii < this.arrImgs.length; iii++)
 		{
 			this.arrImgs[iii].onload = function() {
-				console.log("loaded");
-				this.update();
+				that.update();
 			}
 		}
-		console.log(this.arrImgs);
+		this.startAnim();
 	},
 	update: function() {
+		var that = this;
 		this.counter++;
 		var loadWidth = this.counter/(this.numScripts + this.arrImgs.length);
-		var loadPhysicalWidth = loadingMaxWidth*loadWidth;
+		var loadPhysicalWidth = this.maxWidth*loadWidth;
 		if (loadWidth > .97)
 		{
 			loadWidth = 1;
-			loadPhysicalWidth = loadingMaxWidth*loadWidth;
+			loadPhysicalWidth = this.maxWidth*loadWidth;
 			this.loader.style.width = loadPhysicalWidth + "vw";
 			setTimeout(function()
 				{
 					INST.s("#loading-pre").style.display="none";
-					this.toggleExplore();
+					that.toggleExplore();
 				}, 500)
 		};
 		this.loader.style.width = loadPhysicalWidth + "vw";
-		console.log("here1");
 	},
 	toggleExplore: function() {
 		this.loader.classList.add("loading-hidden");
@@ -57,6 +68,40 @@ INST['loading'] = {
 					INST.s("#unlock").style.display="block";
 					INST.s("#loading-pre-cont").style.display="none";
 				}, 500)
+	},
+	startAnim: function() {
+		this.aura_small.classList.add("anim_small_a");
+		this.aura_big.classList.add("anim_big_a");
+		this.aura_big2.classList.add("anim_big_b");
+		this.over2.classList.add("anim_rot");
+	},
+	removeAmimation: function(){
+		aura_small.classList.remove("small");
+		aura_big.classList.remove("move");
+		aura_big2.classList.remove("move2");
+		aura_small.classList.remove("anim_small_a");
+		aura_big.classList.remove("anim_big_a");
+		aura_big2.classList.remove("anim_big_b");
+		over2.classList.remove("anim_rot");
+	},
+	lockPageNone: function() {
+		var that = this;
+		setTimeout(function(){
+				that.lockPage.style.display = "none";
+			}, 500);
+	},
+	unlock: function() {
+		window.scrollTo(0,0);
+		this.removeAmimation();
+		this.lockPage.classList.add("lock-page-up");
+		this.lockPageNone();
+		// besu_iiest();
+		// startcanvas();
+		setTimeout(function(){
+			INST.s("body").style.overflow = 'auto';	
+			INST.s("body").style.overflowX = 'hidden';
+			// animateTagline();		
+		}, 500);
 	}
 }
 
