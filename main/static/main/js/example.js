@@ -19,7 +19,7 @@ function cRand(param1 ,param2)
 
 var comR = cRand(50, 150), comG =  cRand(25, 50), comB = cRand(50, 150);
 
-updateLoading();
+
 
 function randomColor()
 {
@@ -29,7 +29,6 @@ function randomColor()
   initialise();
 }
 
-updateLoading();
   var MESH = {
     width: 1.2,
     height: 1.2,
@@ -385,7 +384,7 @@ updateLoading();
   }
 
 
-
+  INST.loading.update();
   // Let there be light!
   randomColor();
   initialise();

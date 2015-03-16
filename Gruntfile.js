@@ -6,8 +6,8 @@ module.exports = function(grunt) {
     concat: {
         css: {
            src: [
-                 'main/static/main/css/auth.css', 'main/static/main/css/lock_page.css',
-                 'main/static/main/css/hint.css', 'main/static/main/css/main.css'
+                 'main/static/main/css/lock_page.css', 'main/static/main/css/main.css',
+                 'main/static/main/css/auth.css', 'main/static/main/css/hint.css'
                 ],
             dest: 'main/static/main/css/<%= pkg.name %>.css'
         },
