@@ -169,7 +169,7 @@ body
 	overflow: hidden;
 }
 
-.lock-page
+#lock-page
 {
 	z-index: 5000;
 	background: #000 no-repeat center center fixed;
