@@ -38,6 +38,12 @@ INST.loading = {
 		this.logo.onclick = function(){
 			that.unlock();
 		};
+		window.onkeydown = function(param){
+			var key = ('which' in param)?param.which:param.keyCode;
+			if(key == 13){
+				that.unlock();
+			}
+		};
 	},
 	update: function() {
 		var that = this;
@@ -109,6 +115,6 @@ INST.loading = {
 		}, 500);
 		console.log('unlock called');
 	}
-}
+};
 
 

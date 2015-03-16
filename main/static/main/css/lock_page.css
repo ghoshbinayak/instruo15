@@ -333,66 +333,48 @@ AABJRU5ErkJggg==
 	line-height: 18vw;
 }
 
-#instruo_logo_bulb {
-	position: absolute;
-	height: 10vw;
-	width: 10vw;
-	left: 50%;
-	top: 50%;	fill: rgba(255, 255, 255, 1);
-	background: transparent;
-	vertical-align: middle;
-	will-change: transform, fill;
-	-webkit-animation: instruo_bulb_animation 3s ease-in 0.7s infinite alternate;
-	animation: instruo_bulb_animation 3s ease-in 0.7s infinite alternate;
-}
-
-@-webkit-keyframes instruo_bulb_animation 
+@-webkit-keyframes big_i_phase 
 {
 	0%   
 	{
-		fill: rgba(255,255,255,0.5);
+		background: rgba(255,255,255,0.5);
 		color: #fff;
 	}
 	10%   
 	{
-		fill: rgba(255,255,255,0.5);
+		background: rgba(255,255,255,0.5);
 		color: #fff;
 
 	}
 	80% 
 	{
-		fill: rgba(255,255,255,1);
+		background: rgba(255,255,255,1);
 		color: #000;
 	}
 	100% 
 	{
-		fill: rgba(255,255,255,1);
+		background: rgba(255,255,255,1);
 		color: #000;
 	}
 }
 
-@keyframes instruo_bulb_animation 
+@keyframes big_i_phase 
 {
 	0%   
 	{
-		fill: rgba(255,255,255,0.5);
-		color: #fff;
+		opacity: 0;
 	}
 	10%   
 	{
-		fill: rgba(255,255,255,0.5);
-		color: #fff;
-
+		opacity: 0;
 	}
-	80% 
+	90% 
 	{
-		fill: rgba(255,255,255,1);
-		color: #000;
+		opacity: 1;
 	}
 	100% 
 	{
-		fill: rgba(255,255,255,1);
-		color: #000;
+		opacity: 1;
 	}
 }
 

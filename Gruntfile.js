@@ -20,9 +20,10 @@ module.exports = function(grunt) {
         },
         jsmain : {
           src : [
+            'main/static/main/js/sidebar.js',
             'main/static/main/js/main.js',
-            'main/static/main/js/maps.js',
-          ],
+            'main/static/main/js/maps.js'
+            ],
           dest : 'main/static/main/js/<%= pkg.name %>.js',
         }
     },
