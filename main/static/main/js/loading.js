@@ -55,12 +55,14 @@ INST.loading = {
 					INST.s("#unlock").style.display="block";
 					INST.s("#loading-pre-cont").style.display="none";
 				}, 500)
+		console.log('toggleExplore called');
 	},
 	startAnim: function() {
 		this.aura_small.classList.add("anim_small_a");
 		this.aura_big.classList.add("anim_big_a");
 		this.aura_big2.classList.add("anim_big_b");
 		this.over2.classList.add("anim_rot");
+		console.log('startAnim called');
 	},
 	removeAmimation: function(){
 		aura_small.classList.remove("small");
@@ -70,12 +72,14 @@ INST.loading = {
 		aura_big.classList.remove("anim_big_a");
 		aura_big2.classList.remove("anim_big_b");
 		over2.classList.remove("anim_rot");
+		console.log('removeAmimation called');
 	},
 	lockPageNone: function() {
 		var that = this;
 		setTimeout(function(){
 				that.lockPage.style.display = "none";
 			}, 500);
+		console.log('lockPageNone called');
 	},
 	unlock: function() {
 		window.scrollTo(0,0);
@@ -89,6 +93,7 @@ INST.loading = {
 			INST.s("body").style.overflowX = 'hidden';
 			// animateTagline();		
 		}, 500);
+		console.log('unlock called');
 	}
 }
 
