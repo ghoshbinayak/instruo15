@@ -1,12 +1,10 @@
 {% extends "main/base.html" %}
 
 {% load staticfiles %}
-{% load include_raw %}
+
 
 {% block css %}
 {{ block.super }}
-<link rel="stylesheet" href="{% static 'main/css/all_events.css' %}">
-<link rel="stylesheet" href="{% static 'main/css/single_event.css' %}">
 {% endblock%}
 {% block content %}
 <div id="main-container">
@@ -108,14 +106,7 @@
 
 {% block script %}
 {{ block.super }}
-<script src="{% static 'main/js/fss.min.canvas.js' %}"></script>
+<!-- <script src="{% static 'main/js/fss.min.canvas.js' %}"></script>
 <script src="{% static 'main/js/example.js' %}"></script>
-<script src="{% static 'main/js/maps.js' %}"></script>
-<script type="text/javascript" src="{% static 'main/js/nunjucks.js' %}"></script>
-<script type="text/javascript" src="{% static 'main/js/all_events.js' %}"></script>
-<script type="text/javascript" src="{% static 'main/js/ev_shape_scroll.js' %}"></script>
-{% comment %} include nunjucks templates {% endcomment%}
-<script type="text/nunjucks" class="tmpl_single_event"> {% include_raw "main/single_event_nun.html" %} </script>
-<script type="text/nunjucks" class="tmpl_all_event"> {% include_raw 'main/all_events_nun.html' %} </script>
-<script type="text/nunjucks" class="tmpl_shape_css"> {% include_raw 'main/event_shape.css' %} </script>
-{% endblock %}
+ --><script src="{% static 'main/js/maps.js' %}"></script>
+ -->{% endblock %}

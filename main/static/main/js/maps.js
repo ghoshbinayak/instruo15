@@ -1,4 +1,4 @@
-var mapDiv = ss('.location-gmaps')[0];
+var mapDiv = INST.S('.location-gmaps')[0];
 
 function CenterControlMaps(controlDiv, map) {
 

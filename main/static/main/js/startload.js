@@ -1,0 +1,1 @@
+INST.loading.init();
