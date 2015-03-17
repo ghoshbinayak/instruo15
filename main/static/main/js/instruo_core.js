@@ -131,6 +131,7 @@ INST.loading = {
 			INST.s("body").style.overflowX = 'hidden';
 			// animateTagline();		
 		}, 500);
+		INST.landing.animateTagline();
 		console.log('unlock called');
 	}
 };

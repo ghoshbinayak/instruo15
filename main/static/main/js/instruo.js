@@ -32,6 +32,14 @@ INST.sidebar = {
 };
 
 INST.sidebar.init();
+INST.landing = {
+	animateTagline: function(){
+		INST.s('#tagline').classList.add('animateTagline');
+		setTimeout(function(){
+			INST.s('#instruo-dates').classList.add('animateDate');
+		}, 2000);
+	}
+}
 // var unlockBtn = INST.s("#unlock");
 // var aura_small = INST.s("#aura_small");
 // var	aura_big = INST.s("#aura_big");
