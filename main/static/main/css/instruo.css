@@ -883,7 +883,7 @@ AABJRU5ErkJggg==
 
 #logo {
 	position: absolute;
-	z-index: 0;
+	z-index: 1;
 	width: 90vh;
     width: 26vw;
     top: 10vh;
@@ -955,7 +955,12 @@ AABJRU5ErkJggg==
 
 .container-canvas
 {
-  display: none;
+	width: 100%;
+	height: 50vh;
+	display: block;
+	background: transparent; 
+	z-index: 0;
+	top: 55vh;
 }
 
 .opacity-zero  {
@@ -968,6 +973,7 @@ AABJRU5ErkJggg==
 
 #instruo-dates {
     position: absolute;
+    z-index: 1;
     color: #A15AA5;
     font-family: sans;
     font-size: 1.5vw;
@@ -995,10 +1001,12 @@ AABJRU5ErkJggg==
 	font-family: sans-serif;
 	top: 91vh;
 	left: 84vw;
+	z-index: 1;
 }
 
 #iiest-logo {
 	position: absolute;
+	z-index: 1;
 	color: wheat;
 	font-family: sans-serif;
 	top: 86vh;
@@ -1015,6 +1023,7 @@ AABJRU5ErkJggg==
  .wrapper-tagline
 {
     position: absolute;
+    z-index: 1;
     top: 48%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%) scale(1.1);

@@ -1,12 +1,11 @@
 /* Define the INST (instruo) namespace */
 
 INST = {
-	doc: document,
 	s: function(param){
-		return this.doc.querySelector(param);
+		return document.querySelector(param);
 	},
 	S: function(param){
-		return this.doc.querySelectorAll(param);
+		return document.querySelectorAll(param);
 	},
 	jscroll: function(to){
 		$('html,body').animate({
