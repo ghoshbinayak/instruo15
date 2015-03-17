@@ -1,7 +1,3 @@
-// INST.sidebar = {
-	
-// }
-
 // var unlockBtn = INST.s("#unlock");
 // var aura_small = INST.s("#aura_small");
 // var	aura_big = INST.s("#aura_big");
@@ -15,34 +11,7 @@
 // minImg = Array.prototype.slice.call(minImg,0);
 
 
-// function showSidebarMenu () {
-// 	slideRight.classList.add("sidebar-menu-right");
-// 	events.setAttribute("data-hint","Hide Events List")
-// 	subMenuShown = true;
-// }
 
-// function hideSidebarMenu () {
-// 	slideRight.classList.remove("sidebar-menu-right");
-// 	events.setAttribute("data-hint","Show Events List")
-// 	subMenuShown = false;
-// }
-
-// events.onclick=function()
-// {
-// 	if(!subMenuShown)
-// 	{
-// 		showSidebarMenu();
-// 	}
-// 	else
-// 	{
-// 		hideSidebarMenu();
-// 	}
-// }
-
-// INST.s("#main-container").onclick = function(){
-// 	if(subMenuShown){
-// 		hideSidebarMenu();
-// 	}
 
 // 	if(contactDetailShown){
 // 		minImg.forEach(function(el){
@@ -57,16 +26,7 @@
 // 	}
 // }
 
-// window.onkeydown = function(param){
-// 	var key = ('which' in param)?param.which:param.keyCode;
-// 	if(key == 13){
-// 		lockpageUnlock();
-// 	}
-// }
 
-// INST.s("#unlock").onclick = function(){
-// 	lockpageUnlock();
-// }
 
 // function animateTagline(){
 // 	INST.s('#tagline').classList.add('animateTagline');

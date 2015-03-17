@@ -18,7 +18,6 @@ INST.sidebar = {
 				that.hide();
 			}
 		};
-		console.log('sidebar init');
 	},
 	show: function() {
 		this.sidepanel.classList.add("sidebar-menu-right");
