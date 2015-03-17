@@ -874,12 +874,100 @@ AABJRU5ErkJggg==
 }
 .landing-page
 {
-	background: #000;
+	background: url('/static/main/img/core/background.png');
 	z-index: -1;
-	width: 100vw;
+	width: 100%;
 	height: 100vh;
+	background-size: cover;
 }
 
+#logo {
+	position: absolute;
+	z-index: 0;
+	width: 90vh;
+    width: 26vw;
+    top: 17vh;
+    left: 49vw;
+	-webkit-transform: translateX(-40%);
+	-moz-transform: translateX(-40%);
+	-ms-transform: translateX(-40%);
+	-o-transform: translateX(-40%);
+	transform: translateX(-40%);
+}
+
+#logo > svg {
+	fill: #FFEDDA;
+}
+
+#layer1 {
+	-webkit-animation: logo_glow 5s ease-in 0.5s infinite alternate;
+	animation: logo_glow 5s ease-in 0.5s infinite alternate;
+}
+
+/*#stars {
+	position: absolute;
+	z-index: 0;
+	width: 100vw;
+}
+
+#stars > svg {
+	-webkit-animation: logo_glow 1s ease-in 0.5s infinite alternate;
+	animation: logo_glow 1s ease-in 0.5s infinite alternate;
+}*/
+
+@-webkit-keyframes logo_glow 
+{
+	0%   
+	{
+		fill: #fff;
+	}
+	10%   
+	{
+		fill: #fff;
+
+	}
+	90% 
+	{
+		fill: #F3CAA1;
+	}
+	100% 
+	{
+		fill: #F3CAA1;
+	}
+}
+
+@keyframes logo_glow 
+{
+	0%   
+	{
+		fill: #fff;
+	}
+	10%   
+	{
+		fill: #fff;
+
+	}
+	90% 
+	{
+		fill: #F3CAA1;
+	}
+	100% 
+	{
+		fill: #F3CAA1;
+	}
+}
+
+#bridge {
+	position: absolute;
+	width: 125vw;
+	top: 14vh;
+	left: -12vw;
+}
+
+.container-canvas
+{
+  display: none;
+}
 #main-container {
 	width: 100%;
 	height: auto;
@@ -1024,22 +1112,6 @@ AABJRU5ErkJggg==
 	z-index: 0;
 }
 
-#logo {
-	z-index: 0;
-	width: 90vh;
-	position: absolute;
-	top: 20vh;
-	left: 59vw;
-	-webkit-transform: translateX(-40%);
-	-moz-transform: translateX(-40%);
-	-ms-transform: translateX(-40%);
-	-o-transform: translateX(-40%);
-	transform: translateX(-40%);
-	font-size: 11vh;
-	font-family: Ubuntu Condensed;
-	color: #FFF;
-	text-shadow: 6px 10px 10px #000;
-}
 
 #logo-info
 {
@@ -1118,15 +1190,6 @@ AABJRU5ErkJggg==
 {
 	color: #fff;
 }
-
-
-.container-canvas
-{
-  position: fixed;
-  height: 100%;
-  width: 100%;
-}
-
 
 /* part tagline */
 

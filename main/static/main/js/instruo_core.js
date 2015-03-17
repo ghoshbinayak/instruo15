@@ -19,7 +19,7 @@ INST = {
 INST.loading = {
 	counter: 1,
 	maxWidth: 20,
-	numScripts: 2,
+	numScripts: 0,
 	imgs: null,
 	arrImgs: null,
 	loader: null,
