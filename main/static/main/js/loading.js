@@ -109,7 +109,7 @@ INST.loading = {
 		// besu_iiest();
 		// startcanvas();
 		setTimeout(function(){
-			INST.s("body").style.overflow = 'auto';	
+			INST.s("body").style.overflow = 'hidden';	
 			INST.s("body").style.overflowX = 'hidden';
 			// animateTagline();		
 		}, 500);
