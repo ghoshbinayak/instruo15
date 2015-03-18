@@ -58,9 +58,11 @@ INST.wave = {
 		}
     },
     start: function(){
-    	INST.wave.running = true;
-    	INST.wave.resize();
-    	INST.wave.animate();
+    	if (!INST.wave.running) {
+	    	INST.wave.running = true;
+	    	INST.wave.resize();
+	    	INST.wave.animate();    		
+    	};
     },
     stop: function(){
     	INST.wave.running = false;

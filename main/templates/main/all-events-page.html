@@ -1,5 +1,7 @@
 {% load staticfiles %}
-
+<h1 class="content-page-heading">
+	All Events
+</h1>
 {% for event in eventlist %}
 	<div class="eventlist-elem-wrapper">
 		<div style="background-image: url('{{event.img}}')" class="eventlist-elem-img" alt="{{event.name}}"></div>

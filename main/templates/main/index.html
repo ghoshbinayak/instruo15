@@ -13,13 +13,21 @@
 
 <div id="main-container">
 	{% include 'main/landing.html' %}
+	{% include 'main/content-area.html' %}
 </div>
+<script id="all-events-page" type="text/html">
+	{% include 'main/all-events-page.html' %}
+</script>
+<script id="contacts-page" type="text/html">
+	{% include 'main/contacts-page.html' %}
+</script>
+<script id="sponsors-page" type="text/html">
+	{% include 'main/sponsors-page.html' %}
+</script>
 {% endblock %}
 
 {% block script %}
 	{{ block.super }}
 	<script src="{% static 'main/js/fss.min.js' %}"></script>
-	<!-- <script src="{% static 'main/js/example.js' %}"></script> -->
-	<script src="{% static 'main/js/instruo.min.js' %}"></script>
-	<!-- <script src="{% static 'main/js/maps.js' %}"></script> -->
+	<script src="{% static 'main/js/instruo.js' %}"></script>
 {% endblock %}

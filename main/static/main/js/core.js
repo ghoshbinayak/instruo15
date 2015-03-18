@@ -1,6 +1,7 @@
 /* Define the INST (instruo) namespace */
 
 INST = {
+	contentShown: false,
 	s: function(param){
 		return document.querySelector(param);
 	},

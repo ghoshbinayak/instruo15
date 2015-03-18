@@ -1223,6 +1223,27 @@ AABJRU5ErkJggg==
     -o-transition-delay: 3s;
     transition-delay: 3s;
 }
+.content-container {
+	min-height: 100vh;
+	width: 100%;
+	background: indianred;
+}
+
+.content-page {
+	margin-left: 7%;
+	overflow: hidden;
+}
+
+.content-page-heading {
+	text-align: center;
+	font-family: sans-serif;
+	font-size: 3em;
+	color: white;
+}
+
+.hide {
+	display: none;
+}
 #main-container {
 	width: 100%;
 	height: auto;
@@ -1663,7 +1684,7 @@ AABJRU5ErkJggg==
     float: left;
     width: 20vw;
     height: 20vw;
-    margin: 0 3vw;
+    margin: 0px 4vw;
 }
 
 .contacts-min-img
@@ -1924,7 +1945,7 @@ h2 {
 }
 
 .sponsor {
-    width: 11.33vw;
+    width: 14.33vw;
     margin: 4vw;
     float: left;
     height: 11.33vw;

@@ -438,7 +438,7 @@
     float: left;
     width: 20vw;
     height: 20vw;
-    margin: 0 3vw;
+    margin: 0px 4vw;
 }
 
 .contacts-min-img
@@ -699,7 +699,7 @@ h2 {
 }
 
 .sponsor {
-    width: 11.33vw;
+    width: 14.33vw;
     margin: 4vw;
     float: left;
     height: 11.33vw;
