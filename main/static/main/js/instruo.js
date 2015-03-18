@@ -59,6 +59,19 @@ INST.sidebar = {
 			INST.s("body").style.overflowX = 'hidden';
 			INST.S('.content-page')[0].innerHTML = INST.s('#sponsors-page').innerHTML;
 		};
+		INST.s('#sidebar-location').onclick = function(){
+			if (!INST.contentShown) {
+				INST.wave.stop();
+				INST.contentShown = true;
+				INST.S('.landing-page')[0].classList.add('hide');
+			};
+			INST.S('.content-container')[0].classList.remove('hide');
+			INST.s("body").style.overflow = 'auto';
+			INST.s("body").style.overflowX = 'hidden';
+			INST.S('.content-page')[0].innerHTML = INST.s('#locateus-page').innerHTML;
+			INST.gmap.isShown = true;
+			INST.gmap.init();
+		};
 	},
 	show: function() {
 		this.sidepanel.classList.add("sidebar-menu-right");
@@ -117,14 +130,14 @@ INST.wave = {
     },
     animate: function() {
 		INST.wave.now = Date.now() - INST.wave.start;
-		if (INST.wave.xPos1  > 800) {
-		INST.wave.xPos1 = -800;
+		if (INST.wave.xPos1  > 1000) {
+		INST.wave.xPos1 = -1000;
 		}
-		if (INST.wave.xPos2  > 800) {
-		INST.wave.xPos2 = -800;
+		if (INST.wave.xPos2  > 1000) {
+		INST.wave.xPos2 = -1000;
 		}
-		INST.wave.xPos1 += 4;
-		INST.wave.xPos2 += 4;
+		INST.wave.xPos1 += 6;
+		INST.wave.xPos2 += 6;
 		INST.wave.light1.setPosition(INST.wave.xPos1, -120, 60);
 		INST.wave.light2.setPosition(INST.wave.xPos2, -120, 60);
 		INST.wave.renderer.render(INST.wave.scene);
@@ -147,6 +160,7 @@ INST.wave = {
 INST.wave.init();
 INST.wave.resize();
 INST.loading.update();
+
 // var unlockBtn = INST.s("#unlock");
 // var aura_small = INST.s("#aura_small");
 // var	aura_big = INST.s("#aura_big");
@@ -280,70 +294,77 @@ INST.loading.update();
 // 		}
 // 	}
 // });
-var mapDiv = INST.S('.location-gmaps')[0];
+INST.gmap = {
+    isLoaded: false,
+    isShown: false,
+    mapDiv: null,
+    setup: function(controlDiv, map) {
+        // Set CSS for the control border
+        var controlUI = document.createElement('div');
+        controlUI.style.backgroundColor = '#fff';
+        controlUI.style.border = '2px solid #fff';
+        controlUI.style.borderRadius = '3px';
+        controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+        controlUI.style.cursor = 'pointer';
+        controlUI.style.marginBottom = '22px';
+        controlUI.style.textAlign = 'center';
+        controlUI.title = 'Open in Maps';
+        controlDiv.appendChild(controlUI);
 
-function CenterControlMaps(controlDiv, map) {
+        // Set CSS for the control interior
+        var controlText = document.createElement('div');
+        controlText.style.color = 'rgb(25,25,25)';
+        controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
+        controlText.style.fontSize = '16px';
+        controlText.style.lineHeight = '38px';
+        controlText.style.paddingLeft = '5px';
+        controlText.style.paddingRight = '5px';
+        controlText.innerHTML = 'Open in Maps';
+        controlUI.appendChild(controlText);
 
-  // Set CSS for the control border
-  var controlUI = document.createElement('div');
-  controlUI.style.backgroundColor = '#fff';
-  controlUI.style.border = '2px solid #fff';
-  controlUI.style.borderRadius = '3px';
-  controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
-  controlUI.style.cursor = 'pointer';
-  controlUI.style.marginBottom = '22px';
-  controlUI.style.textAlign = 'center';
-  controlUI.title = 'Open in Maps';
-  controlDiv.appendChild(controlUI);
+        // Setup the click event listeners: simply set the map to
+        // IIEST Shibpur
+        google.maps.event.addDomListener(controlUI, 'click', function() {
+          var mapsUrl = "https://www.google.co.in/maps/place/Indian+Institute+of+Engineering+Science+and+Technology,+Shibpur/@22.555862,88.305706,17z/data=!3m1!4b1!4m2!3m1!1s0x3a0279c91a8d2d49:0xc6ee508c74cf031d?hl=en"
+          var win = window.open(mapsUrl, '_blank');
+          win.focus();
+        });
+    },
 
-  // Set CSS for the control interior
-  var controlText = document.createElement('div');
-  controlText.style.color = 'rgb(25,25,25)';
-  controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
-  controlText.style.fontSize = '16px';
-  controlText.style.lineHeight = '38px';
-  controlText.style.paddingLeft = '5px';
-  controlText.style.paddingRight = '5px';
-  controlText.innerHTML = 'Open in Maps';
-  controlUI.appendChild(controlText);
+    init: function() {
+        if(!this.isShown || !this.isLoaded){
+            return;
+        }
+        this.mapDiv = INST.S('.location-gmaps')[0];
+        var myLatlng = new google.maps.LatLng(22.5558,88.3057)
+        var mapOptions = {
+          zoom: 16,
+          center: myLatlng,
+          scrollwheel: false,
+        };
 
-  // Setup the click event listeners: simply set the map to
-  // Chicago
-  google.maps.event.addDomListener(controlUI, 'click', function() {
-    var mapsUrl = "https://www.google.co.in/maps/place/Indian+Institute+of+Engineering+Science+and+Technology,+Shibpur/@22.555862,88.305706,17z/data=!3m1!4b1!4m2!3m1!1s0x3a0279c91a8d2d49:0xc6ee508c74cf031d?hl=en"
-    var win = window.open(mapsUrl, '_blank');
-    win.focus();
-  });
+        var map = new google.maps.Map(this.mapDiv,mapOptions);
+        var marker = new google.maps.Marker({
+          position: myLatlng,
+          map: map,
+          title: 'IIEST Shibpur'
+        });
+        var centerControlDiv = document.createElement('div');
+        var centerControl = new this.setup(centerControlDiv, map);
 
-}
+        centerControlDiv.index = 1;
+        map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(centerControlDiv);
+    },
 
-function initializeMaps() {
-  var myLatlng = new google.maps.LatLng(22.5558,88.3057)
-  var mapOptions = {
-    zoom: 16,
-    center: myLatlng,
-    scrollwheel: false,
-  };
+    load: function() {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDyjFcbQbCn48QHVsK-ax6Rh8lvtKHLEzk&v=3.exp&' +
+        'callback=INST.gmap.init';
+        this.isLoaded = true;
+        document.body.appendChild(script);
+    }
+};
 
-  var map = new google.maps.Map(mapDiv,mapOptions);
-  var marker = new google.maps.Marker({
-    position: myLatlng,
-    map: map,
-    title: 'IIEST Shibpur'
-  });
-  var centerControlDiv = document.createElement('div');
-  var centerControl = new CenterControlMaps(centerControlDiv, map);
+INST.gmap.load();
 
-  centerControlDiv.index = 1;
-  map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(centerControlDiv);
-}
-
-function loadScriptMaps() {
-  var script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDyjFcbQbCn48QHVsK-ax6Rh8lvtKHLEzk&v=3.exp&' +
-  'callback=initializeMaps';
-  document.body.appendChild(script);
-}
-
-loadScriptMaps();

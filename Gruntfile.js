@@ -47,8 +47,23 @@ module.exports = function(grunt) {
               'main/static/main/js/<%= pkg.name %>.min.js' : [ 'main/static/main/js/<%= pkg.name %>.js' ]              
           }
       }
+    },
+    watch: {
+        scripts: {
+            files: ['main/static/main/js/*.js'],
+            tasks: ['concat:jscore', 'concat:jsmain', 'uglify:js'],
+            options: {
+              spawn: false,
+            },
+        },
+        css: {
+            files: ['main/static/main/css/*.css'],
+            tasks: ['concat:css', 'cssmin:css',],
+            options: {
+              spawn: false,
+            },
+        }
     }
-
   });
 
   // Load the plugin that provides the "uglify" task.

@@ -42,14 +42,14 @@ INST.wave = {
     },
     animate: function() {
 		INST.wave.now = Date.now() - INST.wave.start;
-		if (INST.wave.xPos1  > 800) {
-		INST.wave.xPos1 = -800;
+		if (INST.wave.xPos1  > 1000) {
+		INST.wave.xPos1 = -1000;
 		}
-		if (INST.wave.xPos2  > 800) {
-		INST.wave.xPos2 = -800;
+		if (INST.wave.xPos2  > 1000) {
+		INST.wave.xPos2 = -1000;
 		}
-		INST.wave.xPos1 += 4;
-		INST.wave.xPos2 += 4;
+		INST.wave.xPos1 += 6;
+		INST.wave.xPos2 += 6;
 		INST.wave.light1.setPosition(INST.wave.xPos1, -120, 60);
 		INST.wave.light2.setPosition(INST.wave.xPos2, -120, 60);
 		INST.wave.renderer.render(INST.wave.scene);

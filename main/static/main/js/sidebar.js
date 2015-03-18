@@ -59,6 +59,19 @@ INST.sidebar = {
 			INST.s("body").style.overflowX = 'hidden';
 			INST.S('.content-page')[0].innerHTML = INST.s('#sponsors-page').innerHTML;
 		};
+		INST.s('#sidebar-location').onclick = function(){
+			if (!INST.contentShown) {
+				INST.wave.stop();
+				INST.contentShown = true;
+				INST.S('.landing-page')[0].classList.add('hide');
+			};
+			INST.S('.content-container')[0].classList.remove('hide');
+			INST.s("body").style.overflow = 'auto';
+			INST.s("body").style.overflowX = 'hidden';
+			INST.S('.content-page')[0].innerHTML = INST.s('#locateus-page').innerHTML;
+			INST.gmap.isShown = true;
+			INST.gmap.init();
+		};
 	},
 	show: function() {
 		this.sidepanel.classList.add("sidebar-menu-right");

@@ -659,10 +659,10 @@
 .location-gmaps {
     width: 90%;
     height: 80%;
-    margin-top: 3vh;
-    position: absolute;
+    margin-top: -3vh;
     z-index: 3;
-    pointer-events: none;
+    /*pointer-events: none;*/
+    position: absolute;
 }
 
 h2 {
