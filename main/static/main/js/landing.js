@@ -20,6 +20,7 @@ INST.wave = {
     start: this.now,
     xPos1: -800,
     xPos2: 0,
+    running: false,
     init: function() {
 		this.renderer = new FSS.CanvasRenderer();
 	    this.scene = new FSS.Scene();
@@ -33,6 +34,7 @@ INST.wave = {
 		this.scene.add(this.light1);
 		this.container.appendChild(this.renderer.element);
 		window.addEventListener('resize', this.resize);
+		this.running = true;
 		this.animate();
     },
     resize: function() {
@@ -51,10 +53,19 @@ INST.wave = {
 		INST.wave.light1.setPosition(INST.wave.xPos1, -120, 60);
 		INST.wave.light2.setPosition(INST.wave.xPos2, -120, 60);
 		INST.wave.renderer.render(INST.wave.scene);
-		requestAnimationFrame(INST.wave.animate);
+		if(INST.wave.running){
+			requestAnimationFrame(INST.wave.animate);
+		}
+    },
+    start: function(){
+    	INST.wave.running = true;
+    	INST.wave.resize();
+    	INST.wave.animate();
+    },
+    stop: function(){
+    	INST.wave.running = false;
     }
 };
 
 INST.wave.init();
 INST.wave.resize();
-// INST.wave.animate();

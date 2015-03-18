@@ -36,6 +36,11 @@ module.exports = function(grunt) {
         }
     },
    uglify : {
+      options: {
+        compress: {
+          drop_console: true
+        }
+      },
       js: {
           files: {
               'main/static/main/js/<%= pkg.name %>_core.min.js' : [ 'main/static/main/js/<%= pkg.name %>_core.js' ],
