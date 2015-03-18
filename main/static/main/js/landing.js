@@ -26,7 +26,7 @@ INST.wave = {
 	    this.scene = new FSS.Scene();
 	    this.light1 = new FSS.Light('#2887c4', '#000000');
 	    this.light2 = new FSS.Light('#2887c4', '#000001');
-	    this.geometry = new FSS.Plane(1400, 300, 12, 4);
+	    this.geometry = new FSS.Plane(INST.wave.container.offsetWidth, INST.wave.container.offsetHeight, 12, 4);
 	    this.material = new FSS.Material('#2887c4', '#2887c4');
 	    this.mesh = new FSS.Mesh(this.geometry, this.material);
 		this.scene.add(this.mesh);
