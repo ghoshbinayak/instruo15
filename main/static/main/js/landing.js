@@ -68,6 +68,3 @@ INST.wave = {
     	INST.wave.running = false;
     }
 };
-
-INST.wave.init();
-INST.wave.resize();

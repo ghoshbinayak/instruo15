@@ -132,6 +132,8 @@ INST.loading = {
 			// animateTagline();		
 		}, 500);
 		INST.landing.animateTagline();
+		INST.wave.init();
+		INST.wave.resize();
 		console.log('unlock called');
 	}
 };
