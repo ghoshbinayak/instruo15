@@ -10,9 +10,9 @@ class event_listAdmin(admin.ModelAdmin):
         return obj.c_uuid.title
     event_name.short_description = 'Event Name'
 
-    # def catagory(self, obj):
-    #     return obj.c_uuid.catagory
-    # catagory.short_description = 'Catagory'
+    def catagory(self, obj):
+        return obj.c_uuid.catagory
+    catagory.short_description = 'Catagory'
 
     def coordinator(self, obj):
         return obj.c_uuid.coordinator1
@@ -74,7 +74,7 @@ class eventAdmin(admin.ModelAdmin):
             'fields': ('f_uuid', 'uuid', 'timestamp')
         }),
         ('Edit Details', {
-            'fields': ('title', 'time', 'location', 'category', 'description')
+            'fields': ('title', 'time', 'location', 'description')
         }),
         ('Coordinators', {
             'fields': ('coordinator1', 'coordinator2', 'volunteer1',
