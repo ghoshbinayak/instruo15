@@ -77,11 +77,11 @@ AUTH_PROFILE_MODULE = 'accounts.Profile'
 
 # Email smtp setup
 EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'ghoshbinayak@gmail.com'
-EMAIL_HOST_PASSWORD = 'rujufhjzhcvevjix'
-HOST_BASE_URL = 'localhost:8000'
+EMAIL_HOST = 'crocodile.cms500.com'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'noreply@instruo.in'
+EMAIL_HOST_PASSWORD = '$omethingunthinkable'
+HOST_BASE_URL = 'instruo.in/'
 
 # Email verification timeout (in days)
 VERIFY_TIMEOUT = 2
