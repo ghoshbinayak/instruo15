@@ -69,7 +69,7 @@ def register(request):
                 email_verification_key + '?z=' + uid
             send_mail_task.delay(mail_subject,
                                  mail_body,
-                                 'ghoshbinayak@gmail.com',
+                                 'noreply@instruo.in',
                                  [email])
             tomorrow = timezone.now() + timedelta(days=settings.VERIFY_TIMEOUT)
             delete_email_task.apply_async((uid,), eta=tomorrow)
@@ -215,7 +215,7 @@ def forgot(request):
                     send_mail_task.delay(
                         mail_subject,
                         mail_body,
-                        'ghoshbinayak@gmail.com',
+                        'noreply@instruo.in',
                         [email])
                     tomorrow = timezone.now() + timedelta(seconds=120)
                     delete_email_task.apply_async((uid,), eta=tomorrow)

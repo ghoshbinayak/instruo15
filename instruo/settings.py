@@ -76,9 +76,9 @@ AUTH_USER_MODEL = 'accounts.instruoUser'
 AUTH_PROFILE_MODULE = 'accounts.Profile'
 
 # Email smtp setup
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'crocodile.cms500.com'
-EMAIL_PORT = 465
+EMAIL_USE_TLS = False
+EMAIL_HOST = '64.62.143.83'
+EMAIL_PORT = 25
 EMAIL_HOST_USER = 'noreply@instruo.in'
 EMAIL_HOST_PASSWORD = '$omethingunthinkable'
 HOST_BASE_URL = 'instruo.in/'
