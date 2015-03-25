@@ -1265,6 +1265,11 @@ AABJRU5ErkJggg==
 	display: block;
 	opacity: 1;
 }
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 #main-container {
 	width: 100%;
 	height: auto;

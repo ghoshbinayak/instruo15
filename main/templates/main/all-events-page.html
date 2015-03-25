@@ -3,12 +3,18 @@
 	All Events
 </h1>
 {% for event in eventlist %}
+	{% if event.link %}
+	<a href="{{event.link}}" target="blank">
+	{% endif %}
 	<div class="eventlist-elem-wrapper">
 		<div style="background-image: url('{{event.img}}')" class="eventlist-elem-img" alt="{{event.name}}"></div>
 		<div class="eventlist-overlay"></div>
 		<div class="eventlist-elem-tag">{{event.tag}}</div>
 		<div class="eventlist-elem-name">{{event.name}}</div>
 	</div>
+	{% if event.link %}
+	</a>
+	{% endif %}
 {% endfor %}
 <div class="float-fix"></div>
  <!-- end events -->

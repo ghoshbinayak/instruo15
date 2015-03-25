@@ -5,8 +5,9 @@ from django.shortcuts import render
 eventlist = [
     {'name': 'Game on', 'tag': 'Gaming',
         'img': '/static/main/img/events/pic2.jpg'},
-    {'name': 'Maze runner', 'tag': 'Robotics',
-        'img': '/static/main/img/events/pic13.jpg'},
+    {'name': 'Automaton', 'tag': 'Robotics',
+        'img': '/static/main/img/events/pic17.jpg',
+        'link': 'http://robodarshan.iiests.ac.in/'},
     {'name': 'The Junkie', 'tag': 'Mechanics',
         'img': '/static/main/img/events/pic15.jpg'},
     {'name': 'War of the Titans', 'tag': 'Special event',
