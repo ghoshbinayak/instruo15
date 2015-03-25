@@ -28,12 +28,12 @@ class event_listAdmin(admin.ModelAdmin):
     is_updated.short_description = 'Is updated?'
 
     def current(self, obj):
-        return '<a href="http://localhost:8000/admin/events/event/%s">current</a>' % (obj.c_uuid.uuid)
+        return '<a href="/admin/events/event/%s">current</a>' % (obj.c_uuid.uuid)
     current.short_description = 'current version'
     current.allow_tags = True
 
     def latest(self, obj):
-        return '<a href="http://localhost:8000/admin/events/event/%s">latest</a>' % (obj.l_uuid.uuid)
+        return '<a href="/admin/events/event/%s">latest</a>' % (obj.l_uuid.uuid)
     latest.short_description = 'latest version'
     latest.allow_tags = True
 
