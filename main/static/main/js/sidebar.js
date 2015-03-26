@@ -18,60 +18,26 @@ INST.sidebar = {
 			}
 		};
 		INST.s("#sidebar-home").onclick = function(){
-			if (INST.contentShown) {
-				INST.contentShown = false;
-				INST.s("body").style.overflow = 'hidden';	
-				INST.S('.content-container')[0].classList.add('hide');
-				INST.S('.landing-page')[0].classList.remove('hide');
-				INST.wave.start();
-			};
+			INST.content.switchTo('home');
 		};
 		INST.S('.all-event')[0].onclick = function(){
-			if (!INST.contentShown) {
-				INST.wave.stop();
-				INST.contentShown = true;
-				INST.S('.landing-page')[0].classList.add('hide');
-			};
-			INST.S('.content-container')[0].classList.remove('hide');
-			INST.s("body").style.overflow = 'auto';
-			INST.s("body").style.overflowX = 'hidden';
-			INST.S('.content-page')[0].innerHTML = INST.s('#all-events-page').innerHTML;
+			INST.content.switchTo(INST.s('#all-events-page'));
 		};
 		INST.s('#sidebar-contacts').onclick = function(){
-			if (!INST.contentShown) {
-				INST.wave.stop();
-				INST.contentShown = true;
-				INST.S('.landing-page')[0].classList.add('hide');
-			};
-			INST.S('.content-container')[0].classList.remove('hide');
-			INST.s("body").style.overflow = 'auto';
-			INST.s("body").style.overflowX = 'hidden';
-			INST.S('.content-page')[0].innerHTML = INST.s('#contacts-page').innerHTML;
-			INST.contacts.init();
+			INST.content.switchTo(INST.s('#contacts-page'));
+			setTimeout(function() {
+				INST.contacts.init();
+			}, 1000);
 		};
 		INST.s('#sidebar-sponsor').onclick = function(){
-			if (!INST.contentShown) {
-				INST.wave.stop();
-				INST.contentShown = true;
-				INST.S('.landing-page')[0].classList.add('hide');
-			};
-			INST.S('.content-container')[0].classList.remove('hide');
-			INST.s("body").style.overflow = 'auto';
-			INST.s("body").style.overflowX = 'hidden';
-			INST.S('.content-page')[0].innerHTML = INST.s('#sponsors-page').innerHTML;
+			INST.content.switchTo(INST.s('#sponsors-page'));			
 		};
 		INST.s('#sidebar-location').onclick = function(){
-			if (!INST.contentShown) {
-				INST.wave.stop();
-				INST.contentShown = true;
-				INST.S('.landing-page')[0].classList.add('hide');
-			};
-			INST.S('.content-container')[0].classList.remove('hide');
-			INST.s("body").style.overflow = 'auto';
-			INST.s("body").style.overflowX = 'hidden';
-			INST.S('.content-page')[0].innerHTML = INST.s('#locateus-page').innerHTML;
-			INST.gmap.isShown = true;
-			INST.gmap.init();
+			INST.content.switchTo(INST.s('#locateus-page'));			
+			setTimeout(function(){
+				INST.gmap.isShown = true;
+				INST.gmap.init();
+			}, 1000);
 		};
 	},
 	show: function() {

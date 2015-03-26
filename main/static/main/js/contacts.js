@@ -9,7 +9,6 @@ INST.contacts = {
 				children[0].classList.remove("contacts-detail-shown");
 				children[2].classList.remove("contacts-min-hidden");
 				children[1].classList.remove("contacts-min-img-small");
-				console.log("dguit");
 			});
 			this.details_shown = false;		
 		}		
@@ -26,13 +25,10 @@ INST.contacts = {
 				children[0].classList.add("contacts-detail-shown");
 				children[2].classList.add("contacts-min-hidden");
 				children[1].classList.add("contacts-min-img-small");
-				// var minImg = INST.S(".contacts-min-img");
 
 				if(!that.details_shown) {		
 					setTimeout(function()
 					{
-						// var minImg = INST.S(".contacts-min-img");
-
 						that.details_shown = true;
 					},1);
 				}

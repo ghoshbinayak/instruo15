@@ -2,7 +2,9 @@ body
 {
 	padding: 0;
 	margin: 0;
-	background: #fff;
+	background: url('/static/main/img/core/content_bg.jpg');
+	background-size: cover;
+	background-attachment: fixed;
 	overflow: hidden;
 }
 

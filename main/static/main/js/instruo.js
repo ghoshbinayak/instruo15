@@ -1,3 +1,39 @@
+INST.content = {
+	contentShown: false,
+	switchTo: function (param) {
+		if (this.contentShown) {
+			if (param === 'home') {
+				this.contentShown = false;
+				$('.content-container').fadeOut("normal", function(){
+					$('.landing-page').fadeIn();
+					INST.wave.start();
+				});
+			}
+			else {
+				$('.content-container').fadeOut("normal", function(){
+					INST.S('.content-page')[0].innerHTML = param.innerHTML;
+					$('.content-container').fadeIn("normal");
+					INST.s("body").style.overflow = 'auto';
+					INST.s("body").style.overflowX = 'hidden';
+				});				
+			}
+		}
+		else {
+			if (param === 'home') {
+				return;
+			};
+			INST.wave.stop();
+			this.contentShown = true;
+			$('.landing-page').fadeOut("fast", function(){
+				INST.S('.content-page')[0].innerHTML = param.innerHTML;
+				$('.content-container').fadeIn("fast");
+				INST.s("body").style.overflow = 'auto';
+				INST.s("body").style.overflowX = 'hidden';
+			});
+		};
+	},
+
+}
 INST.sidebar = {
 	sidepanel: INST.S(".sidebar-menu")[0],
 	isExpanded: false,
@@ -18,60 +54,26 @@ INST.sidebar = {
 			}
 		};
 		INST.s("#sidebar-home").onclick = function(){
-			if (INST.contentShown) {
-				INST.contentShown = false;
-				INST.s("body").style.overflow = 'hidden';	
-				INST.S('.content-container')[0].classList.add('hide');
-				INST.S('.landing-page')[0].classList.remove('hide');
-				INST.wave.start();
-			};
+			INST.content.switchTo('home');
 		};
 		INST.S('.all-event')[0].onclick = function(){
-			if (!INST.contentShown) {
-				INST.wave.stop();
-				INST.contentShown = true;
-				INST.S('.landing-page')[0].classList.add('hide');
-			};
-			INST.S('.content-container')[0].classList.remove('hide');
-			INST.s("body").style.overflow = 'auto';
-			INST.s("body").style.overflowX = 'hidden';
-			INST.S('.content-page')[0].innerHTML = INST.s('#all-events-page').innerHTML;
+			INST.content.switchTo(INST.s('#all-events-page'));
 		};
 		INST.s('#sidebar-contacts').onclick = function(){
-			if (!INST.contentShown) {
-				INST.wave.stop();
-				INST.contentShown = true;
-				INST.S('.landing-page')[0].classList.add('hide');
-			};
-			INST.S('.content-container')[0].classList.remove('hide');
-			INST.s("body").style.overflow = 'auto';
-			INST.s("body").style.overflowX = 'hidden';
-			INST.S('.content-page')[0].innerHTML = INST.s('#contacts-page').innerHTML;
-			INST.contacts.init();
+			INST.content.switchTo(INST.s('#contacts-page'));
+			setTimeout(function() {
+				INST.contacts.init();
+			}, 1000);
 		};
 		INST.s('#sidebar-sponsor').onclick = function(){
-			if (!INST.contentShown) {
-				INST.wave.stop();
-				INST.contentShown = true;
-				INST.S('.landing-page')[0].classList.add('hide');
-			};
-			INST.S('.content-container')[0].classList.remove('hide');
-			INST.s("body").style.overflow = 'auto';
-			INST.s("body").style.overflowX = 'hidden';
-			INST.S('.content-page')[0].innerHTML = INST.s('#sponsors-page').innerHTML;
+			INST.content.switchTo(INST.s('#sponsors-page'));			
 		};
 		INST.s('#sidebar-location').onclick = function(){
-			if (!INST.contentShown) {
-				INST.wave.stop();
-				INST.contentShown = true;
-				INST.S('.landing-page')[0].classList.add('hide');
-			};
-			INST.S('.content-container')[0].classList.remove('hide');
-			INST.s("body").style.overflow = 'auto';
-			INST.s("body").style.overflowX = 'hidden';
-			INST.S('.content-page')[0].innerHTML = INST.s('#locateus-page').innerHTML;
-			INST.gmap.isShown = true;
-			INST.gmap.init();
+			INST.content.switchTo(INST.s('#locateus-page'));			
+			setTimeout(function(){
+				INST.gmap.isShown = true;
+				INST.gmap.init();
+			}, 1000);
 		};
 	},
 	show: function() {
@@ -168,7 +170,6 @@ INST.contacts = {
 				children[0].classList.remove("contacts-detail-shown");
 				children[2].classList.remove("contacts-min-hidden");
 				children[1].classList.remove("contacts-min-img-small");
-				console.log("dguit");
 			});
 			this.details_shown = false;		
 		}		
@@ -185,13 +186,10 @@ INST.contacts = {
 				children[0].classList.add("contacts-detail-shown");
 				children[2].classList.add("contacts-min-hidden");
 				children[1].classList.add("contacts-min-img-small");
-				// var minImg = INST.S(".contacts-min-img");
 
 				if(!that.details_shown) {		
 					setTimeout(function()
 					{
-						// var minImg = INST.S(".contacts-min-img");
-
 						that.details_shown = true;
 					},1);
 				}
@@ -208,140 +206,6 @@ INST.contacts = {
 }
 
 INST.loading.update();
-
-// var unlockBtn = INST.s("#unlock");
-// var aura_small = INST.s("#aura_small");
-// var	aura_big = INST.s("#aura_big");
-// var	aura_big2 = INST.s("#aura_big2");
-// var	over2 = INST.s("#over2");
-// var subMenuShown = false;
-// var events = INST.s("#events");
-// var slideRight = INST.S(".sidebar-menu")[0];
-// var contactDetailShown = false;
-// var minImg = INST.S(".contacts-min-img");
-// minImg = Array.prototype.slice.call(minImg,0);
-
-
-
-
-// 	if(contactDetailShown){
-// 		minImg.forEach(function(el){
-// 			var parent = el.parentElement;
-// 			var children = parent.children;
-// 			children[0].classList.remove("contacts-detail-shown");
-// 			children[2].classList.remove("contacts-min-hidden");
-// 			children[1].classList.remove("contacts-min-img-small");
-// 			console.log("dguit");
-// 		});
-// 		contactDetailShown = false;		
-// 	}
-// }
-
-
-
-// function animateTagline(){
-// 	INST.s('#tagline').classList.add('animateTagline');
-// }
-
-// INST.s(".all-event").onclick = function()
-// {
-// 	smoothScrollTo(INST.s(".events").getBoundingClientRect().top);
-// }
-
-// // var scrollSteps = 60;
-
-// function scrollActually(count, pxsToMove)
-// {
-// 	var stepSize = 10;
-// 	var sign = Math.abs(pxsToMove)/pxsToMove;
-// 	if (Math.abs(pxsToMove) > stepSize)
-// 	{
-// 		console.log(count);
-// 		window.scrollTo(0, Math.abs(INST.s('body').getBoundingClientRect().top) + stepSize*sign);
-// 		count++;
-// 		setTimeout(function()
-// 			{
-// 				scrollActually(count, pxsToMove - sign*stepSize);
-// 			}, 1);
-// 	}
-// 	else
-// 	{
-// 		window.scrollTo(0, Math.abs(INST.s('body').getBoundingClientRect().top)+pxsToMove);
-// 	}
-// }
-
-
-
-// function smoothScrollTo(pxToMove)
-// {
-// 	// stopAnim();
-// 	var currPos = Math.abs(INST.s('body').getBoundingClientRect().top);
-// 	// var stepsInPx = pxToMove/scrollSteps;
-// 	scrollActually(0, pxToMove);
-// }
-
-// INST.s('.all-event').onclick = function(){
-// 	smoothScrollTo(INST.s('.events-container').getBoundingClientRect().top);
-// }
-
-// INST.s('#home').onclick = function(){
-// 	smoothScrollTo(INST.s('body').getBoundingClientRect().top);
-// }
-
-// INST.s('#sidebar-location').onclick = function(){
-// 	smoothScrollTo(INST.s('.location-container').getBoundingClientRect().top);
-// }
-
-// INST.s('#sidebar-contacts').onclick = function(){
-// 	smoothScrollTo(INST.s('.contacts-container').getBoundingClientRect().top);
-// }
-
-// INST.s('#sidebar-sponsors').onclick = function(){
-// 	smoothScrollTo(INST.s('.sponsors-container').getBoundingClientRect().top);
-// }
-
-
-
-// // var canvasContainer = INST.s(".container-canvas");
-// var percentScrolled=0;
-// document.onscroll = function(){
-// 	percentScrolled = - INST.s('body').getBoundingClientRect().top/window.innerHeight;
-// 	if(percentScrolled >= .01)
-// 	{
-// 		stopAnim();
-// 	}
-// 	else
-// 	{
-// 		startcanvas();
-// 	}
-// 	if(percentScrolled <= 1)
-// 	{
-// 		// percentScrolled = (percentScrolled > 1)?1:percentScrolled;
-// 		INST.s("canvas").style.opacity=""+(1-percentScrolled);
-// 		// console.log("scrolled to "+ percentScrolled);
-// 	}
-// 	else {
-// 		INST.s("canvas").style.opacity="0";
-// 	}
-// }
-
-
-// minImg.forEach(function(el){
-// 	el.onclick = function(){
-// 		var parent = el.parentElement;
-// 		var children = parent.children;
-// 		children[0].classList.add("contacts-detail-shown");
-// 		children[2].classList.add("contacts-min-hidden");
-// 		children[1].classList.add("contacts-min-img-small");
-// 		if(!contactDetailShown) {		
-// 			setTimeout(function()
-// 			{
-// 				// console.log("blue");
-// 				contactDetailShown = true;
-// 			},1);
-// 		}
-// 	}
-// });
 INST.gmap = {
     isLoaded: false,
     isShown: false,

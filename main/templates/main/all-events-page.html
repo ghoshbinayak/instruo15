@@ -1,7 +1,7 @@
 {% load staticfiles %}
-<h1 class="content-page-heading">
+<h2 class="content-page-heading">
 	All Events
-</h1>
+</h2>
 {% for event in eventlist %}
 	{% if event.link %}
 	<a href="{{event.link}}" target="blank">
