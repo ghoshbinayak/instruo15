@@ -278,20 +278,24 @@ def show(request):
                 return HttpResponse(json_response,
                                     content_type='application/json')
         else:
-            all_events = event_list.objects.all()
+            all_category = category.objects.all()
             json_response = []
-            for e in all_events:
-                json_response.append(json.dumps({
-                                 'id': str(e.f_uuid),
-                                 'tag_text_short': str(e.category),
-                                 'name_text': str(e.c_uuid.title),
-                                 'preview_details_text': str(e.c_uuid.short_description),
-                                 'prize_money': 'lots',
-                                 'poster': str(e.c_uuid.cover_image_link),
-                                 'description': str(e.c_uuid.description),
-                                 'coordinator1': str(e.c_uuid.coordinator1),
-                                 'coordinator2': str(e.c_uuid.coordinator2)
-                                 }))
+            for c in all_category:
+                cat_events = c.event_list_set.all()
+                events_json = []
+                for e in cat_events:
+                    events_json.append({
+                                     'id': str(e.f_uuid),
+                                     'tag_text_short': str(e.category),
+                                     'name_text': str(e.c_uuid.title),
+                                     'preview_details_text': str(e.c_uuid.short_description),
+                                     'prize_money': 'lots',
+                                     'poster': str(e.c_uuid.cover_image_link),
+                                     'description': str(e.c_uuid.description),
+                                     'coordinator1': str(e.c_uuid.coordinator1),
+                                     'coordinator2': str(e.c_uuid.coordinator2)
+                                     })
+                json_response.append({'name': c.name, 'events': events_json})
             json_response = json.dumps(json_response)
             return HttpResponse(json_response, content_type='application/json')
     else:
