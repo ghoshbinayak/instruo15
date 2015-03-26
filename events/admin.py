@@ -45,7 +45,7 @@ class event_listAdmin(admin.ModelAdmin):
 
     fieldsets = (
         ('Edit Event Details', {
-            'fields': ('f_uuid', 'published', 'c_uuid', 'l_uuid')
+            'fields': ('f_uuid', 'published', 'c_uuid', 'l_uuid', 'participant')
         }),
     )
 
@@ -74,7 +74,7 @@ class eventAdmin(admin.ModelAdmin):
             'fields': ('f_uuid', 'uuid', 'timestamp')
         }),
         ('Edit Details', {
-            'fields': ('title', 'time', 'location', 'description')
+            'fields': ('title', 'time', 'location', 'description', 'short_description', 'prize')
         }),
         ('Coordinators', {
             'fields': ('coordinator1', 'coordinator2', 'volunteer1',

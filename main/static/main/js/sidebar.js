@@ -47,6 +47,7 @@ INST.sidebar = {
 			INST.s("body").style.overflow = 'auto';
 			INST.s("body").style.overflowX = 'hidden';
 			INST.S('.content-page')[0].innerHTML = INST.s('#contacts-page').innerHTML;
+			INST.contacts.init();
 		};
 		INST.s('#sidebar-sponsor').onclick = function(){
 			if (!INST.contentShown) {
