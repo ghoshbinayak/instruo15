@@ -1,5 +1,5 @@
 from django.db import models
-from accounts.models import Organiser
+from accounts.models import Organiser, Participant
 
 
 class category(models.Model):
@@ -51,7 +51,8 @@ class event_list(models.Model):
     l_uuid = models.ForeignKey(event, related_name='approved_event_latest')
     category = models.ForeignKey(category, default=1)
     published = models.BooleanField(default=False)
-    timestamp = models.DateTimeField(auto_now=True)  # time last updated
+    timestamp = models.DateTimeField(auto_now=True)
+    participant = models.ManyToManyField(Participant)  # time last updated
 
     def __unicode__(self):
         return self.c_uuid.title

@@ -136,7 +136,6 @@ class Profile(models.Model):
     uuid = models.CharField(max_length=100, blank=True)
     phone = models.CharField(max_length=20)
     user = models.OneToOneField(instruoUser)
-
     def __unicode__(self):
         return self.user.email
 
