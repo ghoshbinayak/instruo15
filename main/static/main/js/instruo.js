@@ -172,6 +172,7 @@ INST.contacts = {
 			});
 			this.details_shown = false;		
 		}		
+		console.log('shown');
 	},
 	init: function(){
 		var that = this;
@@ -196,10 +197,13 @@ INST.contacts = {
 				}
 			}
 		});
-		INST.s("#main-container").onclick = function(){
-			that.hide();
-			console.log('called');
-		};
+		var maxImg = INST.S(".contacts-member");
+		maxImg = Array.prototype.slice.call(maxImg,0);
+		maxImg.forEach(function(el){
+			el.onclick = function(){
+				that.hide();
+			}
+		});
 	}
 }
 
