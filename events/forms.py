@@ -36,6 +36,7 @@ class EventPostForm(django_forms.Form):
     category = django_forms.ModelChoiceField(
         queryset=category.objects.all(), required=True, empty_label=None)
     short_description = django_forms.CharField(widget=django_forms.Textarea)
+    prize = django_forms.IntegerField()
     description = django_forms.CharField(widget=django_forms.Textarea)
     second_coordinator = django_forms.EmailField(
         widget=django_forms.EmailInput(

@@ -24,6 +24,7 @@ class event(models.Model):
     location = models.CharField(max_length=256)
     short_description = models.TextField()
     description = models.TextField()
+    prize = models.IntegerField()
     coordinator1 = models.ForeignKey(
         Organiser, related_name='event_coordinator1')
     coordinator2 = models.ForeignKey(

@@ -7,7 +7,7 @@ from django.utils import timezone
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.conf import settings
-from accounts.models import Organiser
+from accounts.models import Organiser, Participant
 from events.models import event, category
 from events.models import event_list
 
@@ -45,6 +45,8 @@ def new(request):
             title = form.cleaned_data['title']
             description = form.cleaned_data['description']
             time = form.cleaned_data['time']
+            prize = form.cleaned_data['prize']
+            short_description = form.cleaned_data['short_description']
             coordinator1 = Organiser.objects.get(email=request.user.email)
             coordinator2 = Organiser.objects.get(
                 email=form.cleaned_data['second_coordinator'])
@@ -55,6 +57,8 @@ def new(request):
                 f_uuid=event_id,
                 title=title,
                 description=description,
+                short_description= short_description,
+                prize = prize,
                 coordinator1=coordinator1,
                 coordinator2=coordinator2,
                 time=time,
@@ -108,6 +112,8 @@ def edit(request):
             form.clean()
             title = form.cleaned_data['title']
             description = form.cleaned_data['description']
+            prize = form.cleaned_data['prize']
+            short_description = form.cleaned_data['short_description']
             cat = form.cleaned_data['category']
             cat = category.objects.get(name=cat)
             time = form.cleaned_data['time']
@@ -132,6 +138,8 @@ def edit(request):
                 f_uuid=event_id,
                 title=title,
                 description=description,
+                short_description= short_description,
+                prize = prize,
                 coordinator1=coordinator1,
                 coordinator2=coordinator2,
                 time=time,
@@ -166,29 +174,30 @@ def edit(request):
         event_id = request.GET.get('id', None)
         try:
             requested_event = event_list.objects.get(f_uuid=event_id)
-            requested_event = requested_event.c_uuid
+            requested_event_current = requested_event.c_uuid
         except event_list.DoesNotExist:
             return render(request,
                           'events/editor.html',
                           {'error': 'Event doesn\'t exist..'})
-        if request.user not in [requested_event.coordinator1, requested_event.coordinator2]:
+        if request.user not in [requested_event_current.coordinator1, requested_event_current.coordinator2]:
             return render(request,
                           'events/editor.html',
                           {'error': 'You don\'t seem to have the keys to the forbiden palace'})
         initial = {}
-        initial['title'] = requested_event.title
-        initial['description'] = requested_event.description
-        initial['location'] = requested_event.location
-        initial['cover_image_link'] = requested_event.cover_image_link
-        initial['time'] = requested_event.time.strftime("%d/%m/%Y %I:%M %p")
-        initial['volunteer1'] = requested_event.volunteer1
-        initial['volunteer2'] = requested_event.volunteer2
+        initial['title'] = requested_event_current.title
+        initial['description'] = requested_event_current.description
+        initial['location'] = requested_event_current.location
+        initial['cover_image_link'] = requested_event_current.cover_image_link
+        initial['time'] = requested_event_current.time.strftime("%d/%m/%Y %I:%M %p")
+        initial['volunteer1'] = requested_event_current.volunteer1
+        initial['volunteer2'] = requested_event_current.volunteer2
         initial['category'] = requested_event.category
-        initial['short_description'] = requested_event.short_description
-        if request.user == requested_event.coordinator1:
-            initial['second_coordinator'] = requested_event.coordinator2
+        initial['short_description'] = requested_event_current.short_description
+        initial['prize'] = requested_event_current.prize
+        if request.user == requested_event_current.coordinator1:
+            initial['second_coordinator'] = requested_event_current.coordinator2
         else:
-            initial['second_coordinator'] = requested_event.coordinator1
+            initial['second_coordinator'] = requested_event_current.coordinator1
         form = EventPostForm(initial=initial)
         return render(request,
                       'events/editor.html',
@@ -200,6 +209,26 @@ def edit(request):
 def delete(request):
     pass
 
+@login_required
+def register(request):
+    event_id = request.GET.get('id', None)
+    try:
+        requested_event = event_list.objects.get(f_uuid=event_id)
+    except event_list.DoesNotExist:
+        return render(request,
+                      'events/register.html',
+                      {'error': 'Event doesn\'t exist..'})
+    participant = Participant.objects.get(email=request.user.email)
+    try:
+        requested_event.participant.get(email=request.user.email)
+        return render(request,
+                      'events/register.html',
+                      {'error': 'Already registered..'})
+    except Participant.DoesNotExist:
+        requested_event.participant.add(participant)
+        return render(request,
+              'events/register.html',
+              {'success': 'registration successful'})
 
 def show(request):
     if request.is_ajax:
@@ -258,7 +287,10 @@ def show(request):
                                  'name_text': str(e.c_uuid.title),
                                  'preview_details_text': str(e.c_uuid.short_description),
                                  'prize_money': 'lots',
-                                 'poster': str(e.c_uuid.cover_image_link)
+                                 'poster': str(e.c_uuid.cover_image_link),
+                                 'description': str(e.c_uuid.description),
+                                 'coordinator1': str(e.c_uuid.coordinator1),
+                                 'coordinator2': str(e.c_uuid.coordinator2)
                                  }))
             json_response = json.dumps(json_response)
             return HttpResponse(json_response, content_type='application/json')

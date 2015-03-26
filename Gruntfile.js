@@ -23,6 +23,7 @@ module.exports = function(grunt) {
           src : [
             'main/static/main/js/sidebar.js',
             'main/static/main/js/landing.js',
+            'main/static/main/js/contacts.js',            
             'main/static/main/js/main.js',
             'main/static/main/js/maps.js'
             ],
