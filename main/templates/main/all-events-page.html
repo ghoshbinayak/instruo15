@@ -1,20 +1,38 @@
 {% load staticfiles %}
-<h2 class="content-page-heading">
-	All Events
-</h2>
-{% for event in eventlist %}
-	{% if event.link %}
-	<a href="{{event.link}}" target="blank">
+{% for category in eventlist %}
+<div class="event-category-container">
+	{% if category.name != 'uncatagorised' %}
+		<h2 id="event-{{category.name}}"class="content-page-heading">
+			{{category.name}}
+		</h2>
+		<p>
+			{{category.description}}
+		</p>
+		{% for event in category.event_list_set.all %}
+		<div class="eventlist-elem-wrapper">
+			<div style="background-image: url('{{event.c_uuid.cover_image_link}}')" class="eventlist-elem-img" alt="{{event.c_uuid.name}}"></div>
+			<div class="eventlist-overlay"></div>
+			<div class="eventlist-elem-name">{{event.c_uuid.title}}</div>
+			<div class="eventlist-elem-desc">{{event.c_uuid.short_description | safe}}</div>
+			<div class="eventlist-long-desc">{{event.c_uuid.description | safe}}</div>
+		</div>
+		{% endfor %}
 	{% endif %}
-	<div class="eventlist-elem-wrapper">
-		<div style="background-image: url('{{event.img}}')" class="eventlist-elem-img" alt="{{event.name}}"></div>
-		<div class="eventlist-overlay"></div>
-		<div class="eventlist-elem-tag">{{event.tag}}</div>
-		<div class="eventlist-elem-name">{{event.name}}</div>
-	</div>
-	{% if event.link %}
-	</a>
-	{% endif %}
+</div>
+{% endfor %}
+
+{% for category in eventlist %}
+	{% if category.name == 'uncatagorised' %}
+		{% for event in category.event_list_set.all %}
+		<div class="eventlist-elem-wrapper special-events">
+			<div style="background-image: url('{{event.c_uuid.cover_image_link}}')" class="eventlist-elem-img" alt="{{event.c_uuid.name}}"></div>
+			<div class="eventlist-overlay"></div>
+			<div class="eventlist-elem-name">{{event.c_uuid.title}}</div>
+			<div class="eventlist-elem-desc">{{event.c_uuid.short_description | safe}}</div>
+			<div class="eventlist-long-desc">{{event.c_uuid.description | safe}}</div>
+		</div>
+		{% endfor %}
+	{% endif%}
 {% endfor %}
 <div class="float-fix"></div>
  <!-- end events -->

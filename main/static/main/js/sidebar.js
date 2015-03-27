@@ -22,6 +22,9 @@ INST.sidebar = {
 		};
 		INST.S('.all-event')[0].onclick = function(){
 			INST.content.switchTo(INST.s('#all-events-page'));
+			setTimeout(function() {
+				INST.content.eventInit();
+			}, 1000);
 		};
 		INST.s('#sidebar-contacts').onclick = function(){
 			INST.content.switchTo(INST.s('#contacts-page'));

@@ -11,7 +11,7 @@ class event_listAdmin(admin.ModelAdmin):
     event_name.short_description = 'Event Name'
 
     def catagory(self, obj):
-        return obj.c_uuid.catagory
+        return obj.category
     catagory.short_description = 'Catagory'
 
     def coordinator(self, obj):
@@ -37,7 +37,7 @@ class event_listAdmin(admin.ModelAdmin):
     latest.short_description = 'latest version'
     latest.allow_tags = True
 
-    list_display = ('event_name', 'coordinator', 'time',
+    list_display = ('event_name', 'coordinator', 'time', 'catagory',
                     'published', 'is_updated', 'current', 'latest')
     date_hierarchy = 'timestamp'
     list_filter = ['published']

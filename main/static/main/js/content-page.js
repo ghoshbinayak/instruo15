@@ -1,6 +1,11 @@
 INST.content = {
 	contentShown: false,
+	infoShown: false,
 	switchTo: function (param) {
+		if(this.infoShown){
+			$('#info-area').fadeOut('fast');
+			this.infoShown = false;
+		};
 		if (this.contentShown) {
 			if (param === 'home') {
 				this.contentShown = false;
@@ -32,5 +37,32 @@ INST.content = {
 			});
 		};
 	},
-
+	eventInit: function (){
+		var that = this;
+		var evCont = INST.S(".eventlist-elem-wrapper");
+		evCont = Array.prototype.slice.call(evCont,0);
+		evCont.forEach(function(el){
+			el.onclick = function(){
+				var children = el.children;
+				INST.content.showEvInfo(children[4].innerHTML);
+			}
+		});
+		console.log('event init');
+	},
+	showEvInfo: function (content){
+		if (!this.infoShown) {
+			this.infoShown = true;
+			var scroll = window.scrollY;
+			var infoa = $('#info-area');
+			$('.content-container').fadeOut();
+			infoa.fadeIn();
+			INST.s('#info-container').innerHTML = content;
+			INST.s('#close-info-area').onclick = function(){
+				$('.content-container').fadeIn();
+				infoa.fadeOut();
+				INST.content.infoShown = false;
+				window.scrollTo(0, scroll);
+			}
+		}
+	}
 }

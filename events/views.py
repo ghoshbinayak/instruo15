@@ -295,7 +295,7 @@ def show(request):
                                      'coordinator1': str(e.c_uuid.coordinator1),
                                      'coordinator2': str(e.c_uuid.coordinator2)
                                      })
-                json_response.append({'name': c.name, 'events': events_json})
+                json_response.append({'name': c.name, 'description': c.description, 'events': events_json})
             json_response = json.dumps(json_response)
             return HttpResponse(json_response, content_type='application/json')
     else:
