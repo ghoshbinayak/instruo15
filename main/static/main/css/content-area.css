@@ -32,12 +32,13 @@
 /* events page */
 
 .event-category-container {
+    font-family: "Maven Pro",sans-serif;
     font-weight: 400;
-    color: rgba(51, 17, 35, 0.82);
-    font-size: 1.5em;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 1.3em;
     margin-bottom: 10vh;
     overflow: hidden;
-    font-family: "Maven Pro", sans-serif;
+    padding-right: 3vw;
 }
 
 .eventlist-elem-wrapper {
@@ -45,16 +46,17 @@
     background: none repeat scroll 0% 0% rgba(255, 255, 255, 0.2);
     float: left;
     height: auto;
-    margin-right: 6vw;
     position: relative;
     padding: 1.5vw;
-    -webkit-transition: all;
-    -o-transition: all;
-    transition: all;
+    transition: all 0s ease 0s;
+    margin-right: 5.5vw;
+    -webkit-transition: all 0.7s;
+    -o-transition: all 0.7s;
+    transition: all 0.7s;
 }
 
 .eventlist-elem-wrapper:hover {
-	background-color: rgba(255, 255, 255, 0.3);
+	background-color: rgba(255, 255, 255, 0.5);
 	cursor: pointer;
 }
 
@@ -141,6 +143,44 @@
 #info-container {
     font-family: "Maven Pro",sans-serif;
     font-size: 1.4em;
-    color: rgb(54, 54, 54);
+    color: #634A44;
     padding: 4vw;
+}
+
+.special-events {
+    font-family: "Maven Pro",sans-serif;
+    font-size: 1.3em;
+    color: rgba(0, 0, 0, 0.5);
+    width: 90%;
+    min-height: 29vw;
+}
+
+.special-events .eventlist-elem-name {
+    color: #FFF;
+    padding: 2vw;
+    width: 91.8%;
+}
+
+.special-events .eventlist-elem-img {
+    width: 30vw;
+    float: left;
+}
+
+.special-events .eventlist-elem-desc {
+    margin-left: 34vw;
+    margin-top: 0;
+}
+
+.content-area-footer {
+    height: 20vh;
+}
+
+#info-container img {
+    max-width: 90%;
+}
+
+.eventlist-saparator {
+    width: 93%;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 10vh;
 }

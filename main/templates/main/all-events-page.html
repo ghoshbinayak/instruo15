@@ -1,7 +1,7 @@
 {% load staticfiles %}
 {% for category in eventlist %}
-<div class="event-category-container">
 	{% if category.name != 'uncatagorised' %}
+	<div class="event-category-container">
 		<h2 id="event-{{category.name}}"class="content-page-heading">
 			{{category.name}}
 		</h2>
@@ -17,10 +17,10 @@
 			<div class="eventlist-long-desc">{{event.c_uuid.description | safe}}</div>
 		</div>
 		{% endfor %}
+	</div>
 	{% endif %}
-</div>
 {% endfor %}
-
+<div class="eventlist-saparator"></div>
 {% for category in eventlist %}
 	{% if category.name == 'uncatagorised' %}
 		{% for event in category.event_list_set.all %}
