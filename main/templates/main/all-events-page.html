@@ -16,6 +16,9 @@
 			<div class="eventlist-elem-desc">{{event.c_uuid.short_description | safe}}</div>
 			<div class="eventlist-long-desc">{{event.c_uuid.description | safe}}</div>
 		</div>
+		{% if forloop.counter|divisibleby:2 %}
+		<div style="clear: both;"></div>
+		{% endif %}
 		{% endfor %}
 	</div>
 	{% endif %}
