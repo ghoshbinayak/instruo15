@@ -21,17 +21,18 @@ def new(request):
         json_response = "{"
         for uploaded_file in request.FILES.getlist('photo'):
             # create folder with story id
-            if not os.path.exists(settings.MEDIA_ROOT + request.POST.get('event_id')):
-                os.makedirs(settings.MEDIA_ROOT + request.POST['event_id'])
+            if not os.path.exists(settings.MEDIA_ROOT + "/" + request.POST.get('event_id')):
+                os.makedirs(settings.MEDIA_ROOT + "/" + request.POST['event_id'])
 
             if os.path.exists(settings.MEDIA_ROOT + request.POST['event_id'] + '/' + uploaded_file.name):
                 e.name = '1' + uploaded_file.name
 
-            with open(settings.MEDIA_ROOT + request.POST['event_id'] + '/' + uploaded_file.name, 'w') as destination:
+            with open(settings.MEDIA_ROOT "/" + request.POST['event_id'] + '/' + uploaded_file.name, 'w') as destination:
                 for chunk in uploaded_file.chunks():
                     destination.write(chunk)
             json_response = json_response + "\"" + \
-                uploaded_file.name + "\": \"" + destination.name + "\","
+                uploaded_file.name + "\": \"" + "/media/" + request.POST['event_id'] + \
+                "/" + uploaded_file.name "\","
         json_response = json_response[:-1] + "}"
         return HttpResponse(json_response, content_type="application/json")
 

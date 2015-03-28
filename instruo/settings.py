@@ -110,5 +110,5 @@ STATIC_URL = '/static/'
 STATIC_ROOT = 'static/'
 
 # Media files (User Uploaded Content)
-MEDIA_ROOT = 'media/'
+MEDIA_ROOT = 'media'
 MEDIA_URL = '/media/'
