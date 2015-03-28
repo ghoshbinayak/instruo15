@@ -6,6 +6,7 @@ import json
 from django.utils import timezone
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.utils.encoding import smart_str, smart_unicode
 from django.conf import settings
 from accounts.models import Organiser, Participant
 from events.models import event, category
@@ -241,12 +242,12 @@ def show(request):
                 json_response = []
                 for e in requested_events:
                     json_response.append(json.dumps({
-                                     'id': str(e.f_uuid),
-                                     'tag_text_short': str(e.category),
-                                     'name_text': str(e.c_uuid.title),
-                                     'preview_details_text': str(e.c_uuid.short_description),
+                                     'id': smart_str(e.f_uuid),
+                                     'tag_text_short': smart_str(e.category),
+                                     'name_text': smart_str(e.c_uuid.title),
+                                     'preview_details_text': smart_str(e.c_uuid.short_description),
                                      'prize_money': 'lots',
-                                     'poster': str(e.c_uuid.cover_image_link)
+                                     'poster': smart_str(e.c_uuid.cover_image_link)
                                      }))
                 json_response = json.dumps(json_response)
                 return HttpResponse(json_response,
@@ -262,13 +263,13 @@ def show(request):
                 requested_event = event_list.objects.get(f_uuid=id)
                 json_response = json.dumps({
                     'status': 200,
-                    'id': str(requested_event.c_uuid.f_uuid),
-                    'tag_text_short': str(requested_event.category),
-                    'name_text': str(requested_event.c_uuid.title),
-                    'preview_details_text': str(requested_event.c_uuid.short_description),
+                    'id': smart_str(requested_event.c_uuid.f_uuid),
+                    'tag_text_short': smart_str(requested_event.category),
+                    'name_text': smart_str(requested_event.c_uuid.title),
+                    'preview_details_text': smart_str(requested_event.c_uuid.short_description),
                     'prize_money': 'lots',
-                    'poster': str(requested_event.c_uuid.cover_image_link),
-                    'description': str(requested_event.c_uuid.description)
+                    'poster': smart_str(requested_event.c_uuid.cover_image_link),
+                    'description': smart_str(requested_event.c_uuid.description)
                     })
                 return HttpResponse(json_response,
                                     content_type='application/json')
@@ -285,15 +286,15 @@ def show(request):
                 events_json = []
                 for e in cat_events:
                     events_json.append({
-                                     'id': str(e.f_uuid),
-                                     'tag_text_short': str(e.category),
-                                     'name_text': str(e.c_uuid.title),
-                                     'preview_details_text': str(e.c_uuid.short_description),
+                                     'id': smart_str(e.f_uuid),
+                                     'tag_text_short': smart_str(e.category),
+                                     'name_text': smart_str(e.c_uuid.title),
+                                     'preview_details_text': smart_str(e.c_uuid.short_description),
                                      'prize_money': 'lots',
-                                     'poster': str(e.c_uuid.cover_image_link),
-                                     'description': str(e.c_uuid.description),
-                                     'coordinator1': str(e.c_uuid.coordinator1),
-                                     'coordinator2': str(e.c_uuid.coordinator2)
+                                     'poster': smart_str(e.c_uuid.cover_image_link),
+                                     'description': smart_str(e.c_uuid.description),
+                                     'coordinator1': smart_str(e.c_uuid.coordinator1),
+                                     'coordinator2': smart_str(e.c_uuid.coordinator2)
                                      })
                 json_response.append({'name': c.name, 'description': c.description, 'events': events_json})
             json_response = json.dumps(json_response)
