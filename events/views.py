@@ -303,3 +303,4 @@ def show(request):
     else:
         events = event_list.objects.all()
         return render(request, 'events/index.html', {'events': events})
+
