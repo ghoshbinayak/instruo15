@@ -6,7 +6,7 @@
 			{{category.name}}
 		</h2>
 		<p>
-			{{category.description}}
+			{{category.description | safe}}
 		</p>
 		{% for event in category.event_list_set.all %}
 		<div class="eventlist-elem-wrapper">
