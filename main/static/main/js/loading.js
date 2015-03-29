@@ -50,7 +50,7 @@ INST.loading = {
 		this.counter++;
 		var loadWidth = this.counter/(this.numScripts + this.arrImgs.length);
 		var loadPhysicalWidth = this.maxWidth*loadWidth;
-		if (loadWidth > .97)
+		if (loadWidth > .90)
 		{
 			loadWidth = 1;
 			loadPhysicalWidth = this.maxWidth*loadWidth;
