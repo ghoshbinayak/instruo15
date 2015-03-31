@@ -1,8 +1,9 @@
 {% load staticfiles %}
+<div id="event-top"></div>
 {% for category in eventlist %}
 	{% if category.name != 'uncatagorised' %}
 	<div class="event-category-container">
-		<h2 id="event-{{category.name}}"class="content-page-heading">
+		<h2 id="event-{{category.name|cut:" "}}"class="content-page-heading">
 			{{category.name}}
 		</h2>
 		<p>

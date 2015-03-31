@@ -28,13 +28,13 @@
 		</div>
 	</div>
 	<div class="sidebar-menu">
-		<ul>
-			<li class="all-event">All events</li>
-			<a href="http://robodarshan.iiests.ac.in/" target="blank"><li>Robotics</li></a>
-			<li>Coding</li>
-			<li>Photography</li>
-			<li>Gaming</li>
-			<li>Exhibition</li>
+		<ul id="sidebar-menu-items">
+			<li data-target="#event-top">All events</li>
+			{% for category in eventlist %}
+				{% if category.name != 'uncatagorised' %}
+					<li data-target="#event-{{category.name|cut:" "}}">{{category.name}}</li>
+				{% endif %}
+			{% endfor %}
 		</ul>
 	</div>
 </div>
